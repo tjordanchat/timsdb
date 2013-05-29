@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WebSocket Echo Client</title>
+  <meta charset="UTF-8" />
+  <script>
+    "use strict";
+    // Initialize everything when the window finishes loading
+    window.addEventListener("load", function(event) {
+      var status = document.getElementById("status");
+      var url = document.getElementById("url");
+      var open = document.getElementById("open");
+      var close = document.getElementById("close");
+      var send = document.getElementById("send");
+      var text = document.getElementById("text");
+    var image = document.getElementById("orb");
+      var message = document.getElementById("message");
+	  var node1 = document.getElementById('node1');
+      var socket;
+
+      status.textContent = "Not Connected";
+      url.value = "ws://localhost:8080";
+      close.disabled = true;
+      send.disabled = true;
+
+      // Create a new connection when the Connect button is clicked
+      open.addEventListener("click", function(event) {
+        open.disabled = true;
+        socket = new WebSocket(url.value, "echo-protocol");
+
+        socket.addEventListener("open", function(event) {
+          close.disabled = false;
+          send.disabled = false;
+          status.textContent = "Connected";
+        });
+
+        // Display messages received from the server
+        socket.addEventListener("message", function(event) {
+          message.textContent = "Server Says: " + event.data;
+		  image.src='green.png';
+		  node1.setAttribute("stroke","green");
+        });
+
+        // Display any errors that occur
+        socket.addEventListener("error", function(event) {
+          message.textContent = "Error: " + event;
+        });
+
+        socket.addEventListener("close", function(event) {
+          open.disabled = false;
+          status.textContent = "Not Connected";
+        });
+      });
+
+      // Close the connection when the Disconnect button is clicked
+      close.addEventListener("click", function(event) {
+        close.disabled = true;
+        send.disabled = true;
+        message.textContent = "";
+        socket.close();
+      });
+
+      // Send text to the server when the Send button is clicked
+      send.addEventListener("click", function(event) {
+        socket.send(text.value);
+        text.value = "";
+      });
+    });
+  </script>
+</head>
+<body>
+  Status: <span id="status"></span><br />
+  URL: <input id="url" /><br />
+  <input id="open" type="button" value="Connect" />&nbsp;
+  <input id="close" type="button" value="Disconnect" /><br />
+  <input id="send" type="button" value="Send" />&nbsp;
+  <input id="text" /><br />
+  <span id="message"></span>
+   <img id="orb" alt="" src="red.png"/>
+   <svg width="80pt" height="116pt"
+ viewBox="0.00 0.00 80.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>G</title>
+<polygon style="fill:white;stroke:white;" points="-4,4 -4,-112 76,-112 76,4 -4,4"/>
+<!-- Hello -->
+<g id="node1" class="node"><title>Hello</title>
+<ellipse style="fill:none;stroke:black;" cx="36" cy="-90" rx="32.8565" ry="18"/>
+<text text-anchor="middle" x="36" y="-85.9" style="font-family:Times New Roman;font-size:14.00;">Hello</text>
+</g>
+<!-- World -->
+<g id="node3" class="node"><title>World</title>
+<ellipse style="fill:none;stroke:black;" cx="36" cy="-18" rx="36.1339" ry="18"/>
+<text text-anchor="middle" x="36" y="-13.9" style="font-family:Times New Roman;font-size:14.00;">World</text>
+</g>
+<!-- Hello&#45;&gt;World -->
+<g id="edge2" class="edge"><title>Hello&#45;&gt;World</title>
+<path style="fill:none;stroke:black;" d="M36,-72C36,-64 36,-55 36,-46"/>
+<polygon style="fill:black;stroke:black;" points="39.5001,-46 36,-36 32.5001,-46 39.5001,-46"/>
+</g>
+</g>
+</svg>
+</body>
+</html>
