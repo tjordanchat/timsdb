@@ -1,5 +1,12 @@
 #!/usr/bin/python
-#d0 = date(line[0],line[1],line[2])
+# This program read stdin data formatted as below
+#2013-09-03-15-51-DWDBDV01-jenkins-dwh_build-216
+#2013-09-04-15-51-DWAPDV01-jenkins-dwh_build-216
+#2013-09-05-15-51-DWAPTS01-jenkins-dwh_build-216
+#2013-09-07-15-51-DWAPTS01-jenkins-dwh_build-216
+#2013-09-07-15-51-DWDBDV01-jenkins-dwh_build-217
+#2013-09-07-15-51-DWAPDV01-jenkins-dwh_build-217
+
 
 import sys
 from datetime import *
