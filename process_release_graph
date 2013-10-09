@@ -1,0 +1,57 @@
+#!/usr/bin/python
+#d0 = date(line[0],line[1],line[2])
+
+import sys
+from datetime import *
+
+today = date.today()
+a = { 'AP': 1, 'DB': 0, 'PR': 1, 'IN': 4, 'TS': 7, 'DV': 10 }
+c = [ '#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928' ]
+cindex = 0; # cindex = ( cindex + 1 ) % 12
+prev = { 'AP':[], 'DB':[] }
+prevcol = {}
+builds = {}
+matrix = [[0 for x in xrange(31)] for x in xrange(14)]
+
+for line in sys.stdin:
+        line=line.rstrip()
+        tok=line.split("-")
+        d0=date(int(tok[0]),int(tok[1]),int(tok[2]))
+        diff=d0-today
+        #print tok[5][2:4],tok[5][4:6],tok[8],diff.days+37
+        row=a[tok[5][2:4]] + a[tok[5][4:6]]
+        col=diff.days+37
+        b = tok[8]
+        perp=tok[5][2:4]
+        node = 'n'+str(row)+'x'+str(col)
+        if b in prev[perp]:
+                f = prevcol[perp+b]
+                prevcol[perp+b]=row
+                color = builds[b]
+                print 'n'+str(f)+'x'+str(col)+' -> n'+str(row)+'x'+str(col)+';'
+                matrix[int(row)][int(col)]=color
+        else:
+                prev[perp].append(b)
+                if b in builds:
+                        color = builds[b]
+                else:
+                        color = c[cindex]
+                        cindex = ( cindex + 1 ) % 12
+                        builds[b] = color
+                prevcol.update({perp+b:row})
+                f = '13'
+                print 'n'+str(f)+'x'+str(col)+' -> n'+str(row)+'x'+str(col)+';'
+                matrix[int(row)][int(col)]=color
+for i in range(1,14):
+        nocolor = True
+        for j in range(1,31):
+                if matrix[i][j] == 0:
+                        if nocolor == False:
+                                matrix[i][j]=color
+                else:
+                        nocolor = False
+                        color = matrix[i][j]
+for i in range(1,14):
+        for j in range(1,31):
+                if matrix[i][j] != 0:
+                        print 'n'+str(i)+'x'+str(j)+' [style=filled,color="'+matrix[i][j]+'"];'
