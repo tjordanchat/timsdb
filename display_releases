@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "digraph G {"
+echo "splines=\"true\";"
+echo "overlap=scale;"
+j=13;
+for i in {0..30}
+do
+        echo "n${j}x${i} [ pos = \"${i},${j}!\",shape=point];"
+done
+
+for j in 1 2 4 5 7 8 10 11
+do
+for i in {0..30}
+do
+        echo "n${j}x${i} [ pos = \"${i},${j}!\" ];"
+done
+done
+#echo "}"
