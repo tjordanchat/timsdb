@@ -304,8 +304,9 @@ function store {
 	filt < ~/.bash_history > $ZT/.bash_history.ref
 	filt < ~/.cddrc > $ZT/.cddrc.ref
 	cd "$ZT"
-	ga .
-	gc
+	git add .
+	git commit -m "`date`" .
+	git push origin master
 	cd $HDIR
 }
 function line1 {

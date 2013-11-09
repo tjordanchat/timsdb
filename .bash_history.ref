@@ -666,3 +666,14 @@ vi test
 cd ..
 ..
 rm -rf bin
+store
+cd bin
+ga .
+gc
+git add .
+git commit
+gpom
+top
+man git-commit
+cd bin
+vi test
