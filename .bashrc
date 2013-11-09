@@ -258,16 +258,16 @@ else
 fi
 
 function filt {
-	sed "s#$LOGNAME#XXXXXXXX#g" |
-	sed 's#[i-n][aeiou][lnrst][a-e][aeiou][lmnprst]#XXXXXXXX#g' |
-	sed 's#google[A-Z./a-z0-9]*#XXXXXXXX#g' |
-	sed "s#$UDIR#XXXXXXXX#g" 
+	sed "s#$LOGNAME#XXXXXXXX#gI" |
+	sed 's#[i-n][aeiou][lnrst][a-e][aeiou][lmnprst]#XXXXXXXX#gI' |
+	sed 's#google[A-Z./a-z0-9]*#XXXXXXXX#gI' |
+	sed "s#$UDIR#XXXXXXXX#gI" 
 }
 
 function filt2 {
-	sed "s#$LOGNAME#XXXXXXXX#g" |
-	sed 's#google[A-Z./a-z0-9]*#XXXXXXXX#g' |
-	sed "s#$(cat ~/.filterwords)#XXXXXXXX#g"
+	sed "s#$LOGNAME#XXXXXXXX#gI" |
+	sed 's#google[A-Z./a-z0-9]*#XXXXXXXX#gI' |
+	sed "s#$(cat ~/.filterwords)#XXXXXXXX#gI"
 }
 
 function ys {
@@ -300,11 +300,11 @@ function store {
 	ZT="$HOME/$UDIR"
 	cd ~
 	cp .bashrc .vimrc .bash_profile $ZT
-	cp -r ~/bin/ $ZT/bin
+	cp -r ~/bin/ $ZT
 	filt < ~/.bash_history > $ZT/.bash_history.ref
 	filt < ~/.cddrc > $ZT/.cddrc.ref
 	cd "$ZT"
-	ga 
+	ga .
 	gc
 	cd $HDIR
 }

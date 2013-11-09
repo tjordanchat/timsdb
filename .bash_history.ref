@@ -622,7 +622,7 @@ man git
 man git-commit
 gc
 git commit
-git config --global user.name "Tim Jordan"
+git config --global user.name "Tim XXXXXXXX"
 git config --global user.email jamestXXXXXXXX@gmail.com
 git commit
 git push origin master
@@ -642,3 +642,27 @@ cp -r
 cp --help
 cd bin
 cd XXXXXXXX
+store
+gpom
+ga
+ga .
+gc
+git add .
+git commit
+gpom
+store
+date
+cd XXXXXXXX
+gc
+gpom
+vi .bashrc
+gpom
+cd bin
+vi test
+store
+cd XXXXXXXX
+cd bin
+vi test
+cd ..
+..
+rm -rf bin
