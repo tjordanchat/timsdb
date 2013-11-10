@@ -677,3 +677,4 @@ top
 man git-commit
 cd bin
 vi test
+store
