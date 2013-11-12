@@ -61,7 +61,7 @@ alias gs="git status"
 alias gpom="git push origin master"
 alias dc=dotcloud
 alias sg="sudo su git"
-alias myip="echo `curl http://169.254.169.254/latest/meta-data/public-ipv4`"
+alias myip='echo `curl http://169.254.169.254/latest/meta-data/public-ipv4`'
 alias dcl="dotcloud list"
 alias dcc="dotcloud create"
 alias dcp='EE=$PWD;dcr;dotcloud push;cd $EE'
@@ -299,6 +299,23 @@ function line1 {
 	for (( i=${#line} ; i<$width ; i++ )); do echo -n "_" ; done; echo ""
 }
 cd $( cat ~/.cdrc )
+
+function store {
+	HDIR="$PWD"
+	ZT="$HOME/$UDIR"
+	cd ~
+	cp .bash_profile .bashrc .vimrc $ZT
+	cp -r ~/bin/ $ZT
+	cp ~/.env/.* $ZT/env 2>/dev/null
+	filt < ~/.bash_history > $ZT/.bash_history.ref
+	filt < ~/.cddrc > $ZT/.cddrc.ref
+	cd "$ZT"
+	git add .
+	git commit -m "`date`"
+	git push origin master
+	cd $HDIR
+}
+
 
 function pp {
 	curdir=$(pwd|sed s#$HOME#~#)
