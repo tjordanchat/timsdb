@@ -745,3 +745,33 @@ sudo strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck
 cd rundeck
 sudo strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck-launcher-1.6.2.jar
 sudo su
+store
+sudo su
+#strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck-launcher-1.6.2.jar
+sudo su
+sudo su
+#strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck-launcher-1.6.2.jar
+sudo su
+cd rundeck
+cd server
+cd config
+vi rundeck-config.properties 
+vi ssl.properties 
+ff java
+sudo su
+echo sed 's/:/\'$'\n/g'
+echo $
+echo $\n
+echo $'\n'
+echo $PATH | sed 's/:/\\n/g' | less
+echo $PATH | sed 's/:/\$\n/g' | less
+echo $PATH | sed 's/:/\n/g' | less
+cd /usr/lib
+cd jdk
+cd java-1.6.0/
+which java
+cd /usr/lib/jvm/
+cd java-1.6.0-openjdk-1.6.0.0.x86_64
+eb
+sudo rpm -f cfengine-community-3.5.2-1.x86_64.rpm 
+sudo rpm -ivh cfengine-community-3.5.2-1.x86_64.rpm 
