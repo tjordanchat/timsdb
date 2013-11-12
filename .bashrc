@@ -34,8 +34,8 @@ PATH=$M2:$PATH
 export a b c d e f g h i j k l m n o p q r s t u v w x y z
 export NODE_PATH="~/node_modules"
 export CDPATH=".:~"
-export PATH=$PATH:~/bin:~/local/bin:/bin:/usr/bin:/usr/local/bin:~/local/bin:~/ThirdParty/android-sdk/tools:~/ThirdParty/android-sdk/platform-tools:~/ThirdParty/jdk1.7.0_07/bin:~/ThirdParty/node-v0.8.12-linux-x64/bin
-export JAVA_HOME="/usr/lib/jvm/java"
+export PATH=~/bin:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin:/bin:/usr/bin:/usr/local/bin:~/local/bin:~/ThirdParty/android-sdk/tools:~/ThirdParty/android-sdk/platform-tools:~/ThirdParty/jdk1.7.0_07/bin:~/ThirdParty/node-v0.8.12-linux-x64/bin:$PATH
+export JAVA_HOME="/usr/lib/jvm/java-1.6.0"
 export ANT_HOME="/usr/share/ant"
 export LC_COLLATE=C
 export PYTHONPATH="$HOME/local:/usr/lib/python2.6:/usr/lib/pymodules:$HOME/local/lib/python2.6/site-packages"
@@ -295,20 +295,6 @@ for bb in b:
 }
 
 
-function store {
-	HDIR="$PWD"
-	ZT="$HOME/$UDIR"
-	cd ~
-	cp .bashrc .vimrc .bash_profile $ZT
-	cp -r ~/bin/ $ZT
-	filt < ~/.bash_history > $ZT/.bash_history.ref
-	filt < ~/.cddrc > $ZT/.cddrc.ref
-	cd "$ZT"
-	git add .
-	git commit -m "`date`" .
-	git push origin master
-	cd $HDIR
-}
 function line1 {
 	for (( i=${#line} ; i<$width ; i++ )); do echo -n "_" ; done; echo ""
 }

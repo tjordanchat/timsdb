@@ -1,15 +1,21 @@
 syntax on
+inoremap @@ <esc>
 set vb nu ai
 set noet ci pi sts=0 sw=4 ts=4
-map = :w!q
-map q :q!
-map z :w!:!python %
+map = :wq!<cr>
+map - :w!<cr>
+map q :q!<cr>
+map <tab> :set noai! nocindent! nosmartindent<cr>
+map \ :n!<cr>
+set shell=bash
+let maplocalleader=','        " all my macros start with ,
+nmap <LocalLeader>m *
+nmap <LocalLeader>x :w!<cr>:!H=%;J=${H\%.eag};/usr/local/bin/eag-compile $J && /usr/local/bin/eagcc ${J}_leftcorner && ( mv ${J}_leftcorner && rm ${J}_leftcorner.c; rm ${J}_leftcorner.o)<cr>
 
-syntax on
 set background=dark
 set ruler                     " show the line number on the bar
 set more                      " use more prompt
-set autoread                  " watch for file changes
+set autoread                  " watch for file CHANGEs
 set number                    " line numbers
 set hidden
 set noautowrite               " don't automagically write on :next
@@ -19,8 +25,8 @@ set showcmd
 set nocompatible              " vim, not vi
 set autoindent smartindent    " auto/smart indent
 set smarttab                  " tab and backspace are smart
-set tabstop=4                 " 6 spaces
-set shiftwidth=4
+set tabstop=2                 " 6 spaces
+set shiftwidth=2
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
 set history=200
@@ -32,7 +38,6 @@ set updatecount=100           " switch every 100 chars
 set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
 set ttyfast                   " we have a fast terminal
 set noerrorbells              " No error bells please
-set shell=bash
 set fileformats=unix
 set ff=unix
 filetype on                   " Enable filetype detection
@@ -40,7 +45,6 @@ filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
 set wildmode=longest:full
 set wildmenu                  " menu has tab completion
-let maplocalleader=','        " all my macros start with ,
 set laststatus=2
 
 "  searching
@@ -62,7 +66,14 @@ if v:version >= 700
   autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 endif
 
-" Return to last edit position when opening files (You want this!)
+" mappings
+" toggle list mode
+nmap [ :set list!<cr>
+nmap ; :noh<cr>
+" toggle paste mode
+nmap <LocalLeader>pp :set paste!<cr>
+nmap <LocalLeader>c :changes<cr>
+
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -312,3 +323,18 @@ let b:current_syntax = "javascript"
 if main_syntax == 'javascript'
   unlet main_syntax
 endif
+set statusline=%F%m%r%h%w 
+set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
+
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "File+path
+set statusline+=%2*\ %y\                                  "FileType
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+set statusline+=%9*\ col:%03c\                            "Colnr
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

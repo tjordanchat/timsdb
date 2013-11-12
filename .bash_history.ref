@@ -678,3 +678,70 @@ man git-commit
 cd bin
 vi test
 store
+man strace
+sudo strace java -jar rundeck-launcher-1.6.2.jar
+cd /root
+sudo su
+ff rundeck-launcher-1.6.2.jar
+cd rundeck
+sudo strace java -jar rundeck-launcher-1.6.2.jar
+cd =/home/XXXXXXXX/rundeck/server/config/
+cd /home/XXXXXXXX/rundeck/server
+cd config
+vi realm.properties 
+vi *
+sudo strace java -jar rundeck-launcher-1.6.2.jar
+cd ..
+..
+java -v
+java -V
+java -version
+sudo yum install java-1.6.0-openjdk-plugin
+which java
+java -version
+ff java
+cd /usr/lib/jvm
+cd *6*
+env | sort|less
+ll java
+cd /usr/lib/jvm
+ll java
+cd rundeck
+sudo strace java -jar rundeck-launcher-1.6.2.jar
+which java
+ff java
+sudo su
+#sudo strace java -jar rundeck-launcher-1.6.2.jar
+which java
+sudo which java
+java -jar rundeck-launcher-1.6.2.jar
+which java
+ua java
+echo $PATH
+cd 
+echo $PATH | sed 's/:/\'$'\n/g'
+echo $PATH | sed 's/:/\'$'\n/g' | egrep 6
+echo $PATH | sed 's/:/\'$'\n/g' | less
+e
+cat > .vimrc 
+e
+vi .vimrc
+mv .vimrc .vvimrc
+vi .vimrc
+vi .vvimrc
+mv .vvimrc .vimrc
+e
+which java
+sudo su which java
+sudo su bash -c "which java"
+sudo which java
+sudo su
+sudo which java
+sudo su
+sudo which java
+sudo -i which java
+which java
+sudo strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck-launcher-1.6.2.jar
+cd rundeck
+sudo strace /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java -jar rundeck-launcher-1.6.2.jar
+sudo su
