@@ -29,3 +29,49 @@ ls -la
 exec bash
 eb
 store
+git config --global user.name "Tim XXXXXXXX"
+git config --global user.email jamestXXXXXXXX@gmail.com
+sudo yum install puppet-server
+wget http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+rpm -iVh puppetlabs-release-el-6.noarch.rpm 
+rpm -iVh puppetlabs-release-el-6.noarch.rpm 
+rpm -iVh puppetlabs-release-el-6.noarch.r
+rpm -ivh puppetlabs-release-el-6.noarch.r
+rpm -ivh puppetlabs-release-el-6.noarch.rpm
+sudo rpm -ivh puppetlabs-release-el-6.noarch.rpm
+sudo yum install puppet-server
+cd /etc/puppet
+eb
+rm puppetlabs-release-el-6.noarch.rpm 
+extract TACTIC-4.1.0.b04.zip 
+rm *zip
+cd TACTIC-4.1.0.b04/
+vr
+cd src
+cd bin
+sudo rpm -Uvh http://yum.pgrpms.org/reporpms/8.4/pgdg-fedora-8.4-2.noarch.rpm
+sudo yum install fedora-release
+sudo rpm -ivh pgdg-fedora-8.4-2.noarch
+sudo vi /etc/yum/pluginconf.d/rhnplugin.conf 
+curl -O http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
+sudo rpm -ivh pgdg-centos93-9.3-1.noarch.rpm
+rm *rpm
+cd /etc/init.d
+less puppetmaster 
+sudo yum install puppet
+which puppet
+sudo vi /etc/puppet/puppet.conf
+sudo puppet resource service puppet ensure=running enable=true
+sudo puppet resource service puppetmaster ensure=running enable=true
+wp
+sudo service iptables save
+sudo service iptables stop
+sudo chkconfig iptables off
+wp
+sudo service ip6tables save
+sudo service ip6tables stop
+sudo chkconfig ip6tables off
+sudo yum remove puppet-server
+sudo yum remove puppet 
+wp
+wu

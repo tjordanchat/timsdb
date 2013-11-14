@@ -296,6 +296,7 @@ for bb in b:
 
 
 function line1 {
+	width=$(tput cols)
 	for (( i=${#line} ; i<$width ; i++ )); do echo -n "_" ; done; echo ""
 }
 cd $( cat ~/.cdrc )
