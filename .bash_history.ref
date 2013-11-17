@@ -75,3 +75,116 @@ sudo yum remove puppet-server
 sudo yum remove puppet 
 wp
 wu
+eb
+wget http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-6.1.3-x64.bin
+sudo basc -c atlassian-jira-6.1.3-x64.bin 
+vi atlassian-jira-6.1.3-x64.bin 
+file atlassian-jira-6.1.3-x64.bin 
+ll /bin/sh
+sudo bash -c ./atlassian-jira-6.1.3-x64.bin 
+sudo su
+ff jira
+cd ~jira
+sudo su
+cd /opt/atlassian/jira/
+ll bin
+sudo ./start-jira.sh
+cd bin
+sudo ./start-jira.sh 
+sudo ps -ef | less
+wp | egrep 8080
+wp
+sudo service jira restart
+sudo service jira start
+wp
+wp | less
+wp
+python -V
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+sudo python ez_setup.py 
+pip
+wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+sudo python get-pip.py
+which pip
+sudo pip install Genshi
+sudo yum install sqlite3
+sudo yum install sqlite
+which sqlite3
+sudo yum install trac
+sudo pip install trac psycopg2 
+sudo yum install postgresql-devel
+sudo pip install trac psycopg2 
+sudo yum install gcc
+sudo pip install trac psycopg2 
+ff python.h
+python -V
+sudo yum install python2.6-dev
+sudo yum install python2.6-devel
+sudo yum  install python-devel.x86_64
+sudo pip install trac psycopg2 
+sudo service tracd start
+sudo service trac start
+trac-admin
+rtrac
+rm *gz
+rm *bin
+which tracd
+mkdir projects
+trac-admin ~/projects/MyProject initenv
+htpasswd
+sudo yum provides \*bin/htpasswd
+sudo yum install httpd-tools-2.2.15-29.el6_4.x86_64
+htpasswd
+htpasswd -c ~/projects/MyProject/.htpasswd admin
+ts
+wp
+sudo tail -k nohup.out 
+sudo tail -f nohup.out 
+sudo cat nohup.out 
+wp
+telnet localhost 80
+sudo yum install telnet
+telnet localhost 80
+# service iptables save
+# service iptables stop
+# chkconfig iptables off
+service iptables save
+sudo su
+cd projects
+cd MyProject/
+cd templates/
+vi site.html.sample 
+vi site.html.sample 
+
+vi site.html.sample 
+cp site.html.sample site.html
+wp
+k9 11266
+ts
+rm *.html
+wp
+k9 11530
+ts
+vi index.html
+wp
+k9 11557
+ts
+wp
+k9 11576
+ts
+#trac-admin /path/to/myproject permission add admin TRAC_ADMIN
+trac-admin ~/projects/MyProject/ permission add admin TRAC_ADMIN
+wp
+k9 11653
+ts
+cd projects/MyProject/
+cd htdocs
+wget http://thumbs4.ebaystatic.com/d/l225/m/mkEyMhqRpseNxok55kgRJCA.jpg
+mv mkEyMhqRpseNxok55kgRJCA.jpg timXXXXXXXX.jpg
+..
+cd config
+cd conf
+vi trac.ini
+wp
+k9 11679
+ts

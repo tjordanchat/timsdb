@@ -47,8 +47,8 @@ export GREP_OPTIONS='--color=auto'
 alias a=alias
 alias wu="line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version;line1"
 alias ff="sudo find / -name"
-alias ts="cd; ( sudo nohup /usr/bin/tracd -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
-alias wp="sudo netstat -tulpn; sudo ps -ef"
+alias ts="cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
+alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less /tmp/wp.$$;rm /tmp/wp.$$"
 alias lnm="ls ~/node_modules"
 alias plan="vi ~/.plan;"
 alias cj='cat *.json'
