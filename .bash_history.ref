@@ -188,3 +188,5 @@ vi trac.ini
 wp
 k9 11679
 ts
+store
+vi .bash_history.ref 
