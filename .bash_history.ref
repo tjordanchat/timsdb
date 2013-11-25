@@ -190,3 +190,9 @@ k9 11679
 ts
 store
 vi .bash_history.ref 
+eb
+l projects/
+l projects/MyProject/
+l projects/MyProject/htdocs/
+cp Tim-XXXXXXXX.pdf projects/MyProject/htdocs/
+cd $_
