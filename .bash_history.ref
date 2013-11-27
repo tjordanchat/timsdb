@@ -196,3 +196,43 @@ l projects/MyProject/
 l projects/MyProject/htdocs/
 cp Tim-XXXXXXXX.pdf projects/MyProject/htdocs/
 cd $_
+sudo cat > /etc/yum.repos.d/nginx.repo
+sudo su
+rm Tim-XXXXXXXX.pdf 
+wget http://nginx.org/packages/rhel/6/noarch/RPMS/nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+sudo rpm -ivh nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+sudo yum install nginx
+sudo
+sudo su
+yum install nginx
+sudo yum install nginx
+sudo rpm -ivh nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+nginx
+sudo yum install nginx
+sudo service nginx start
+sudo su
+sudo rpm -ivh nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+sudo yum install nginx
+sudo vi vi /etc/nginx/conf.d/default.conf
+sudo su
+sudo service nginx start
+sudo vi vi /etc/nginx/conf.d/default.conf
+sudo vi /etc/nginx/conf.d/default.conf
+sudo vi /etc/nginx/nginx.conf
+sudo service nginx start
+h | egrep rundeck
+rm nginx-release-rhel-6-0.el6.ngx.noarch.rpm 
+less nohup.out 
+sudo less nohup.out 
+cd TACTIC-4.1.0.b04/
+h | egrep puppet
+wget http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+sudo rpm -ivh puppetlabs-release-el-6.noarch.rpm 
+sudo yum install puttet-server
+h | egrep rpm
+sudo yum install puppet-server
+sudo vi /etc/puppet/puppet.conf 
+puppet
+sudo puppet resource service puppet ensure=running enable=true
+sudo puppet resource service puppetmaster ensure=running enable=true
+sudo yum install puppet-dashboard
