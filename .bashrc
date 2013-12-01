@@ -44,6 +44,7 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
+alias server="python -m SimpleHTTPServer"
 alias a=alias
 alias wu="line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version;line1"
 alias ff="sudo find / -name"

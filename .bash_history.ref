@@ -236,3 +236,38 @@ puppet
 sudo puppet resource service puppet ensure=running enable=true
 sudo puppet resource service puppetmaster ensure=running enable=true
 sudo yum install puppet-dashboard
+cv
+c v
+cd projects
+cd MyProject/
+cd conf
+vi trac.ini
+sudo su
+k9 17381
+st
+ts
+cd bin
+mkdir bin
+cd bin
+vi map.html
+server 8282
+server 8181
+cd projects/
+cd MyProject/
+cd conf
+c c
+vi trac.ini
+sudo su
+cd bin
+server 8181
+c c
+sudo vi trac.ini
+k9 27138
+ts
+cd bin
+server 8181
+c c
+sudo vi trac.ini
+c c
+cd ..
+cd plugins
