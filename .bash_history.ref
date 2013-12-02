@@ -271,3 +271,63 @@ sudo vi trac.ini
 c c
 cd ..
 cd plugins
+c c
+sudo vi trac.ini
+cd ..
+cd log
+..
+find . -name '*log*'
+tree
+sudo yum install tree
+tree
+c c
+sudo vi trac.ini
+k9 27387
+ts
+c c
+cd ..
+cd log/
+cd ..
+tree
+cd MyProject/
+c l
+c v
+c c
+cd ..
+cd log/
+c l
+cd -
+us l
+c l
+c c
+sudo vi trac.ini
+sudo less nohup.out 
+c l
+sudo less trac.log 
+cd ..
+cd plugins/
+less *
+c c
+sudo vi trac.ini
+c c
+..
+cd plugins/
+vi myPermissions.py
+k9 27846
+ts
+cd bin
+server 8181
+k9 28000
+ts
+cd bin
+server 8181
+c c
+sudo vi trac.ini
+sudo su
+c c
+sudo vi trac.ini
+sudo su
+c c
+sudo vi trac.ini
+easy_install
+sudo easy_install http://github.com/hvr/trac-git-plugin/tarball/master
