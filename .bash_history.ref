@@ -331,3 +331,58 @@ c c
 sudo vi trac.ini
 easy_install
 sudo easy_install http://github.com/hvr/trac-git-plugin/tarball/master
+man adduser
+sudo adduser guest -p phoenix
+sudo su - guest
+hostname -fgdn
+hostname -fqdn
+hostname -f
+sudo rpm -ivh puppetlabs-release-el-6.noarch.rpm 
+sudo yum install puppet
+puppet
+puppet help
+sudo vi /etc/puppet/puppet.conf
+finger
+fuser
+c c
+sudo vi trac.ini
+k9 28029
+st
+ts
+sudo vi trac.ini
+k9 28254
+ts
+sudo vi trac.ini
+c l
+sudo less *
+c c
+sudo vi trac.ini
+k9 28278
+ts
+c l
+sudo less *
+git
+users
+users -a
+cat /etc/passwd
+cat /etc/passwd|sort
+sudo useradd git -p w8112358
+sudo su - git
+sudo su
+c c
+..
+cd plugins/
+vi Color.py
+cat > Color.py
+k9 28348
+ts
+c l
+sudo less trac.log 
+c c
+..
+cd plugins/
+rm TracIncludeMacro-3.0.0dev-py2.7.egg 
+k9 28640
+ts
+c c 
+sudo vi trac.ini
