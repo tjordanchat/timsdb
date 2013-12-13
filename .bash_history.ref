@@ -436,3 +436,11 @@ a rtrac
 a ts
 a ts > ~/.x
 store
+store
+cat /proc/meminfo
+cat /proc/cpuinfo b
+date | less
+man less
+cd /proc
+cat * | less
+cat meminfo
