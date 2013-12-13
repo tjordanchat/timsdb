@@ -424,3 +424,14 @@ sudo chef-server-ctl reconfigure
 sudo vo /opt/chef-server/embedded/cookbooks/cache/chef-stacktrace.out
 sudo vi /opt/chef-server/e
 sudo vi /opt/chef-server/embedded/cookbooks/cache/chef-stacktrace.out
+sudo rpm --import oracle_vbox.asc
+c bin
+us bin
+c v
+cd bin
+h > run
+x run
+vi run
+a rtrac
+a ts
+a ts > ~/.x
