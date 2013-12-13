@@ -88,7 +88,7 @@ vi trac.ini
 cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='\''MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project'\'' /home/ec2-user/projects/MyProject & )
 sudo yum install tree
 vi myPermissions.py
-sudo adduser guest -p phoenix
+sudo adduser guest -p password
 sudo rpm -ivh puppetlabs-release-el-6.noarch.rpm 
 sudo yum install puppet
 sudo vi /etc/puppet/puppet.conf
