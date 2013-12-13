@@ -386,3 +386,41 @@ k9 28640
 ts
 c c 
 sudo vi trac.ini
+curl -L https://www.opscode.com/chef/install.sh
+curl -L https://www.opscode.com/chef/install.sh | sudo bash
+sudo chef-server-ctl reconfigure
+ff chef-server-ctl
+chef
+ff chef
+nife
+knife
+chef-server-ctl
+chef-server
+sudo yum install ruby ruby-devel ruby-ri ruby-rdoc ruby-shadow gcc gcc-c++ automake autoconf make curl dmidecode
+curl -O http://production.cf.rubygems.org/rubygems/rubygems-1.8.10.tgz
+tar zxf rubygems-1.8.10.tgz
+cd rubygems-1.8.10
+sudo ruby setup.rb --no-format-executable
+top
+strace
+sudo strace -p 10419
+sudo gem install chef --no-ri --no-rdoc
+which gem
+sudo su gem install chef --no-ri --no-rdoc
+ps
+ps -ef
+top
+sudo strace -p 11128
+sudo su
+chef
+sudo yum update -y
+dpkg
+sudo yum install dpkg
+sudo rpm –ivh chef-server-11.0.8-1.el6.x86_64.rpm
+h | egrep rpm
+rpm -ivh chef-server-11.0.8-1.el6.x86_64.rpm 
+sudo rpm -ivh chef-server-11.0.8-1.el6.x86_64.rpm 
+sudo chef-server-ctl reconfigure
+sudo vo /opt/chef-server/embedded/cookbooks/cache/chef-stacktrace.out
+sudo vi /opt/chef-server/e
+sudo vi /opt/chef-server/embedded/cookbooks/cache/chef-stacktrace.out
