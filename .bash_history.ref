@@ -444,3 +444,66 @@ man less
 cd /proc
 cat * | less
 cat meminfo
+store
+ll /etc/chef-server/chef-server.rb
+wget https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.0.10-1.el6.x86_64.rpm
+rm chef-server-11.0.8-1.el6.x86_64.rpm
+sudo rpm -ivh chef-server-11.0.10-1.el6.x86_64.rpm 
+nstall chef-server
+sudo yum install chef-server
+knife
+sudo chef-server-ctl reconfigure
+k9 28710
+k9 29209
+sudo service stop enginx
+sudo service nginx stop
+k9 29211
+ps -t
+pstree
+pstree -n
+pstree -p
+k9 29212
+pstree -p
+ps -ef 
+pstree -p
+pstree
+ps -ef | egrep runsvdir
+sudo chef-server-ctl reconfigure
+k1
+vi /etc/chef-server/chef-server.rb
+top
+sudo chef-server-ctl restart
+ps -ef  | egrep trac
+sudo chef-server-ctl test
+gem
+gem install knife-solo
+knife client list
+top
+cd /etc/init.d
+sudo chef-server-ctl stop
+cs
+ch
+ch tail
+pstree
+ch stop
+pstree
+top
+ts
+hostname -fqdn
+hostname -f
+hostname
+cd /etc/chef-server
+ff 'chef*'
+k9 4445
+ch reconfigure
+/opt/chef-server/embedded/bin/sv status postgresql
+sudo /opt/chef-server/embedded/bin/sv status postgresql
+ps -p 12321
+cd /etc/inet.d
+cd /etc
+cd init.d
+ff postgres
+which postgres
+/opt/chef-server/embedded/bin/postgres
+ch reconfigure > log
+less log

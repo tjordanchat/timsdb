@@ -46,6 +46,7 @@ export GREP_OPTIONS='--color=auto'
 # some aliases
 alias server="python -m SimpleHTTPServer"
 alias a=alias
+alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
 alias ff="sudo find / -name"
 alias ts="cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
