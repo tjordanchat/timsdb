@@ -577,3 +577,64 @@ tk
 ts
 tk
 save
+store
+cd XXXXXXXX/
+vc
+which git
+vc
+tr
+python -V
+python
+cd /opt
+ff '*svn*'
+ff libsvn
+sudo yum install svn
+ff libsvn
+python
+tr
+vc
+tr
+sudo trac-admin resync
+sudo tac-admin upgrade
+sudo trac-admin upgrade
+sudo trac-admin ~/projects/MyProject/ resync
+trac-admin
+sudo trac-admin ~/projects/MyProject/ resyn
+trac-admin help
+trac-admin
+help
+trac-admin
+trac-admin help
+sudo trac-admin ~/projects/MyProject/ repository sync
+sudo trac-admin ~/projects/MyProject/ repository resync
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX/.git
+tr
+cd XXXXXXXX
+sit log -1
+git log
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX/.git
+sit log -1
+git log
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX/.git
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX/.git
+sudo trac-admin ~/projects/MyProject/ repository resync ~/XXXXXXXX.git
+
+
+c c
+vc
+tr
+c l
+vl
+less *
+vc
+cd XXXXXXXX
+cd gdb
+..
+ll bin
+mkdir deploy_graph
+git
+git mv Makefile process_release_graph display_releases deploy_graph
+ll deploy_graph/
+gc
+gc
