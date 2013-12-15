@@ -1,2 +1,3 @@
 export c=/home/XXXXXXXX/projects/MyProject/conf
 export l=/home/XXXXXXXX/projects/MyProject/log
+export m=/home/XXXXXXXX/projects/MyProject

@@ -44,13 +44,16 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
+alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
 alias a=alias
 alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
 alias ff="sudo find / -name"
 alias ts="cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
-alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less /tmp/wp.$$;rm /tmp/wp.$$"
+alias tk="sudo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print \$2}' )"
+alias tr="tk;ts"
+alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less -n /tmp/wp.$$;rm /tmp/wp.$$"
 alias lnm="ls ~/node_modules"
 alias plan="vi ~/.plan;"
 alias cj='cat *.json'

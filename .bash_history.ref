@@ -507,3 +507,73 @@ which postgres
 /opt/chef-server/embedded/bin/postgres
 ch reconfigure > log
 less log
+ts
+cd projects/
+cd MyProject/
+c m
+cd plugins/
+git clone git://github.com/davglass/github-trac.git
+easy_install simplejson
+sudo easy_install simplejson
+cd github-trac/
+sudo python setup.py install
+c c
+sudo vi trac.ini
+k9 9783
+ts
+pip install GitHubSyncPlugin
+sudo pip install GitHubSyncPlugin
+k9 10330
+ts
+c c 
+vc
+k9 10408
+ts
+c m
+cd log
+c l
+less *
+vc
+k9 10489
+ts
+vc
+k9 10540
+ts
+ps -ef | egrep trac
+ps -pp 1
+a rt
+a tr
+ps -ef | egrep trackd | egrep -v egrep
+ps -ef | egrep trackd 
+man egrep
+ts
+ps -ef | egrep trackd | egrep -v egrep
+ps -ef | egrep trackd 
+ps -ef | egrep tracd | egrep -v egrep
+ps -ef | egrep tracd | egrep -v egrep | awk '$3 = 1'
+ps -ef | egrep tracd | egrep -v egrep 
+ps -ef | egrep tracd | egrep -v egrep | awk -n '$3 = 1'
+ps -ef | egrep tracd | egrep -v egrep | awk '$3 = 1 {print $0}'
+ps -ef | egrep tracd | egrep -v egrep | awk '$3 = 1 {print $0}'
+ps -ef | egrep tracd | egrep -v egrep | awk '$3 = 1 {print $0}'
+ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '$3 = 1 {print $0}'
+ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '$3 = 1 {print $r20}'
+ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '$3 = 1 {print $r20}'
+ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '$3 = 1 {print $r20}'
+ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '$3 = 1 {print $2}'
+tk
+a tk
+exec bash
+eb
+vi ~/.bashrc
+eb
+a tk
+tk
+a tk
+tk
+sudo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print $2}' )
+sudo echo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print $2}' \)
+tk
+ts
+tk
+save
