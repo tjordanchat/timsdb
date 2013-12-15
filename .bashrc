@@ -51,6 +51,7 @@ alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
 alias ff="sudo find / -name"
 alias ts="cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
+alias js="( cd; sudo nohup /usr/bin/java /usr/lib/jenkins/jenkins.war --httpPort=8080 & )"
 alias tk="sudo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print \$2}' )"
 alias tr="tk;ts"
 alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less -n /tmp/wp.$$;rm /tmp/wp.$$"
@@ -61,7 +62,7 @@ alias lj='less *.json'
 alias g=git
 alias ga="git add"
 alias gt="git tag"
-alias gc="git commit -m '`date`';gpom"
+alias gc="git commit -m '\$(date)';gpom"
 alias gs="git status"
 alias gpom="git push origin master"
 alias dc=dotcloud

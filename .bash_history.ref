@@ -638,3 +638,32 @@ git mv Makefile process_release_graph display_releases deploy_graph
 ll deploy_graph/
 gc
 gc
+store
+vc
+tr
+cd XXXXXXXX
+mkdir websockets
+git mv Websocket_client.html socket_client.html socket_server.js websocker_server.js websocket_client.html websockets
+gc
+a gc
+gc
+a gc
+vi server
+ll bin
+git mv server bin
+vi index.html 
+git mv index.html app.js websockets/
+gc
+cd /etc/init.d
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+cd /etc/init.d
+cd ~jenkins/
+ff jenkins.war
+cd /usr/lib/jenkins
+which java
+js
+ps -ef |less
+top
+java -jar jenkins.war --httpPort=8080
