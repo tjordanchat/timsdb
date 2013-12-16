@@ -26,7 +26,7 @@
       send.disabled = true;
 		  message2.textContent="Initialized";
 
-      // Create a new connection when the Connect button is clicked
+      // Create a new connection when the Connect button is clicked.
       open.addEventListener("click", function(event) {
         open.disabled = true;
         socket = new WebSocket(url.value, "echo-protocol");
