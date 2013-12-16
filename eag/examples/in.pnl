@@ -1,0 +1,165 @@
+#!/bin/pnl
+
+	++cpl me@company.com.
+
+	guest *@company.org ++create_issue.
+
+	L1 [f3 (f4 f5) f6 ].
+	L2 [(f1 f2 f3) [L1 (f1 f2)].
+
+	srv1 'https://company.com/func1'.
+ 
+        srv1 : data. #data from srv1 is placed in channel data.
+
+	data ? handle.
+
+	@2m ?  a : @2m  ? b. # Only the first one triggers continuence to b.
+
+        a , @2am  ? b.  # means when each arrives but will wait for all.
+
+	@2m ? a, ( @2m ? b ).
+
+	var1=(5*f5-sin(f6)).
+
+	f1=5,f2=4,f3=7.
+	
+	b1 %() "Add User".
+	
+	f1 %/[a-z0-9]+/ "User Id";
+	f1, f2 , b1 ? !users[f1] ? f1 : users.
+	
+	f1.email=f2;
+	
+	A(users)E(users.email~/@google.com/) : channel1;
+	
+	users [?] "Users" %/[a-z]+/;
+	
+	"Submit" %(add_user) submit1;
+	
+	L1 [f1 f2 f3] (f4 f5);
+
+	a,b,c,d.
+
+	layout_B  {(f4 [f5 f6] [f1 f5 f6])}.
+
+	PM ++users ++user ++releases ++issues ++issue ++pair_release_issue.
+
+	PM ++issue_summary ++issue_description ++issue_severity ++issue_originator. 
+
+	cpl %b "Create Project Leader" ? plname "Project Leader" %h ? PM +plname.
+
+	cproj %b "Create Project" ? project %s "Project name" ? +users, +releases, 
+			+issues, +pair_release_issue ? next.
+
+	users %b "New user" ? $user.
+	user "User name" %h ? pusers +user.
+
+	releases %b "New Release" ? $release.
+	release "Release name" %s ? r_name , r_due , pair_issues_to_release .
+
+	issues %b "New Issue" ? issues.issue_id.
+	issue _id %a "Issue Id" ? issue_summary,	issue_description, issue_severity,
+			issue_originator.
+
+	pair_release_issue %b ? release_name, issue_id ? %b "Submit" ++PM ?
+					release_name.issues=+issue_id.
+
+  project_adder ++add_users +-pname +-pdesc -+ppri +-pmgr ++create_project.
+  project_adder +admin.
+
+	project ? project_owner ++issue.
+	a ? *project ? *issues ? next(type~"feature" & mngd ~ 1). 
+	issues(issue_type.2&issue_owner~myguys)?v.
+	PM +cproj.
+	project.p_name ~ /_X_/ ? issues.owner ~ /jbob/ ? loop1.
+	func1 ? *project.*issues.i_owner ~ /^%(var_from_name3)$/ ? i_owner  var_to_name3.
+	*project.*issues.i_owner ~ /^jtj/ ? +i_owner  PM.
+	*project.*issues.last_activity > @5d ? i_owner? notify.
+	project_id  0.
+	pname %s "Project Name". 
+	pmgr  "Project Manager". 
+	PM --f4 ++pname +-create_project.
+	admin ++add_uses ++add_project_mgr.
+	create_project   %b   "Create Project".
+	add_project_mgr   %b   "Add Project Manager".
+	l_name  "List of Projects". 
+
+
+	r1 ++f1 +-f2 --pname.
+	r2 +-f3 ++f5. 
+  pmgr  ++add_users ++pname ++pdesc ++ppri.
+	choose_floor_buttons  ++floor1_but ++floor2_but ++floor3_but.
+	johnc john@home.com ++customer_reason "John Cusack".
+	date1 %t "Date".
+	f1 %d "Dollar Amount".
+	c %h "Customer Name".
+	pmgr c.
+	Fixed   %b "Fixed".
+	add_users   %b   "Add User".
+	create_issue   %b   "Create Issue".
+  button1_pushed   %b   "Button 1".
+	hello_world   "Hello world".
+	comment   %30s   "Add Comment" ? comments +comment ? >comment ? ww.
+	comments "Previous Comments".
+	tstrslt  l1 "Test Results". 
+	l1  %[ "accept" "reject" "abstain" ] "Result".
+	l2  %[ "Gathering Information" "Reject" ].
+	l3  %[ "Bug" "Feature" "Enhancement" ].
+	issue_id  0.
+	holiday_days %[ @Dec25 @Jul4 @Feb2 ].
+	timer1  @5m12s.
+	ticks  @4a.
+	secondtuesecmonth  @2M2tue.
+	xmas  @Dec25.
+
+	a, b : c  ?  d(c1), e(c2a) ? i : f(c3) ? w(c4).
+
+	a, b, c ? ( d : e ? f ) ? g, h.
+
+	release.env ~ qa ? mailinfo.to qa_lead, mailinfo.msg "please test %(env)"?.
+	
+	@now ? +a1, a.
+	R1 ? a ? b ? c.
+	pm_mail PM "A new issue of Severity 1 arrives #%(issue_id)".
+	b? @5m ? PM +owner.
+
+	a,b ? pass(f3.1), fail(f3.2), abstain(f3.3).
+	a,(b1:b2, b3),c?d,e? w, x.
+	(d,e) ? e(f1<4), c(4<f1). 
+	(e,b,c) ? d(4<f1), e(f1<4). 
+	(d,e) ? ( @12am ? p ), f(f6~2). 
+	a, b ? fi++, f26=0, f5=f2/f4 , next.
+
+
+87bd8e4f-1a79-4b01-8032-5a3a296edaba: {
+		ticks @4a.
+		timer1  @5m12s.
+		holiday_days @Dec25 @Jul4 @Feb2.
+		Fixed 1  %b   "Fixed".
+		date1 @01/15/2013 %t "Date".
+}
+
+######################################################
+#
+#		JSON
+
+"87bd8e4f-1a79-4b01-8032-5a3a296edaba": {
+	"fields" : {
+		"field1" : {
+			"name" : "field1", 
+			"type" : "%b".
+			"title" : "Commit",
+			"value" : null,
+			"updaters" : [ "tim@computer.org", "PM" ],
+			"readers" : [ "john@home.com", "guest" ]
+		}
+	},
+	"tokens" : {
+		"node1" : [ "78357987895987390385387953", "78547548538975490875638957" ],
+		"node2" : [ "78357853809569465766477953", "78547548538975490875638957" ],
+		"field3" : [ "78357853809569465766477953", "78547548538975490875638957" ],
+	}
+}
+
+function node1() { }
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -x
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export TZ=/usr/share/zoneinfo/America/New_York
+date
+pwd
+sudo bash -c env
+uname -a
+cd examples
+eag-compile pnl
+cd ../pnl
+npm install
+ls -la
+date
