@@ -789,3 +789,127 @@ gc
 ..
 rm -rf eag
 df
+cd XXXXXXXX/
+git add -r .
+git add .
+gc
+cd eag
+git add .
+gc
+..
+cd eag
+cd .git
+vi config
+..
+rm -rf .git
+git add .
+gc
+cd eag
+ga .
+gc
+gpom
+cd gen
+vi .gitignore 
+git add --help
+,,
+..
+git add -all
+git add --all
+gc
+find . -type f -print | while read t; do git add "$t"; done
+..
+git rm eag
+git rmdir eag
+git rm -r eag
+git
+git rm
+git help rm
+git rm -r eag
+git -r rm eag
+git rm -r eag
+gc
+..
+tm -rf XXXXXXXX
+rm -rf XXXXXXXX
+git clone git@github.com:tXXXXXXXXchat/XXXXXXXX.git
+cd XXXXXXXX
+git rm -r eag
+cd eag
+cd 
+cd eag
+git clone https://github.com/tXXXXXXXXchat/eag.git
+cd eag
+rm -rf .git
+find . -name '*git*' 
+cp -r * ~/XXXXXXXX/eag/
+cd $_
+..
+git add -r eag
+git add eag
+gc
+cd eag
+git add .
+gc
+git
+git status
+git show
+git help add
+git add --all .
+gc
+tree
+git commit .
+..
+git commit .
+git add --all .
+gc
+ga
+ga .
+gc
+gpom
+git sync
+git --help
+git rebase
+git rm -r eag
+a git
+which git
+git rm eag -r
+git -r rm eag
+git --help
+git --help rm
+git rm -f -r eag
+cd eag
+git add -A
+gc
+gpom
+..
+git rm -rf eag
+cd eag
+rm -rf XXXXXXXX/
+git clone https://github.com/tXXXXXXXXchat/eag.git
+git clone git@github.com:tXXXXXXXXchat/XXXXXXXX.git
+cd XXXXXXXX
+cd eag
+vi README
+git add README 
+..
+git remove submodule eag
+git rm submodule eag
+git submodule rm eag
+git submodule deinit eag
+git rm eag
+cd .git
+..
+cd eag
+..
+cd .git
+vi config
+..
+git rm --cached eag
+gc
+..
+cd eag
+cd XXXXXXXX
+cp -r ~/eag .
+git add -r eag
+git add eag
+gc
