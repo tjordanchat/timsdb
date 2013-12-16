@@ -667,3 +667,27 @@ js
 ps -ef |less
 top
 java -jar jenkins.war --httpPort=8080
+js
+sudo less nohup.out 
+k9 15031
+sudo service jenkins start
+top
+df
+rm chef-server-11.0.10-1.el6.x86_64.rpm 
+df
+cd /
+du -s *
+sudo
+sudo su
+df
+..
+sudo du -s *
+du -s *
+rm -rf TACTIC-4.1.0.b04/
+df
+du -s *
+cd projects/
+c8
+du -s *
+cd log
+top
