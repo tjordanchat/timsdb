@@ -691,3 +691,101 @@ c8
 du -s *
 cd log
 top
+cd XXXXXXXX
+cd websockets/
+git rm Websocket_client.html 
+gc
+..
+git rm gdb/
+git rm -r gdb/
+gc
+cd bin
+vi server
+gc
+gc -a
+gpom
+gc
+gc
+git commit .
+git commit
+git commit .
+gpom
+..
+cd websockets/
+vi *
+gc
+git commit .
+gpom
+top
+git clone https://github.com/dtolabs/rundeck.git
+cd rundeck/
+make
+sudo yum install java
+cd /usr/lin/jvm
+cd /usr/lib
+echo $JAVA_HOME
+cd -
+cd rundeck/
+make
+cd /usr/lib/java-1.6.0
+..
+cd java-1.7.0/
+..
+ff java
+cd -
+cd rundeck/
+make
+sudo yum install java-1.6.0-openjdk-devel
+ff '*jdk*'
+cd /usr/lib
+tree
+man tree
+tree -L 2
+cd jvm
+cd  java-1.7.0-openjdk-1.7.0.45.x86_64
+cd jre
+cd bin
+ff jcc
+ff jcc
+sudo yum install java-1.6.0-openjdk-devel
+sudo yum install java-1.7.0-openjdk-devel
+ff 'java-1.7.0*'
+cd /usr/lib/jvm/java-1.7.0
+ll bin
+cd run
+cd rundeck/
+make
+make rpm
+sudo yum install rundeckd
+sudo yum install rundeckd
+wget wget  http://repo.rundeck.org/latest.rpm
+wget  http://repo.rundeck.org/latest.rpm
+rpm -Uvh latest.rpm
+sudo rpm -Uvh latest.rpm
+sudo yum install rundeck
+cd/etc/init.d
+cd /etc/init.d
+sudo service rundeckd start
+ps -ef | egrep run
+sudo service rundeckd stop
+wget  http://repo.rundeck.org/latest.rpm
+mv latest.rpm.1 latest.rpm
+sudo rpm -Uvh latest.rpm
+sudo yum install rundeck
+sudo yum uninstall rundeck
+sudo yum remove rundeck
+sudo yum install rundeck
+sudo service rundeckd start
+ps -ef | egrep rund
+cd /var/log
+ff rundeck
+ff rundeck
+https://github.com/tXXXXXXXXchat/eag.git
+git clone https://github.com/tXXXXXXXXchat/eag.git
+cp -r eag XXXXXXXX
+cd XXXXXXXX
+git add eag
+gc
+..
+rm -rf eag
+df
