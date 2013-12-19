@@ -5,7 +5,7 @@ rel.1:
 
 rel.dot: rel.1
         ./process < data > %@
-        echo "}" >%@
+        echo "}" >>%@
 
 prel.gif: rel.dot
         neato -Tgif rel.dot -o %@

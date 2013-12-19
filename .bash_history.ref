@@ -918,3 +918,7 @@ cd websockets/
 vi *.html
 r
 vi *.html
+store
+..
+cd deploy_graph/
+vi Makefile 
