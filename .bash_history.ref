@@ -913,3 +913,8 @@ cp -r ~/eag .
 git add -r eag
 git add eag
 gc
+cd XXXXXXXX
+cd websockets/
+vi *.html
+r
+vi *.html
