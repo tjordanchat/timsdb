@@ -1,0 +1,48 @@
+pwd
+sudo yum install git
+apt-get
+sudo apt-get install git-core
+ll
+ll .ssh
+ll
+cd .ssh
+ll
+cd
+ssh-keygen -t rsa
+cd .ssh
+ll
+cat *.pub
+git config --global user.name "Tim XXXXXXXX"
+git config --global user.email jamestXXXXXXXX@gmail.com
+cd
+git clone git@github.com:tXXXXXXXXchat/XXXXXXXX.git
+ll
+cd XXXXXXXX/
+ll
+cp .bashrc .bash_profile .vimrc ..
+exec bash
+cd
+ll
+cd
+ll
+ls -la
+pwd
+echo $SHELL
+exec bash
+cd
+ll
+v
+vi .bashrc
+cd XXXXXXXX/
+ll
+ls -la
+cd
+cd XXXXXXXX
+vcd
+cd
+cat > .bashrc
+ll
+exec bash
+cat > .vimrc
+cat .bash_profile 
+cat > .bash_profile 
