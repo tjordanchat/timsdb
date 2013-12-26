@@ -46,3 +46,27 @@ exec bash
 cat > .vimrc
 cat .bash_profile 
 cat > .bash_profile 
+store
+mkdir bin
+groups
+cd /etc/init.d
+vagrant 
+sudo apt-get install vagrant
+gcc
+git clone https://github.com/dotcloud/docker.git
+vi .aws
+cd .ssh
+docker
+sudo docker run -i -t XXXXXXXX /bin/bash
+df
+myip
+which myip
+myip
+curl --help
+myip
+cd docker
+vi runtime.go
+vi Makefile
+which docker
+ll /usr/bin/docker
+file /usr/bin/docker

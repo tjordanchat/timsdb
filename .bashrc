@@ -66,7 +66,7 @@ alias gs="git status"
 alias gpom="git push origin master"
 alias dc=dotcloud
 alias sg="sudo su git"
-alias myip='echo `curl http://169.254.169.254/latest/meta-data/public-ipv4`'
+alias myip='echo `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`'
 alias dcl="dotcloud list"
 alias dcc="dotcloud create"
 alias dcp='EE=$PWD;dcr;dotcloud push;cd $EE'
