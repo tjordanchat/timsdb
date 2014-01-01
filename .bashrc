@@ -28,6 +28,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Add the following lines to maven.sh
+export EDITOR=vim
 export M2_HOME=/opt/apache-maven-3.0.5
 export M2=$M2_HOME/bin
 PATH=$M2:$PATH 

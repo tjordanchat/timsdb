@@ -70,3 +70,112 @@ vi Makefile
 which docker
 ll /usr/bin/docker
 file /usr/bin/docker
+df
+wget http://www.haskell.org/platform/download/2013.2.0.0/haskell-platform-2013.2.0.0.tar.gz
+extract haskell-platform-2013.2.0.0.tar.gz 
+rm *.gz
+cd haskell-platform-2013.2.0.0/
+./configure
+sudo apt-get ghc
+sudo aptitude install ghc darcs zlib1g-dev libncurses5-dev
+wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+darcs get --lazy http://darcs.haskell.org/cabal/
+tar xjf ghc-7.4.1-src.tar.bz2
+cd ghc-7.4.1
+./configure --prefix=$HOME/src/ghc
+time make -j9 #Only took me about 19 minutes on recent quad core xeon
+cd ..
+rm ghc-7.4.1-src.tar.bz2 
+rm -rf ghc-7.4.1/
+wget ll
+cd haskell-platform-2013.2.0.0/
+./configure
+#wget wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+#wget wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+#wget wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+set -o vi
+set -o vi
+#wget wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+a vi
+which wim
+set -o vim
+which vim
+which vim
+#wget wget http://www.haskell.org/ghc/dist/7.4.1/ghc-7.4.1-src.tar.bz2
+#wget wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-src.tar.bz2
+wget wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-src.tar.bz2
+extract ghc-7.6.3-src.tar.bz2 
+rm *z2
+cd ghc-7.6.3/
+./configure
+make
+sudo apt-get install git cabal-install libghc-zlib-dev
+cabal update
+cabal install gitit
+df
+sudo cabal install gitit
+gitit
+sudo apt-get install gitit
+cd .cabal
+gitit
+df
+du -s *
+rm -rf ghc-7.6.3/
+df
+cd /
+sudo du -s *
+cd /lib
+du -s *
+rm -rf haskell-platform-2013.2.0.0/
+df
+du -s *
+cd docker
+which docker
+..
+rm -rf docker
+df
+rm -rf cabal
+df
+gitit
+sudo apt-get install nginx
+ifconfig eth0 | grep inet | awk '{ print $2 }'
+myip
+sudo service nginx start
+cd /etc
+cd nginx/
+cd sites-enabled/
+cd ../sites-available/
+vi default 
+cd /usr/share/nginx/
+cd www
+c w
+vi index.html 
+cat > index.html
+sudo cat > index.html 
+sudo su
+mkdir css
+sudo mkdir css
+cd css
+sudp mv /root/normalize.min.css .
+sudo mv /root/normalize.min.css .
+env
+which vim
+sudo su
+c w
+sudo vi index.html 
+ls -la
+a ll
+tree
+sudo apt-get install tree
+tree
+udo apt-get install python-software-properties 
+sudo add-apt-repository ppa:chris-lea/node.js 
+npm
+sudo apt-get install npm
+sudo apt-get install node.js
+node
+df
+c w
+sudo vi index.html 
+sudo vi index.html 
+sudo vi index.html 
