@@ -179,3 +179,10 @@ c w
 sudo vi index.html 
 sudo vi index.html 
 sudo vi index.html 
+puppet
+df
+sudo apt-get install puppet-common
+sudo service puppet start
+which puppet
+puppet
+puppet help
