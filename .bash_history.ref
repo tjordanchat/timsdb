@@ -186,3 +186,8 @@ sudo service puppet start
 which puppet
 puppet
 puppet help
+c w
+vi index.html 
+sudo vi index.html 
+less /etc/passwd
+ip link add virtual0 link eth0 type macvlan mode bridge
