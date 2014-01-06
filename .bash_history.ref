@@ -191,3 +191,8 @@ vi index.html
 sudo vi index.html 
 less /etc/passwd
 ip link add virtual0 link eth0 type macvlan mode bridge
+ll
+ll
+pwd
+eb
+rm Flat-Design-UI-Components.zip 
