@@ -196,3 +196,22 @@ ll
 pwd
 eb
 rm Flat-Design-UI-Components.zip 
+ll
+cd
+eb
+extract bootflat-master.zip 
+sudo apt-get install unzip
+extract bootflat-master.zip 
+rm *.zip
+cd bootflat-master/
+..
+-
+echo $w
+sudp cp -r * $w
+sudo cp -r * $w
+c w
+mv index.html index.html.bak
+sudo mv index.html index.html.bak
+sudo cat > index.html
+sudo su
+xs
