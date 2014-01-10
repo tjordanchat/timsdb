@@ -215,3 +215,7 @@ sudo mv index.html index.html.bak
 sudo cat > index.html
 sudo su
 xs
+store
+tree
+c w
+vr
