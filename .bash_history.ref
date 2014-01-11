@@ -236,3 +236,30 @@ sudo docker images
 cd /var/lib/docker
 sudo
 sudo su
+df
+sudo docker images
+docker
+sudo docker info
+sd
+sd info
+sd
+sd images
+sd
+sd ps
+sudo docker run -i -t XXXXXXXX /bin/bash
+sd images
+sudo kill -9 16909
+sudo service stop nginx
+sudo /usr/bin/nginx -s stop
+which nginx
+sudo nginx -s stop
+kill -9 16910
+sudo kill -9 16910
+pstree
+sudo su
+ps -tf
+pidtree 1
+pidtree
+ps afx
+pst
+sudo reboot

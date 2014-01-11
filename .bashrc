@@ -45,6 +45,8 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
+alias pst="ps afx"
+alias sd="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
 alias a=alias
