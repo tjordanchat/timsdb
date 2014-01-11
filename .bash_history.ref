@@ -219,3 +219,20 @@ store
 tree
 c w
 vr
+cd bin
+mkdir docker
+c.
+cd docker/
+mkdir nodejs
+cd nodejs/
+cat > index.js
+mv * package.json
+cat > index.js
+cat > Dockerfile
+sudo docker build -t XXXXXXXX/centos-node-hello
+sudo docker build -t XXXXXXXX/centos-node-hello .
+df
+sudo docker images
+cd /var/lib/docker
+sudo
+sudo su
