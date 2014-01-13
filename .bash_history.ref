@@ -263,3 +263,54 @@ pidtree
 ps afx
 pst
 sudo reboot
+uptime
+sudo nginx -s stop
+sd images
+sd
+sd rmi
+sd
+sd images
+sd run
+docker
+sd images
+sdc
+sdi
+sdc
+sd
+sd run
+sdi
+sd run -p 8181:8080 -d XXXXXXXX/centos-node-hello
+sdi
+sdc
+ps -ef |less
+sd logs 9782667b3b09
+sdh search
+sudo docker login
+sdh login
+sudo docker login
+sudo su
+sudo docker login
+cdin
+bin
+cd bin
+cd docker/
+cd nodejs/
+..
+mkdir trac
+cd trac
+cp ../nodejs/Dockerfile .
+vi Dockerfile 
+sd
+sdi
+sd info
+sd
+sdc
+ff
+ff docker
+top
+docker
+sd version
+sudo ls /etc/apt/sources.list.d/docker.list
+sudo ls -l /etc/apt/sources.list.d/doc
+sudo apt-get install lxc-docker
+sd version

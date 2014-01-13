@@ -46,6 +46,10 @@ export GREP_OPTIONS='--color=auto'
 
 # some aliases
 alias pst="ps afx"
+alias sdc="sudo docker ps"
+alias sdi="sudo docker images"
+alias sdh="sudo docker help"
+alias sdv="sudo docker version"
 alias sd="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
