@@ -314,3 +314,10 @@ sudo ls /etc/apt/sources.list.d/docker.list
 sudo ls -l /etc/apt/sources.list.d/doc
 sudo apt-get install lxc-docker
 sd version
+c t
+sds trac
+sd
+sd pull turnkeylinux/trac-13.0
+sdi
+df
+sdc
