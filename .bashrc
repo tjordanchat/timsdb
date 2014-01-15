@@ -46,12 +46,12 @@ export GREP_OPTIONS='--color=auto'
 
 # some aliases
 alias pst="ps afx"
-alias sdc="sudo docker ps"
-alias sdi="sudo docker images"
-alias sdh="sudo docker help"
-alias sdv="sudo docker version"
-alias sds="sudo docker search"
-alias sd="sudo docker"
+alias dc="sudo docker ps"
+alias di="sudo docker images"
+alias dh="sudo docker help"
+alias dv="sudo docker version"
+alias ds="sudo docker search"
+alias d="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
 alias a=alias
@@ -72,20 +72,8 @@ alias gt="git tag"
 alias gc="git commit -m '`date`';gpom"
 alias gs="git status"
 alias gpom="git push origin master"
-alias dc=dotcloud
 alias sg="sudo su git"
 alias myip='echo `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`'
-alias dcl="dotcloud list"
-alias dcc="dotcloud create"
-alias dcp='EE=$PWD;dcr;dotcloud push;cd $EE'
-alias dci='EE=$PWD;dcr;dotcloud info $(ys);dc info $(ydb); cd $EE'
-alias dcd='EE=$PWD;dcr;dotcloud destroy -A $(app);cd $EE'
-alias dca="EE=$PWD;dcr;json application < .dotcloud/config;cd $EE"
-alias dcdb='EE=$PWD;dcr;dc run -A $(app) $(ydb) mongo;cd $EE'
-alias dcsh='EE=$PWD;dcr;dc run -A $(app) $(ys);cd $EE'
-alias app="json application < .dotcloud/config"
-alias pw='dc info $(ydb) | grep mongodb_password: | awk "{print \$2}"'
-alias .dc=". ~/.env/.dotcloud.env"
 alias ua=unalias
 alias us=unset
 alias c8="cd *"
