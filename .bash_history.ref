@@ -341,3 +341,20 @@ dl
 dh
 d
 dd
+di
+git clone https://github.com/nickstenning/dockerfiles.git
+cd dockerfiles
+cp -r mediawiki/ ~/XXXXXXXX/
+cd $_
+ga mediawiki/
+gc
+cd dockerfiles/
+cd wikidata/
+..
+cd dockerfiles/
+cd mediawiki/
+sudo su
+dc
+cd dockerfiles/
+cd mediawiki/
+sudo su
