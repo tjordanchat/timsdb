@@ -358,3 +358,7 @@ dc
 cd dockerfiles/
 cd mediawiki/
 sudo su
+di
+d
+file `which docker`
+dc
