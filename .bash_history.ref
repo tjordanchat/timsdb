@@ -374,3 +374,39 @@ tree
 top
 dc
 di
+sudo su
+dc
+d stop 15de28064d63b5bd330e08191094aa30d3e645d4fdca51baf34b342faf339010
+dc
+docker run -v /data/wiki:/data -d nickstenning/mediawiki
+sudo docker run -v /data/wiki:/data -d nickstenning/mediawiki
+ff LocalSettings.php
+sudo su
+dc
+sudo ls -l /var/lib/docker/aufs/mnt/77215f547349119e7488e33939dc5999d2c19306fe7d3931645d038a93d25aeb/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/3e8e8966dcfba21708e772ec165edcb617061028572e279decf7b374f4f3a866/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/9df1e07fdf780918f8fafaba0f5470d1c6357232617e42b6d190383fd0710e37/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/15de28064d63b5bd330e08191094aa30d3e645d4fdca51baf34b342faf339010/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/1b95e1c4efd993116df499fa9951b865ec99e8a455427cffc9c61364bc3c5295/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/af8ef2ef07b230e980f0a3d3086d8fca8d37e682e3cafc83261cacc65e6b8436/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/af8ef2ef07b230e980f0a3d3086d8fca8d37e682e3cafc83261cacc65e6b8436-init/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/8328a09e471f2c8eb68634aee45d79460fa3a4075b9a9e2c93404d50e571b4c1/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/d32d732341b07cfc87006d09ea75514d8c10774dfbc83c74034ac28b1491557b/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/77215f547349119e7488e33939dc5999d2c19306fe7d3931645d038a93d25aeb-init/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/63e9d31943ea386e435763524d9ea3a8cb253747113abbb53191121b815572da/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/3e0c3340e16e991af227912b27441b392762476f15d6749c3c1333fab63c5927/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/15de28064d63b5bd330e08191094aa30d3e645d4fdca51baf34b342faf339010-init/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/mnt/8328a09e471f2c8eb68634aee45d79460fa3a4075b9a9e2c93404d50e571b4c1-init/src/mediawiki-1.21.2/LocalSettings.php
+/var/lib/docker/aufs/diff/63e9d31943ea386e435763524d9ea3a8cb253747113abbb53191121b815572da/src/mediawiki-1.21.2/LocalSettings.php
+cat >.x
+vi Dockerfile 
+vi ~/.x
+bash < ~/.x
+ff '*.php'
+tree
+cd dockerfiles/
+cd mediawiki/
+file *
+vi *start
+vi Dockerfile 
+dc
