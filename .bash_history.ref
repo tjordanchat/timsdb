@@ -410,3 +410,139 @@ file *
 vi *start
 vi Dockerfile 
 dc
+cd dockerfiles/
+..
+rm -rf dockerfiles/
+cd bin
+cd docker/
+mkdir jira
+cd jira
+cat > Dockerfile
+sudo docker build -t atlassian/jira .
+dc
+di
+df
+d rmi linux/postgres
+dc
+d 
+d rm 9782667b3b09
+d stop 9782667b3b09
+d rm 9782667b3b09
+di
+dc
+di
+d
+di
+d rmi 588aef771b66
+df
+d rmi 588aef771b66
+sudo mount
+dv
+d
+sudo apt-get install lxc-docker
+df
+di
+dv
+d rmi XXXXXXXX/centos-node-hello
+df
+di
+d
+di
+d rmi 5f1d3d8be662
+d ps -a
+d rm 0aa110673bc7
+d ps -a
+d rmi 5f1d3d8be662
+df
+di
+d ps -a
+d rm 093c56965ea7
+d rm aafc24fcb663
+d rmi ffd17882ddbf
+di
+d rmi f92fb32c944c
+di
+df
+d rmi 69d319bc2b25
+d ps -a
+d rm 6d9b0081a116
+d rmi 69d319bc2b25
+df
+di
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+di
+sudo su
+di
+df
+sudo su
+df
+di
+dc
+cat Dockerfile 
+d build .
+vi Dockerfile 
+di
+d
+d run help
+d help run
+sd run -p 8181:8080 -d 
+which docker
+sudo su
+di
+dc
+df
+d build -t=atlassian/jira -rm=true .
+di
+dc
+df
+d run atalssian/jira
+vi Dockerfile 
+dc
+di
+d run -d linux/postgres /bin/bash
+dc
+di
+d run -d -i -t linux/postgres /bin/bash
+dc
+d attach 0fd0e267e328
+d ps -a -q
+dc
+di
+df
+d
+d commit 
+d commit .
+dc
+di
+..
+rm -rf jira
+d pull atlassian/jira
+sudo docker build -t atlassian/jira .
+python
+di
+d info
+dc
+dc -a -q
+dh
+d help images
+dc -a
+dh run
+dc
+a dr
+dr -i -a atlassian/jira
+di
+dr -i -t linux/postgres /bin/bash
+d ps -o
+dc -a
+da
+d
+dh attach
+dc -a
+da 85c037649026
+d start 85c037649026
+da 85c037649026
+dc
+dc -a
+dr 49a39e4b0955
+dr -i -t XXXXXXXX bash
+dc

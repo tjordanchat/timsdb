@@ -46,6 +46,8 @@ export GREP_OPTIONS='--color=auto'
 
 # some aliases
 alias pst="ps afx"
+alias dr="sudo docker run"
+alias da="sudo docker attach"
 alias dc="sudo docker ps"
 alias di="sudo docker images"
 alias dh="sudo docker help"
