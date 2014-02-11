@@ -563,3 +563,22 @@ d
 d version
 sudo apt-get install lxc-docker
 dv
+python
+a server
+cd XXXXXXXX
+a server
+wget 198.255.180.102:/Tim-XXXXXXXX-Resume.doc
+wget 198.255.180.102:/Tim-XXXXXXXX-Resume.doc
+wget 198.255.180.102:/Tim-XXXXXXXX-Resume.doc
+wget 198.255.180.102:8000/Tim-XXXXXXXX-Resume.doc
+telnet 198.255.180.102 8000
+server
+sudo su 
+a server
+sudo python -m SimpleHTTPServer -p 80
+sudo python -m SimpleHTTPServer 80
+myip
+sudo python -m SimpleHTTPServer 80
+vi Index.html
+#sudo python -m SimpleHTTPServer 80
+sudo su
