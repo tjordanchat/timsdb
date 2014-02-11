@@ -546,3 +546,20 @@ dc -a
 dr 49a39e4b0955
 dr -i -t XXXXXXXX bash
 dc
+a da
+da edcc4729a023
+sudo su
+di
+dc
+di
+d
+dh commit
+dc
+d commit edcc4729a023
+cd /var/lib
+cd lxc
+sudo su
+d
+d version
+sudo apt-get install lxc-docker
+dv

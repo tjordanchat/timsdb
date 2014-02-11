@@ -241,7 +241,7 @@ PROMPT_COMMAND='export O=$?;[ ! $O = 0 ] && PS1="$USER:\W:$O> " || PS1="$USER:\W
 
 shopt -s histappend
 shopt -s cmdhist
-export HISTIGNORE="&:ls:l:pwd:wp:wu:b:h:pp:v:p:cd:c:ccd:ll:[bf]g:exit"
+export HISTIGNORE="&:ls:l:pwd:wp:wu:b:h:pp:v:p:cd:c:ccd:ll:d:di:dc:df:dv:da:[bf]g:exit"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
