@@ -582,3 +582,16 @@ sudo python -m SimpleHTTPServer 80
 vi Index.html
 #sudo python -m SimpleHTTPServer 80
 sudo su
+sudo du -sch /var/lib/lxc/*
+r rmi 44e1976012eb
+d rmi 44e1976012eb
+d rmi 15b133795cc3
+d rmi 33e9cddd591b
+d rmi 07b955a05ea3
+d pull atlassian/jira
+a dr
+ps -ef
+dr 5863416144ac
+sudo du -sch /var/lib/lxc/*
+ff jira
+sudo su
