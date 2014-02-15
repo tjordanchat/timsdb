@@ -595,3 +595,23 @@ dr 5863416144ac
 sudo du -sch /var/lib/lxc/*
 ff jira
 sudo su
+a dr
+dr exit 1
+dh run
+dr XXXXXXXX /bin/bash exit 1
+dr XXXXXXXX /bin/bash -C 'exit 1'
+dr XXXXXXXX /bin/bash -C exit 1
+false
+which false
+dr XXXXXXXX /bin/bash -C false
+d event
+dh events
+d events
+sudo docker events -since '2013-09-03 15:49:29 +0200 CEST'
+di -tree
+dh start
+q
+d top
+d top 932348b83e8a
+dh run
+dh attach
