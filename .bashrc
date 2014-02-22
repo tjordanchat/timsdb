@@ -45,9 +45,11 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
+alias lxca="sudo lxc-attach -n"
 alias pst="ps afx"
 alias dr="sudo docker run"
 alias da="sudo docker attach"
+alias dcn="sudo docker ps -notrunc"
 alias dc="sudo docker ps"
 alias di="sudo docker images"
 alias dh="sudo docker help"
@@ -143,6 +145,10 @@ alias s=store
 #######################################################################
 
 set -o vi
+
+nse () {
+	sudo nsenter -m -u -i -n -p -t $1 -r -w -- /bin/su -
+}
 
 extract () {
   if [ -f $1 ] ; then

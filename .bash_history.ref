@@ -615,3 +615,65 @@ d top
 d top 932348b83e8a
 dh run
 dh attach
+s da
+a da
+da -i 932348b83e8a
+da 932348b83e8a
+k1
+lxc-attach
+sudo lxc-attach -n 932348b83e8abbd80abf7b45c1dddb5d4ad91c16b5e50f1c8c3625ab8ac11cfb
+sudo ls /proc
+d stop 932348b83e8a
+dr atlassian/jira
+sudo lxc-attach -n 932348b83e8abbd80abf7b45c1dddb5d4ad91c16b5e50f1c8c3625ab8ac11cfb
+dr d09373732fb5
+a dr
+a drm
+d rm d09373732fb5
+d stop d09373732fb5
+d rm d09373732fb5
+dcn
+lxca 721b05c3a73c61ff3f57d4d8d17682df81df07df8bc8acb1d24f27bc729edf58
+pstree
+pstree --help
+pstree -p
+nsenter
+sudo apt-get install nsenter
+sudo su
+sudo apt-get install util-linux
+nsenter
+ff nsenter
+wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.bz2
+bzip2 -d -c util-linux-2.24.tar.bz2 | tar xvf -
+udo ./configure --without-ncurses
+sudo ./configure --without-ncurses
+sudo make install
+which nsenter
+whince
+pst
+d ps
+nse 721b05c3a73c
+ps faux |grep memcached
+nse 9610
+pf nse
+fp nse
+f
+a f
+pf f
+d ps
+ps faux |grep init.sh
+nse 25258
+nse 25263
+ps faux
+nse 25300
+sudo su
+ps faux
+nse 25263
+nse 25258
+d ps
+pst
+nse 25258
+`/opt
+whoami
+ps
+d stop 721b05c3a73c
