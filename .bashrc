@@ -28,6 +28,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Add the following lines to maven.sh
+export TZ="America/New_York"
 export EDITOR=vim
 export M2_HOME=/opt/apache-maven-3.0.5
 export M2=$M2_HOME/bin
@@ -45,14 +46,16 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
-alias lxca="sudo lxc-attach -n"
+alias lxa="sudo lxc-attach -n"
 alias pst="ps afx"
+alias dri='sudo docker rmi $( sudo docker images | grep "^<none>" | awk "{print $3}")'
 alias dr="sudo docker run"
 alias da="sudo docker attach"
 alias dcn="sudo docker ps -notrunc"
 alias dc="sudo docker ps"
 alias di="sudo docker images"
 alias dh="sudo docker help"
+alias dhis="sudo docker history"
 alias dv="sudo docker version"
 alias ds="sudo docker search"
 alias d="sudo docker"

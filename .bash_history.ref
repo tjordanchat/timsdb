@@ -680,3 +680,95 @@ d stop 721b05c3a73c
 d rm 721b05c3a73c
 nsenter
 dr atlassian/jira
+d ps
+pst
+nse 9993
+ps faux |grep init.sh
+d rm f9f9d637ff22
+d stop f9f9d637ff22
+ps faux |grep init.sh
+d rm f9f9d637ff22
+pst
+d history
+dh
+dhis
+dhis 5863416144ac
+pst
+lxa 10542
+pst
+nse 10542
+sudo su
+sudo apt-get install strace
+sudo strace 21441
+ff strace
+sudo su
+pst
+sudo /usr/bin/strace 10593
+sudo /usr/bin/strace -p 10593
+netstat -tonp 2>&1
+dr atlassian/jira
+k1
+pst
+a ds
+d stop cff2284b7608
+a dr
+dr cff2284b7608
+pst
+ps
+pst
+sudo strace -p 15636
+top
+pst
+a nsa
+nse 15636
+nse 15586
+top
+ff catalina.out
+ll /var/lib/docker/aufs/mnt/27675f61f9947dbe6561abea7fed3d98e68839f57b2911c9bf96e18d5e1d98e5/opt/atlassian/jira/logs/catalina.out
+sudo su
+date
+sudo netstat -lntp 2>&1 
+dr atlassian/jira
+d stop 27675f61f994
+d rm 27675f61f994
+pst
+j
+k1
+pst
+d -v
+pst
+dh run
+dr atlassian/jira -P
+tst
+pst
+sudo strace -p 16135
+sudo strace -p 16127
+sudo strace -p 16135
+sudo strace -p 16084
+ff atlassian
+sudo su
+pst
+d stop 61260f2c917f
+dr -P atlassian/jira
+d rm 61260f2c917f
+drmi
+du
+d rmi 5863416144ac
+dh ps
+dc -a
+di -a
+drmi
+dri
+a dri
+docker ps -a -q
+dri
+dc -a
+di -a
+dri
+di -a
+d rmi bde899b19055
+d stop bde899b19055
+d rm bde899b19055
+r rmi bde899b19055
+d rmi bde899b19055
+pst
