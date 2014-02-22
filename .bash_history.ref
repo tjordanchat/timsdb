@@ -677,3 +677,6 @@ nse 25258
 whoami
 ps
 d stop 721b05c3a73c
+d rm 721b05c3a73c
+nsenter
+dr atlassian/jira
