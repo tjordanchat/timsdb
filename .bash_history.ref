@@ -44,3 +44,42 @@ rm -rf docker
 sudo apt-get update
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 sudo reboot
+sudo apt-key adv --keyserver keyserver.XXXXXXXX.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb http://get.docker.io/XXXXXXXX docker main /etc/apt/sources.list.d/docker.list"
+sudo apt-get update
+sudo apt-get install lxc-docker
+curl -s https://get.docker.io/XXXXXXXX/ | sudo sh
+sudo docker
+sudo docker run -i -t XXXXXXXX /bin/bash
+git clone https://github.com/pinireznik/wordpress_autotest.git
+cd wordpress_autotest/
+./start_all.sh 
+vi start_all.sh 
+cd docker
+cd selenium-python/
+sudo docker build -t tXXXXXXXXchat/selenium-python
+sudo docker build -t tXXXXXXXXchat/selenium-python .
+di -a
+dh images
+di -t
+di -t -a
+di -t
+dh run
+a dr
+dr tXXXXXXXXchat/selenium-python
+dr 53dd755cce0b
+a dr
+dr -i -t 53dd755cce0b /bin/bash
+pst
+sudo docker pull dhrp/sshd
+python
+rm -rf wordpress_autotest/
+git clone https://github.com/dhrp/docker-sshd.git
+cd docker-sshd/
+sudo docker build -t tXXXXXXXXchat/docker-sshd .
+vi Dockerfile 
+ds sshd
+d pull iliyan/nginxserver
+dr -i -t 5bad192d464d bash
+pst
+sudo su
