@@ -83,3 +83,8 @@ d pull iliyan/nginxserver
 dr -i -t 5bad192d464d bash
 pst
 sudo su
+git clone https://github.com/gasi/docker-node-hello.git
+cd docker-node-hello/
+sudo docker run -d -name redis crosbymichael/redis
+sudo docker run -t -i -link redis:db -name webapp XXXXXXXX bash
+cl
