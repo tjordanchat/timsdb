@@ -47,6 +47,7 @@ export GREP_OPTIONS='--color=auto'
 
 # some aliases
 alias lxa="sudo lxc-attach -n"
+alias lh="history | less -n"
 alias pst="ps afx"
 alias dri='sudo docker rmi $( sudo docker images | grep "^<none>" | awk "{print $3}")'
 alias dr="sudo docker run"
@@ -62,6 +63,7 @@ alias dhs="sudo docker history"
 alias dv="sudo docker version"
 alias d0="sudo docker stop"
 alias d1="sudo docker start"
+alias vd="vi Dockerfile"
 alias d="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
@@ -152,6 +154,15 @@ alias s=store
 #######################################################################
 
 set -o vi
+
+db () {
+	if [ ! $# = 1 ]
+	then
+		echo "usage: db container/tag"
+		exit 1
+	fi
+	sudo docker build -t $1 .
+}
 
 nse () {
 	sudo nsenter -m -u -i -n -p -t $1 -r -w -- /bin/su -

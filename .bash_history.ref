@@ -118,3 +118,16 @@ dc -a
 sudo strace start drone
 sudo strace -p 19304
 sudo stop drone
+dc -a
+cd docker-node-hello/
+cd docker-sshd/
+lr
+vr
+vi vd
+vd
+a db
+dh build
+lh
+man less
+lh
+db
