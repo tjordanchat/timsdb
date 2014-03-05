@@ -88,3 +88,24 @@ cd docker-node-hello/
 sudo docker run -d -name redis crosbymichael/redis
 sudo docker run -t -i -link redis:db -name webapp XXXXXXXX bash
 cl
+wget http://downloads.drone.io/latest/drone.deb
+sudo dpkg -i drone.deb
+d stop a3c0b47c9379
+a dr
+dc a3c0b47c9379
+dr a3c0b47c9379
+d stop f9a81826151a
+a ds
+ds caaaf2ef555b
+dr caaaf2ef555b
+a dr
+d rm caaaf2ef555b
+dt
+d0 e6b22744c1a9
+drm e6b22744c1a9
+d0 fd8a5a727b77
+drm fd8a5a727b77
+which droned
+man droned
+k9 17045
+sudo start drone
