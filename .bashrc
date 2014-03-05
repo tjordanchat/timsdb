@@ -155,13 +155,24 @@ alias s=store
 
 set -o vi
 
+
+dclean () {
+	#first containers
+	sudo docker stop $(sudo docker ps -a -q)
+	sudo docker rm $(sudo docker ps -a -q)
+	#then images
+	sudo docker stop $(sudo docker ps -a -q)
+	sudo docker rm $(sudo docker ps -a -q)
+	sudo docker rmi $(sudo docker images -a -q)
+}
+
 db () {
 	if [ ! $# = 1 ]
 	then
 		echo "usage: db container/tag"
-		exit 1
+		return 1
 	fi
-	sudo docker build -t $1 .
+	sudo docker build -rm -t tjordanchat/$1 .
 }
 
 nse () {

@@ -131,3 +131,46 @@ lh
 man less
 lh
 db
+dc -a
+db sshd
+vd
+cd -
+sudo docker pull dhrp/sshd
+a dr
+dcc
+dc -a
+dci
+di -a
+dc -a
+a dv
+sudo docker pull dhrp/sshd
+di -a
+dc -a
+sudo docker pull dhrp/sshd
+di -a
+dh build
+dclean
+di -a
+dc -a
+di -a
+dh pull
+sudo docker pull dhrp/sshd
+vd
+cd docker-sshd/
+vd
+dclean
+di -a
+dc -a
+d pull XXXXXXXX
+dr -i -t XXXXXXXX /bin/bash
+dc -a
+a dc
+d commit e6ed6ce90907 tXXXXXXXXchat/sshd
+d run -d tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+d0 a18513074b9c
+d run -d -p 22  tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+d port 3d12995c5f38126f5e36b127de66731c2bda96a40e9c5e3d5abf9019cf9c72b5
+d port 3d12995c5f38126f5e36b127de66731c2bda96a40e9c5e3d5abf9019cf9c72b5 22
+hostname
+ifconfig
+ssh root@localhost -p 49153
