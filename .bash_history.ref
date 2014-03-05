@@ -109,3 +109,12 @@ which droned
 man droned
 k9 17045
 sudo start drone
+sudo strace -p 17649
+a ds
+dc -a
+sudo stop drone
+which stop
+dc -a
+sudo strace start drone
+sudo strace -p 19304
+sudo stop drone
