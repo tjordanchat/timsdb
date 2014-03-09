@@ -174,3 +174,61 @@ d port 3d12995c5f38126f5e36b127de66731c2bda96a40e9c5e3d5abf9019cf9c72b5 22
 hostname
 ifconfig
 ssh root@localhost -p 49153
+a dc
+d commit 961375ac570e
+d commit 3d12995c5f38
+docker run -i -t tXXXXXXXXchat/sshd /bin/bash
+a dr
+dr  -i -t tXXXXXXXXchat/sshd /bin/bash
+d commit 3d12995c5f38
+d0 2fc39ad491b0
+d0 3d12995c5f38
+di -a
+ssh root@192.168.33.10 -p 49154
+ssh root@192.168.33.10 -p 49154
+dr  -d -p 22 dhrp/sshd /usr/sbin/sshd -D
+dr  -d -p 22 tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+ssh root@192.168.33.10 -p 49154
+d port 7b73f122feb7 22
+ifconfig
+ping 10.179.17.202
+ping 10.179.17.202
+ssh root@192.168.33.10 -p 49154
+ssh root@10.179.17.202 -p 49154
+ip addr show
+myip
+myip
+myip
+curl http://169.254.169.254/latest/user-data/network/interfaces/macs/mac/local-ipv4s
+ssh root@10.179.17.202 -p 49154
+d0 7b73f122feb7
+d commit 3d12995c5f38
+d run -d -p 22  tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+d port 3c449cd8ab9a 22
+ssh root@10.179.17.202 -p 49155
+d0 3c449cd8ab9a
+docker run -i -t tXXXXXXXXchat/sshd /bin/bash
+sudo docker run -i -t tXXXXXXXXchat/sshd /bin/bash
+d commit eb22966d5d6c
+d port eb22966d5d6c 22
+d0 eb22966d5d6c
+d0 e6ed6ce90907
+d run -d -p 22  tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+d port 8bb74f345f5c1fe879acd37763ddd25498a0f2b0cc01a5eb0ad983050d506565 22
+ssh root@10.179.17.202 -p 49156
+dh ps
+lca
+lcn
+dcn
+lxa 8bb74f345f5c1fe879acd37763ddd25498a0f2b0cc01a5eb0ad983050d506565
+dcn
+dp
+dp 8bb74f345f5c1fe879acd37763ddd25498a0f2b0cc01a5eb0ad983050d506565 22
+dp 8bb74f345f5c
+dp 8bb74f345f5c 22
+ssh root@10.179.17.202 -p 49156
+dh commit
+dh
+d history 961375ac570e
+lcn
+dcn
