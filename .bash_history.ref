@@ -233,3 +233,10 @@ d history 961375ac570e
 lcn
 dcn
 telnet www.microsoft.com http
+d commit 8bb74f345f5c        tXXXXXXXXchat/sshd
+ssh root@10.179.17.202 -p 49156
+d0 8bb74f345f5c
+dr  -d -p 22 tXXXXXXXXchat/sshd /usr/sbin/sshd -D
+ssh root@10.179.17.202 -p 49156
+d port d9b123736ed9 22
+ssh root@10.179.17.202 -p 49157
