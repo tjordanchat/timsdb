@@ -246,3 +246,63 @@ sudo apt-get update
 sudo apt-get install lxc-docker
 ruby
 sai
+a ds
+d0 d9b123736ed9
+mkdir tmp
+cd tmp
+mkdir 1
+cd 1
+cat > dockerfile
+sudo docker build -rm -t eg_sshd .
+mv dockerfile Dockerfile
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh root@localhost -p 49153
+curl http://169.254.169.254/latest/meta-data/local-ipv4
+lip
+ssh root@10.179.17.202 -p 49153
+ifconfig
+lip
+man ifconfig
+ifconfig eth0
+dcn
+lxa 1985181f8713a8771a854a1e6f6bbbab6a3886690489a1a7839db661b88a1fb5
+sudo docker stop test_sshd
+sudo docker rm test_sshd
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh root@192.168.1.2 -p 49154
+sudo docker rmi eg_sshd
+dclean
+di -a
+dc -a
+sudo docker build -rm -t eg_sshd .
+echo $TERM
+dclean
+di -a
+dc -a
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+lip
+ssh root@192.168.1.2 -p 49155
+vi Dockerfile 
+vd
+ssh root@192.168.1.2 -p 49155
+dcn
+lxa 3acae1a14f44c0672b7a2f38acddfde73a8e902aa9b35b1d6615dc84f3d88d29
+vd
+d0 3acae1a14f44
+ip addr show
+ip
+man ip
+ip -?
+ip -help
+d run -d -p 22 eg_sshd /usr/sbin/sshd -D
+ip addr show
+lip
+ssh root@`lip` -p 49156
+dh run
+vd
+docker run -i -t XXXXXXXX /bin/bash

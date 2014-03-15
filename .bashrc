@@ -46,6 +46,7 @@ export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
 
 # some aliases
+alias dcn="sudo docker ps -notrunc"
 alias lxa="sudo lxc-attach -n"
 alias lh="history | less -n"
 alias pst="ps afx"
@@ -54,7 +55,6 @@ alias dr="sudo docker run"
 alias drm="sudo docker rm"
 alias drmi="sudo docker rmi"
 alias da="sudo docker attach"
-alias dcn="sudo docker ps -notrunc"
 alias dp="sudo docker port"
 alias dc="sudo docker ps"
 alias di="sudo docker images"
@@ -70,6 +70,7 @@ alias d="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
 alias sai="sudo apt-get install"
+alias lip="curl http://169.254.169.254/latest/meta-data/local-ipv4;echo"
 alias a=alias
 alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
@@ -281,6 +282,7 @@ shopt -s histappend
 shopt -s cmdhist
 export HISTIGNORE="&:ls:l:pwd:wp:wu:b:h:pp:v:p:cd:c:ccd:ll:d:di:dc:df:dv:da:[bf]g:exit"
 
+export TERM="xterm-256color"
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
