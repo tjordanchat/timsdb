@@ -69,6 +69,7 @@ alias vd="vi Dockerfile"
 alias d="sudo docker"
 alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
+alias sai="sudo apt-get install"
 alias a=alias
 alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"

@@ -240,3 +240,9 @@ dr  -d -p 22 tXXXXXXXXchat/sshd /usr/sbin/sshd -D
 ssh root@10.179.17.202 -p 49156
 d port d9b123736ed9 22
 ssh root@10.179.17.202 -p 49157
+a dv
+d update
+sudo apt-get update
+sudo apt-get install lxc-docker
+ruby
+sai
