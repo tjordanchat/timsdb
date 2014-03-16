@@ -51,7 +51,7 @@ alias lxa="sudo lxc-attach -n"
 alias lh="history | less -n"
 alias pst="ps afx"
 alias dri='sudo docker rmi $( sudo docker images | grep "^<none>" | awk "{print $3}")'
-alias dr="sudo docker run"
+alias dr="sudo docker run -d -P -name"
 alias drm="sudo docker rm"
 alias drmi="sudo docker rmi"
 alias da="sudo docker attach"
@@ -159,6 +159,11 @@ alias s=store
 
 set -o vi
 
+dcl () {
+	# remove containers
+	sudo docker stop $(sudo docker ps -a -q)
+	sudo docker rm $(sudo docker ps -a -q)
+}
 
 dclean () {
 	#first containers
@@ -173,10 +178,10 @@ dclean () {
 db () {
 	if [ ! $# = 1 ]
 	then
-		echo "usage: db container/tag"
+		echo "usage: db name"
 		return 1
 	fi
-	sudo docker build -rm -t tjordanchat/$1 .
+	sudo docker build -rm -t $1 .
 }
 
 nse () {

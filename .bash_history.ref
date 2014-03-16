@@ -326,3 +326,82 @@ k1
 d0 027c8ef51758
 d run -d -p 22 eg_sshd /usr/sbin/sshd -D "&&" /bin/bash
 ps
+ps
+d run -d -p 22 eg_sshd /usr/sbin/sshd -D "&&" /bin/bash
+d run -d -p 22 eg_sshd "/usr/sbin/sshd -D && /bin/bash"
+dc -a
+da f7f6e4e24f63
+d1 f7f6e4e24f63
+da f7f6e4e24f63
+dclean
+di -a
+dc -a
+vd
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh root@`lip` -p 49160
+da d908e420decc
+k1
+d0 d908e420decc
+docker run -i -t XXXXXXXX /bin/bash
+d  run -i -t XXXXXXXX /bin/bash
+da 17757d80f085
+docker run -d -i -t -p 80:80 XXXXXXXX /bin/bash
+d run -d -i -t -p 80:80 XXXXXXXX /bin/bash
+da f40fe546a14aa97da07e5948b22c36e8478548e1064363e2d49ad59b2bb99fbb
+d run -d -i -t -p 22 eg_sshd /bin/bash
+da 9f2d61cbf3136cb7e24d101b91c69044fd81a0af0521ca1515bced7e3c10fde5
+a wp
+da 9f2d61cbf3136cb7e24d101b91c69044fd81a0af0521ca1515bced7e3c10fde5
+#d run -d -i -t -p 22 eg_sshd /bin/bash
+d run -d -i -t -p 22 eg_sshd /bin/bash
+da f8c28e48dc5565064b0b1b74ba0c26b9712e6ef594ef0acfa99fee08d5c60318
+vd
+h|egrep run
+sudo docker run -d -P -name test_sshd eg_sshd
+dc -a
+dcl
+dc -a
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+da e8da2f972591768e0252a96d54d69bcd91b91400658af476edbd53a30675e847
+k1
+vd
+dcl
+drmi 21455e9fedad
+udo docker build -rm -t eg_sshd .
+d  build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+lip
+ssh root@10.179.17.202 -p 49164
+d0 b407affaa087
+dc -a
+drm b407affaa087
+sudo docker run -t -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh root@`lip` -p 49165
+make
+db
+a dr
+vd
+ll /var/run/sshd
+vd
+/usr/sbin
+cd /usr/sbin
+h | egrep run
+docker run -a stdin -a stdout -i -t XXXXXXXX /bin/bash
+sudo docker run -a stdin -a stdout -i -t XXXXXXXX /bin/bash
+cd -
+vd
+mkdir -p ~/bin/docker/sshd
+mv Dockerfile $_
+c.
+cd.
+cd bin
+cd docker
+tree
+sudo apt-get install tree
+tree
+save
