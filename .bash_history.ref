@@ -405,3 +405,18 @@ tree
 sudo apt-get install tree
 tree
 save
+store
+cd 
+cd XXXXXXXX/
+cd bin
+cd docker
+cd sshd
+cd tmp
+cd 1
+cd bin
+cd docker
+cd sshd
+ls -la
+cat > Dockerfile
+vd
+cd ..
