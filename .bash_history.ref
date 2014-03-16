@@ -306,3 +306,8 @@ ssh root@`lip` -p 49156
 dh run
 vd
 docker run -i -t XXXXXXXX /bin/bash
+sudo docker run -i -t XXXXXXXX /bin/bash
+d0 904d4464d9c2
+dp
+dp 28b7adef0453 22
+vd
