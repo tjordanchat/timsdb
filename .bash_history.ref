@@ -311,3 +311,18 @@ d0 904d4464d9c2
 dp
 dp 28b7adef0453 22
 vd
+sudo docker port test_sshd 22
+d0 28b7adef0453
+d run -d -p 22 eg_sshd /usr/sbin/sshd -D
+sudo docker port test_sshd 22
+dp eg_sshd
+dp eg_sshd 22
+dp pensive_mccarthy 22
+lip
+a da
+dh attach
+da 027c8ef51758
+k1
+d0 027c8ef51758
+d run -d -p 22 eg_sshd /usr/sbin/sshd -D "&&" /bin/bash
+ps
