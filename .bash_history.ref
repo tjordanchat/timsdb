@@ -420,3 +420,17 @@ ls -la
 cat > Dockerfile
 vd
 cd ..
+store
+..
+tree
+cd bin
+tree
+gu
+a g
+g pull
+..
+cd bin
+cd docker
+cp ~/XXXXXXXX/bin/docker/* .
+cp -r ~/XXXXXXXX/bin/docker/* .
+tree
