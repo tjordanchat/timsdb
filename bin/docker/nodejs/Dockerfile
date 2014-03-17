@@ -1,15 +1,17 @@
-# DOCKER-VERSION 0.3.4
-FROM    centos:6.4
+FROM     ubuntu
+MAINTAINER Thatcher R. Peskens "thatcher@dotcloud.com"
 
-# Enable EPEL for Node.js
-RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-# Install Node.js and npm
-RUN     yum install -y npm
+# make sure the package repository is up to date
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
 
-# Bundle app source
+RUN apt-get install -y nodejs
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd 
+RUN echo 'root:screencast' |chpasswd
+
 ADD . /src
-# Install app dependencies
-RUN cd /src; npm install
+EXPOSE  80 22
+RUN    /usr/sbin/sshd -D &
 
-EXPOSE  8080
-CMD ["node", "/src/index.js"]
+CMD /bin/bash

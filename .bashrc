@@ -51,7 +51,9 @@ alias lxa="sudo lxc-attach -n"
 alias lh="history | less -n"
 alias pst="ps afx"
 alias dri='sudo docker rmi $( sudo docker images | grep "^<none>" | awk "{print $3}")'
-alias dr="sudo docker run -d -P -name"
+alias dr="sudo docker run -t -d -P -name "
+alias dsh="sudo docker run -a stdin -a stdout -i -t ubuntu /bin/bash"
+
 alias drm="sudo docker rm"
 alias drmi="sudo docker rmi"
 alias da="sudo docker attach"

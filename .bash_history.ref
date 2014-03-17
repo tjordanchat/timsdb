@@ -434,3 +434,112 @@ cd docker
 cp ~/XXXXXXXX/bin/docker/* .
 cp -r ~/XXXXXXXX/bin/docker/* .
 tree
+store
+cd nodejs
+vd
+vi index.js
+vd
+a db
+pf db
+fp db
+db
+h | egrep build
+db nodejs
+vd
+d0 354426b6fe4a
+drm 354426b6fe4a
+drmi 28c5348f0c28
+cd ../sshd
+d  build -rm -t tXXXXXXXXchat/sshd .
+sudo docker push tXXXXXXXXchat/sshd
+cd ..
+cd nodejs
+db nodejs
+vd
+db nodejs
+sudo docker run -a stdin -a stdout -i -t XXXXXXXX /bin/bash
+dsh
+vd
+db nodejs
+dsh
+vd
+vd
+db nodejs
+vd
+db nodejs
+sudo add-apt-repository
+sudo add-apt-repository ppa:chris-lea/node.js
+add-apt-repository -help
+vd
+db nodejs
+sudo add-apt-repository -y ppa:chris-lea/node.js
+vd
+db nodejs
+which  add-apt-repository
+bsh
+/usr/bin/add-apt-repository
+vd
+db nodejs
+dsh
+vd
+db nodejs
+a dr
+dr nodejs
+dr
+a dr
+h | egrep run
+dr test_node nodejs
+dp test_node 22
+dc -a
+d1 test_node
+dcl
+dc -a
+vd
+dr test_node nodejs
+dp test_node 22
+dp fe8aa2896f92 22
+cd bin
+cd docker
+cd nodejs/
+vd
+dsh
+dcl
+drmi nodejs
+db nodejs
+dr test_ssh sshd
+dr test_ssh tXXXXXXXXchat/sshd
+dp 8c0e302cc9ed 22
+a dr
+dcl
+dr
+dr test_ssh tXXXXXXXXchat/sshd
+dr tXXXXXXXXchat/sshd test_ssh
+h | egrep run
+dh run
+dr test_sshd tXXXXXXXXchat/sshd
+docker run --help
+ssh root@`lip` -p 49172
+dr test_nodejs nodejs
+vd
+drmi 36e183a02fa0
+dcl
+drmi 36e183a02fa0
+c-
+cd -
+-
+vd
+db nodejs
+dcl
+db nodejs
+vd
+db nodejs
+dr test_node nodejs
+vd
+dcl
+drmi 7ed609780833
+db test_node nodejs
+db nodejs
+dr test_node nodejs
+dp nodejs 22
+dp 4dd1c6c0b7bc 22
+ssh root@`lip` -p 49177
