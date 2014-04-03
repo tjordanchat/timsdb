@@ -543,3 +543,56 @@ dr test_node nodejs
 dp nodejs 22
 dp 4dd1c6c0b7bc 22
 ssh root@`lip` -p 49177
+d ps
+git
+cd .ssh
+sudo apt-get install gitolite
+sudo adduser     --system     --shell /bin/bash     --gecos 'git version control'     --group     --disabled-password     --home /home/git     git
+sudo git
+sudo su git
+cd .ssh
+cp id_rsa.pub /tmp/XXXXXXXX.pub
+sudo su git
+myip
+git clone git@`myip`:gitolite-admin.git
+cd gitolite-admin/
+cd keydir
+vi tim.pub
+cat XXXXXXXX.pub 
+cat tim.pub 
+git add tim.pub
+gpom
+g
+sg
+sudo su git
+pw
+cd gitolite-admin/
+cd keydir/
+git add tim.pub
+gpom
+g
+g status
+git commit
+gpom
+sg
+sudu su
+sudo su
+sg
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+juju
+jenkins
+which jenkins
+d0 4dd1c6c0b7bc
+dclean
+ff jenkins.war
+top
+myip
+top
+sudo stop jenkins
+juju deploy jenkins
+sudo apt-get install juju
+juju deploy jenkins
+telnet `myip` 8080
