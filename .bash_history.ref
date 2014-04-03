@@ -596,3 +596,4 @@ juju deploy jenkins
 sudo apt-get install juju
 juju deploy jenkins
 telnet `myip` 8080
+cat >> .bashrc

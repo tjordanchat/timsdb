@@ -398,3 +398,5 @@ function pp {
 trap 'store; exit' 0 15
 ############################################################
 rm "$HOME/.ABORT" 
+alias sv="ssh -v -i /home/tim/.ssh/Nov2013-Amazon-key.pem ubuntu@ec2-54-226-179-107.compute-1.amazonaws.com"
+alias fv="sftp -i   /home/tim/.ssh/Nov2013-Amazon-key.pem ubuntu@ec2-54-226-179-107.compute-1.amazonaws.com"
