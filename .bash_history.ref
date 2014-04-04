@@ -597,3 +597,12 @@ sudo apt-get install juju
 juju deploy jenkins
 telnet `myip` 8080
 cat >> .bashrc
+s
+ps -ef
+ll /usr/share/jenkins/jenkins.war
+myip
+top
+ps -ef
+k9 17527
+ps -ef
+java -jar /usr/share/jenkins/jenkins.war
