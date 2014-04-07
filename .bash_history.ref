@@ -606,3 +606,20 @@ ps -ef
 k9 17527
 ps -ef
 java -jar /usr/share/jenkins/jenkins.war
+myip
+a wp
+nohup java -jar /usr/share/jenkins/jenkins.war &
+sg
+users
+cat /etc/passwd
+sudo su jenkins
+cd gitolite-admin/
+cd keydir
+sudo cp ~XXXXXXXX/.ssh/id_rsa.pub jenkins.pub
+ga jenkins.pub 
+gc
+gpom
+sg
+sudo su jenkins
+sg
+myip
