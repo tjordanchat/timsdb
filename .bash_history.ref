@@ -623,3 +623,4 @@ sg
 sudo su jenkins
 sg
 myip
+sudo su jenkins
