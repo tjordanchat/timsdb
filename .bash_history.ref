@@ -624,3 +624,10 @@ sudo su jenkins
 sg
 myip
 sudo su jenkins
+g
+git co
+git --help
+gh checkout
+git --help checkout
+myip
+sg
