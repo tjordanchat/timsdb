@@ -631,3 +631,13 @@ gh checkout
 git --help checkout
 myip
 sg
+git clone git://git.openssl.org/openssl.git
+cd openssl/
+tree
+cd ssl
+tree
+wc -l *
+ls | wc -l
+wc *
+grep 'n2s(p, payload)' *
+vi t1_lib.c
