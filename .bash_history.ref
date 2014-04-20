@@ -641,3 +641,15 @@ ls | wc -l
 wc *
 grep 'n2s(p, payload)' *
 vi t1_lib.c
+docker -version
+docker -v
+docker update
+docker version
+d update
+sudo apt-get update docker
+sudo apt-get update
+apt-get install docker
+sudo apt-get install docker
+sudo restart
+restart --help
+sudo restart -n
