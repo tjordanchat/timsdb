@@ -10,6 +10,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 RUN apt-get update
 
 RUN apt-get install -y openssh-server
+RUN sed -i '/PasswordAuthentication/s/no/yes/' /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd 
 RUN echo 'root:screencast' |chpasswd
 

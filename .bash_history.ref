@@ -21,3 +21,61 @@ sudo apt-get remove docker
 sudo apt-get update
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 sudo reboot
+ll /usr/lib/apt/methods/https
+sudo apt-key adv --keyserver hkp://keyserver.XXXXXXXX.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb https://get.docker.io/XXXXXXXX docker main\
+> /etc/apt/sources.list.d/docker.list"
+sudo apt-get update
+sudo apt-get install lxc-docker
+cd XXXXXXXX
+cd bin
+cd docker
+cd sshd
+sudo docker build -rm -t eg_sshd .
+dr eg_sshd
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+myip
+ssh root@54.82.243.147 -p 49153
+telnet 54.82.243.147 22
+ssh XXXXXXXX@54.82.243.147 -p 22
+c8
+l8
+ssh XXXXXXXX@54.82.243.147 -p 22
+ssh root@54.82.243.147 -p 22
+sudo vim /etc/ssh/sshd_config
+cd .ssh
+sudo vim /etc/ssh/sshd_con
+sudo vim /etc/ssh/sshd_config
+cp /etc/ssh/sshd_config
+cp /etc/ssh/sshd_config .
+sed -i '/PasswordAuthentication no
+sed -i '/PasswordAuthentication/s/no/yes/' sshd_config
+vi sshd_config 
+cd timsd
+cd XXXXXXXX
+cd bin
+cd docker/
+cd sshd/
+vi Dockerfile 
+dclean
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+dclean
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh XXXXXXXX@`myip` -p 49154
+telnet `myip` 22
+ssh root@`myip` -p 49154
+ssh XXXXXXXX@`myip` -p 49154
+ssh root@`myip` -p 49154
+dclean
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+dclean
+sudo docker build -rm -t eg_sshd .
+sudo docker run -d -P -name test_sshd eg_sshd
+sudo docker port test_sshd 22
+ssh root@`myip` -p 49155
