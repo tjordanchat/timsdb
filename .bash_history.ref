@@ -81,3 +81,15 @@ sudo docker port test_sshd 22
 ssh root@`myip` -p 49155
 sudo apt-get install lxc-docker
 dh
+wget http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-6.2.5-x64.bin
+file *
+x atlassian-jira-6.2.5-x64.bin 
+./atlassian-jira-6.2.5-x64.bin 
+sudo ./atlassian-jira-6.2.5-x64.bin 
+sudo su jira
+ff jira
+cd /opt/atlassian/jira/
+cd bin
+c j
+sudo ./startup.sh 
+myip
