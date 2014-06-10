@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+#
+
+if [ ! $# = 2 ]
+then
+        echo "usage: `basename $0` <workspace> <view map>"
+        exit 1
+fi
+
+p4 workspace -o "$1" >/dev/null
+export P4CLIENT="$1"
+export CS="$( p4 changes -s submitted -m 1 //online/... | awk '{print $2}' )"
+export maps
+for map in $( echo $2 )
+do
+        s="$( echo $map | sed 's#$#@'$CS'#' )"
+        maps="$maps $s"
+done
+
+p4 sync $maps
