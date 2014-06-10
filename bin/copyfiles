@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! $# = 4 ]
+        then
+        echo "usage: $(bsename $0) <workspace> <view paths> <env> <path>"
+        exit 1
+fi
+export envs="~/projects/common/environments"
+
+calcdiff "$1" "$2" | parallel --no-notice -v prsync -O \'-qtt -i ~/.ssh/jj -l jjordan\' -h "$envs/$3" {} "$4"
