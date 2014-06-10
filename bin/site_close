@@ -1,0 +1,5 @@
+pssh -i -l jjordan -h ~/projects/common/environments/$Casino.stg -I <<EOF
+  sed -i 's#^\$appState = "open"#\$appState = "closed"#' ~/protected/global-vars.php
+  egrep appState ~/protected/global-vars.php
+EOF
+#/var/www/protected/global-vars.php 
