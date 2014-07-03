@@ -93,3 +93,6 @@ cd bin
 c j
 sudo ./startup.sh 
 myip
+d -v
+sudo apt-get remove docker
+sudo reboot
