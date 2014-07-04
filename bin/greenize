@@ -1,0 +1,19 @@
+#!/bin/bash
+# Pipe a list of checksums which you want to turn green
+# it will write the name of a script to call piping the 
+# output which you want scanned into it.
+#
+# greenize <<-EOF
+# 888f4b8b789e781215a8ca7b026054de
+# 0eb3878baee10b6a2800696324beae7e
+# ead7277d2cf6cfa24aebd2809a6261aa
+# f5629dda205d098ec1c7660daffada25
+# e23bac9fd80c7ee417a1cfa9d8719926
+# 7604d86f096321f612434321a7a3ef8b
+# 4d641631d2049bf80a367923c59e1a73
+# EOF
+
+sed 's#\(^.*\)$#sed "s/\1/\\\\\\\\\\\\\\e[1;46m\1\\\\\\\\\\\\\\e[0m/" |#' > .green_$$
+echo 'cat | while read t; do echo -e $t; done' >> .green_$$
+chmod +x .green_$$
+echo .green_$$

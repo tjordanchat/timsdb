@@ -1,0 +1,5 @@
+~/bin/calcdiff _RMG  "//online/client_code/RealMoney/client/bin/... //online/client_code/RealMoney/client/environment/gamesys/staging/..." | while read file
+do
+   pscp -h ~/projects/common/environments/$Casino.stg -o '-qtt -i ~/.ssh/jj' \
+       "$file"   
+done
