@@ -2,6 +2,8 @@
 # Pipe a list of checksums which you want to turn green
 # it will write the name of a script to call piping the 
 # output which you want scanned into it.
+# This is good to colorize Jenkins output. Requires color
+# console output plugin.
 #
 # greenize <<-EOF
 # 888f4b8b789e781215a8ca7b026054de
