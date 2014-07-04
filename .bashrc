@@ -36,7 +36,8 @@ PATH=$M2:$PATH
 export a b c d e f g h i j k l m n o p q r s t u v w x y z
 export NODE_PATH="~/node_modules"
 export CDPATH=".:~"
-export PATH=~/bin:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin:/bin:/usr/bin:/usr/local/bin:~/local/bin:~/ThirdParty/android-sdk/tools:~/ThirdParty/android-sdk/platform-tools:~/ThirdParty/jdk1.7.0_07/bin:~/ThirdParty/node-v0.8.12-linux-x64/bin:$PATH
+export GOROOT="$HOME/go"
+export PATH=~/bin:/bin:/usr/bin:/usr/local/bin:$GOROOT/bin:$PATH
 export JAVA_HOME="/usr/lib/jvm/java-1.6.0"
 export ANT_HOME="/usr/share/ant"
 export LC_COLLATE=C
@@ -79,7 +80,6 @@ alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; 
 alias ff="sudo find / -name"
 alias ts="cd; ( sudo nohup /usr/bin/tracd -s -p 80 --basic-auth='MyProject,/home/ec2-user/projects/MyProject/.htpasswd,My Project' /home/ec2-user/projects/MyProject & ) ; cd -"
 alias tk="sudo kill -9 \$( ps -ef | egrep tracd | egrep -v 'nohup|egrep' | awk '\$3 = 1 {print \$2}' )"
-alias tr="tk;ts"
 alias wp="sudo netstat -tulpn>/tmp/wp.$$; sudo ps -ef>>/tmp/wp.$$;less -n /tmp/wp.$$;rm /tmp/wp.$$"
 alias lnm="ls ~/node_modules"
 alias plan="vi ~/.plan;"

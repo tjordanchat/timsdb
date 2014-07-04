@@ -100,3 +100,39 @@ d -v
 sudo apt-get update
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 sudo reboot
+ls /usr/lib/apt/methods/https
+sudo apt-key adv --keyserver hkp://keyserver.XXXXXXXX.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb https://get.docker.io/XXXXXXXX docker main /etc/apt/sources.list.d/docker.list"
+sudo apt-get update
+sudo apt-get install lxc-docker
+d -v
+rm *bin
+cat sshd_config 
+cd XXXXXXXX
+tree
+sudo apt-get install tree
+cd bin
+tree
+cd docker/
+cd sshd/
+cat Dockerfile 
+vi Dockerfile 
+sudo docker build --rm -t eg_sshd
+sudo docker build --rm -t eg_sshd .
+sudo docker run -d -P --name test_sshd eg_sshd
+sudo docker run -d -P --name test_sshd2 eg_sshd
+sudo docker port test_sshd2
+sudo docker port test_sshd2 22
+ssh root@localhost -p 49153
+vi Dockerfile 
+ssh root@localhost -p 49153
+dl
+wget http://golang.org/dl/go1.3.linux-amd64.tar.gz
+extract *gz
+cd go
+vr
+go
+rm *gz
+cat sshd_config 
+rm sshd_config 
+rm .sudo_as_admin_successful 
