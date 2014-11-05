@@ -1,0 +1,63 @@
+#!/bin/bash
+set -x
+MYIP=$( ip route show | sed -n 1p | awk '{ print $NF }' )
+IAM=`whoami`
+MYWD=`pwd`
+sudo cat >> /etc/sudoers <<EOF
+git ALL=(ALL) NOPASSWORD: ALL
+EOF
+sudo service iptables stop
+sudo puppet agent --disable
+sudo mount -o remount,rw /tmp
+curl -O https://downloads-packages.s3.amazonaws.com/centos-6.5/gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
+sudo yum -y install openssh-server
+sudo yum -y install postfix
+sudo service postfix start
+sudo chkconfig postfix on
+sudo rpm -i gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
+sudo cat >  /etc/gitlab/gitlab.rb <<EOF
+# Change the external_url to the address your users will type in their browser
+external_url 'http://$MYIP'
+EOF
+sudo gitlab-ctl reconfigure
+sudo lokkit -s http -s ssh
+sudo yum -y install python python-devel
+sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+sudo yum -y install python-pip
+sudo python-pip install boto
+cat > send_select_s3 <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "XXXXXXXXXXXXXXXXXXXX"
+secretKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+BUCKET_NAME = "XXXXXXXXXXXX"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME) 
+k = Key(bucket)
+k.key=str(sys.argv[1])
+k.set_contents_from_filename(str(sys.argv[1]),reduced_redundancy=True)
+EOF
+chmod +x send_select_s3
+cat > failsafe_backups <<EOF
+#!/bin/bash
+cd ~
+sudo gitlab-rake gitlab:backup:create
+FNAME=`find backups -maxdepth 1 -type f -mtime -1 | sed -n 1p`
+DAY=`date +%A`
+BNAME=$( basename `echo "$FNAME" | sed "s#[0-9][0-9]*#$DAY#"` )
+ln "$FNAME" "$BNAME"
+./send_select_s3 "$BNAME"
+EOF
+chmod +x failsafe_backups
+sudo yum groupinstall "Development tools"
+wget http://pyyaml.org/download/pyyaml/PyYAML-3.11.tar.gz
+tar xvzf PyYAML-3.11.tar.gz
+cd PyYAML-3.11
+python setup.py --with-libyaml install
+python setup.py test
+echo "38 2 * * * /var/opt/gitlab/failsafe_backups" | sudo runuser -l git -c "crontab -"
