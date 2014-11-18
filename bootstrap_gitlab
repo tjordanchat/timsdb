@@ -237,7 +237,7 @@ production: &base
     #
     #   Ex. ou=People,dc=gitlab,dc=example
     #
-    base: 'DC=JBLab,DC=net'
+    base: 'DC=Lab,DC=net'
 
     # Filter LDAP users
     #
@@ -250,13 +250,13 @@ production: &base
     #
     #   Ex. ou=Groups,dc=gitlab,dc=example
     #
-    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=JBLab,DC=net'
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=Lab,DC=net'
 
     # LDAP group of users who should be admins in GitLab
     #
     #   Ex. GLAdmins
     #
-    admin_group: lnxadmins
+    admin_group: admins
 
     # Name of attribute which holds a ssh public key of the user object.
     # If false or nil, SSH key syncronisation will be disabled.
