@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-exec &> >(tee  bootstap_gitlab.out)
+exec &> >(tee  bootstrap_gitlab.out)
 date
 MYIP=$( ip route show | sed -n 1p | awk '{ print $NF }' )
 IAM=`whoami`
@@ -42,13 +42,48 @@ k.key=str(sys.argv[1])
 k.set_contents_from_filename(str(sys.argv[1]),reduced_redundancy=True)
 EOF
 sudo chmod +x /var/opt/gitlab/send_select_s3
+sudo bash -c 'cat > /var/opt/gitlab/retrieve_backup' <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "XXXXXXXXXXXXXXXXXX"
+secretKey = "XXXXXXXXXXXXXXXXXXX"
+BUCKET_NAME = "XXXXXXXXXXXXX"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME)
+i=0
+mylist = []
+for key in bucket.list():
+   if "_gitlab_backup.tar" in key.name:
+      i+=1
+      mylist.append(key.name)
+      print "{line}\t{name}\t{size}\t{modified}".format(
+       line = i,
+       name = key.name,
+       size = key.size,
+       modified = key.last_modified)
+while True:
+   item=input('Enter 1-7: ')
+   if item > 0 and item < 8:
+     break
+print mylist[item-1]
+key = bucket.get_key(mylist[item-1])
+key.get_contents_to_filename('backup.tar')
+EOF
+sudo chmod +x /var/opt/gitlab/retrieve_backup
 sudo bash -c 'cat > /var/opt/gitlab/failsafe_backups' <<EOF
 #!/bin/bash
-cd \~
+cd ~
+set -x
+exec &> >(tee log.out)
 sudo gitlab-rake gitlab:backup:create
-FNAME=\`ls -t backups/\*.tar | sed -n 1p\`
+FNAME=\`ls -t backups/*.tar | sed -n 1p\`
 DAY=\`date +%A\`
-BNAME=\$( basename \`echo "$FNAME" | sed "s#[0-9][0-9]*#$DAY#"\` )
+BNAME=\$( basename \`echo "\$FNAME" | sed "s#[0-9][0-9]*#\$DAY#"\` )
 rm -f "\$BNAME"
 ln "\$FNAME" "\$BNAME"
 ./send_select_s3 "\$BNAME"
@@ -170,12 +205,12 @@ production: &base
   #   bundle exec rake gitlab:ldap:check RAILS_ENV=production
   ldap:
     enabled: true
-    host: 'myhost'
+    host: 'mail.host.com'
     port: 389
     method: 'plain'
     uid: 'sAMAccountName'
-    bind_dn: 'CN=ldap,OU=Service Accounts,OU=Accounts,DC=net'
-    password: 'XXXXXXXX'
+    bind_dn: 'CN=XXXXXXX'
+    password: 'XXXXXXXXXXXXXXXX'
     
     active_directory: true
     
@@ -202,7 +237,7 @@ production: &base
     #
     #   Ex. ou=People,dc=gitlab,dc=example
     #
-    base: 'DC=MyCompany,DC=net'
+    base: 'DC=JBLab,DC=net'
 
     # Filter LDAP users
     #
@@ -215,13 +250,13 @@ production: &base
     #
     #   Ex. ou=Groups,dc=gitlab,dc=example
     #
-    group_base: 'OU=Groups,OU=Accounts,DC=net'
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=JBLab,DC=net'
 
     # LDAP group of users who should be admins in GitLab
     #
     #   Ex. GLAdmins
     #
-    admin_group: admins
+    admin_group: lnxadmins
 
     # Name of attribute which holds a ssh public key of the user object.
     # If false or nil, SSH key syncronisation will be disabled.
