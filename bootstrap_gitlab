@@ -1,4 +1,10 @@
 #!/bin/bash
+echo "Enter Bucket Name: "
+read MY_BUCKET_NAME
+echo "Enter Access Key: "
+read MY_ACCESS_KEY
+echo "Enter Secret Key: "
+read MY_SECRET_KEY
 set -x
 exec &> >(tee  bootstrap_gitlab.out)
 date
@@ -32,9 +38,9 @@ from boto import logging
 from boto.s3.key import Key
 from boto.s3.connection import S3Connection
 logging.getLogger('boto').setLevel(logging.CRITICAL) 
-paccessKey = "XXXXXXXXXXXXXXXXXXXX"
-secretKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-BUCKET_NAME = "XXXXXXXXX"
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
 conn = S3Connection(paccessKey,secretKey)
 bucket = conn.get_bucket(BUCKET_NAME) 
 k = Key(bucket)
@@ -44,15 +50,15 @@ EOF
 sudo chmod +x /var/opt/gitlab/send_select_s3
 sudo bash -c 'cat > /var/opt/gitlab/retrieve_backup' <<EOF
 #!/usr/bin/python
-import datetime, os, sys, glob
+import datetime, os, sys, glob, subprocess
 from boto import connect_s3 
 from boto import logging 
 from boto.s3.key import Key
 from boto.s3.connection import S3Connection
 logging.getLogger('boto').setLevel(logging.CRITICAL) 
-paccessKey = "XXXXXXXXXXXXXXXXXX"
-secretKey = "XXXXXXXXXXXXXXXXXXX"
-BUCKET_NAME = "XXXXXXXXXXXXX"
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
 conn = S3Connection(paccessKey,secretKey)
 bucket = conn.get_bucket(BUCKET_NAME)
 i=0
@@ -66,13 +72,18 @@ for key in bucket.list():
        name = key.name,
        size = key.size,
        modified = key.last_modified)
+print "Enter 1-7: "
+sys.stdout.flush()
+saved_stdin = sys.stdin
+sys.stdin = open('/dev/tty','r')
 while True:
-   item=input('Enter 1-7: ')
+   item=int(raw_input(''))
    if item > 0 and item < 8:
      break
 print mylist[item-1]
 key = bucket.get_key(mylist[item-1])
-key.get_contents_to_filename('backup.tar')
+key.get_contents_to_filename('/var/opt/gitlab/backups/1416382724_gitlab_backup.tar')
+subprocess.call(['gitlab-rake','gitlab:backup:restore'])
 EOF
 sudo chmod +x /var/opt/gitlab/retrieve_backup
 sudo bash -c 'cat > /var/opt/gitlab/failsafe_backups' <<EOF
@@ -205,12 +216,12 @@ production: &base
   #   bundle exec rake gitlab:ldap:check RAILS_ENV=production
   ldap:
     enabled: true
-    host: 'mail.host.com'
+    host: 'ldap.company.com'
     port: 389
     method: 'plain'
     uid: 'sAMAccountName'
-    bind_dn: 'CN=XXXXXXX'
-    password: 'XXXXXXXXXXXXXXXX'
+    bind_dn: 'CN=ldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=Lab,DC=nero'
+    password: 'password'
     
     active_directory: true
     
@@ -237,7 +248,7 @@ production: &base
     #
     #   Ex. ou=People,dc=gitlab,dc=example
     #
-    base: 'DC=Lab,DC=net'
+    base: 'DC=Lab,DC=nero'
 
     # Filter LDAP users
     #
@@ -250,7 +261,7 @@ production: &base
     #
     #   Ex. ou=Groups,dc=gitlab,dc=example
     #
-    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=Lab,DC=net'
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=Lab,DC=nero'
 
     # LDAP group of users who should be admins in GitLab
     #
@@ -378,3 +389,4 @@ staging:
   <<: \*base
 EOF
 sudo gitlab-ctl restart
+sudo /var/opt/gitlab/retrieve_backup
