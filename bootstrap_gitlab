@@ -5,6 +5,8 @@ echo "Enter Access Key: "
 read MY_ACCESS_KEY
 echo "Enter Secret Key: "
 read MY_SECRET_KEY
+echo "Enter Gitlab roor password: "
+read GITLAB_ROOT_PASSWORD
 set -x
 exec &> >(tee  bootstrap_gitlab.out)
 date
@@ -106,7 +108,11 @@ tar xvzf PyYAML-3.11.tar.gz
 cd PyYAML-3.11
 python setup.py --with-libyaml install
 python setup.py test
-echo '38 2 * * * /var/opt/gitlab/failsafe_backups' | sudo runuser -l git -c "crontab -"
+( cat <<EOF
+38 2 * * * /var/opt/gitlab/failsafe_backups
+28 3 * * * /var/opt/gitlab/nightly_backups
+EOF
+) | sudo runuser -l git -c "crontab -"
 rm -f $MYWD/PyYAML-3.11.tar.gz
 rm -rf $MYWD/PyYAML-3.11
 rm -f $MYWD/gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
@@ -220,8 +226,8 @@ production: &base
     port: 389
     method: 'plain'
     uid: 'sAMAccountName'
-    bind_dn: 'CN=ldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=Lab,DC=nero'
-    password: 'password'
+    bind_dn: 'CN=ldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=Lab,DC=net'
+    password: 'ldap_passwd'
     
     active_directory: true
     
@@ -248,7 +254,7 @@ production: &base
     #
     #   Ex. ou=People,dc=gitlab,dc=example
     #
-    base: 'DC=Lab,DC=nero'
+    base: 'DC=Lab,DC=net'
 
     # Filter LDAP users
     #
@@ -261,13 +267,13 @@ production: &base
     #
     #   Ex. ou=Groups,dc=gitlab,dc=example
     #
-    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=Lab,DC=nero'
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=Lab,DC=net'
 
     # LDAP group of users who should be admins in GitLab
     #
     #   Ex. GLAdmins
     #
-    admin_group: admins
+    admin_group: lnxadmins
 
     # Name of attribute which holds a ssh public key of the user object.
     # If false or nil, SSH key syncronisation will be disabled.
@@ -390,3 +396,57 @@ staging:
 EOF
 sudo gitlab-ctl restart
 sudo /var/opt/gitlab/retrieve_backup
+cd ~
+git clone https://github.com/gpocentek/python-gitlab.git
+cd python-gitlab
+sudo python setup.py install
+sudo yum -y install jq
+export GITLAB_PRIVATE_TOKEN=$( curl http://$MYIP/api/v3/session --data "login=root&password=$GITLAB_ROOT_PASSWORD" | jq .private_token )
+sudo bash -c 'cat > /var/opt/gitlab/.python-gitlab.cfg' <<EOF
+[global]
+default = local
+ssl_verify = true
+
+[local]
+url = http://$MYIP
+private_token = $GITLAB_PRIVATE_TOKEN
+
+[distant]
+url = https://$MYIP
+private_token = $GITLAB_PRIVATE_TOKEN
+ssl_verify = false
+EOF
+export BACKUPS=/var/opt/gitlab/BACKUPS
+sudo mkdir $BACKUPS
+sudo bash -c 'cat > /var/opt/gitlab/nightly_backups' <<EOF
+#!/bin/bash
+set -x
+gitlab -v project list | egrep 'ssh-url-to-repo:' | awk '{print \$2}' | while read t
+do
+   [ \`pwd\` = "\$WORKSPACE" ] && rm -rf *
+   git clone \${t}
+   export DIR=\`ls\`
+   cd \${DIR}
+   git ls-remote -h \${t} |
+      awk '{print \$2}' |
+      awk -F/ '{print \$3}' | while read u
+      do
+         git checkout \$u
+      done
+   dow=\`date +%A\`
+   wom=\$(((\$(date +%d)-1)/7+1))
+   moy=\`date +%B\`
+   if git bundle create ../\${DIR}.bundle --all 2>/dev/null
+   then
+      git ls-remote ../\${DIR}.bundle 
+      ln ../\${DIR}.bundle \${DIR}.bundle-\${dow}
+      ln ../\${DIR}.bundle \${DIR}.bundle-\${moy}
+      ln ../\${DIR}.bundle \${DIR}.bundle-week.\${wom}
+      ~/bin/send_select_s3 \${DIR}.bundle-\${dow}
+      ~/bin/send_select_s3 \${DIR}.bundle-\${moy}
+      ~/bin/send_select_s3 \${DIR}.bundle-week.\${wom}
+   fi
+   cd $BACKUPS
+done
+EOF
+sudo chmod +x /var/opt/gitlab/nightly_backups
