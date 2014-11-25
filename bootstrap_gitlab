@@ -222,12 +222,12 @@ production: &base
   #   bundle exec rake gitlab:ldap:check RAILS_ENV=production
   ldap:
     enabled: true
-    host: 'jbeclmdc01.jblab.net'
+    host: 'ldap.company.com'
     port: 389
     method: 'plain'
     uid: 'sAMAccountName'
-    bind_dn: 'CN=gitlabldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=JBLab,DC=net'
-    password: 'JetBlue123!'
+    bind_dn: 'CN=gitlabldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=class,DC=net'
+    password: 'Password'
     
     active_directory: true
     
@@ -254,7 +254,7 @@ production: &base
     #
     #   Ex. ou=People,dc=gitlab,dc=example
     #
-    base: 'DC=JBLab,DC=net'
+    base: 'DC=class,DC=net'
 
     # Filter LDAP users
     #
@@ -267,7 +267,7 @@ production: &base
     #
     #   Ex. ou=Groups,dc=gitlab,dc=example
     #
-    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=JBLab,DC=net'
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=class,DC=net'
 
     # LDAP group of users who should be admins in GitLab
     #
