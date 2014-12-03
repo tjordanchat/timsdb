@@ -1,4 +1,5 @@
 syntax on
+set background=light
 inoremap @@ <esc>
 set vb nu ai
 set noet ci pi sts=0 sw=4 ts=4
@@ -12,7 +13,6 @@ let maplocalleader=','        " all my macros start with ,
 nmap <LocalLeader>m *
 nmap <LocalLeader>x :w!<cr>:!H=%;J=${H\%.eag};/usr/local/bin/eag-compile $J && /usr/local/bin/eagcc ${J}_leftcorner && ( mv ${J}_leftcorner && rm ${J}_leftcorner.c; rm ${J}_leftcorner.o)<cr>
 
-set background=dark
 set ruler                     " show the line number on the bar
 set more                      " use more prompt
 set autoread                  " watch for file CHANGEs

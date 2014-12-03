@@ -38,13 +38,11 @@ export NODE_PATH="~/node_modules"
 export CDPATH=".:~"
 export GOROOT="$HOME/go"
 export PATH=~/bin:/bin:/usr/bin:/usr/local/bin:$GOROOT/bin:$PATH
-export JAVA_HOME="/usr/lib/jvm/java-1.6.0"
-export ANT_HOME="/usr/share/ant"
 export LC_COLLATE=C
-export PYTHONPATH="$HOME/local:/usr/lib/python2.6:/usr/lib/pymodules:$HOME/local/lib/python2.6/site-packages"
-#export PYTHONPATH="~/local:/usr/lib/python2.6:/usr/share/pyshared:/usr/lib/pyshared:/usr/lib/pymodules:~/local/lib/python2.6/site-packages"
 export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
+export JRE_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/jre"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home"
 
 # some aliases
 alias dcn="sudo docker ps -notrunc"
@@ -137,8 +135,8 @@ alias k7="kill -9 %7"
 alias k8="kill -9 %8"
 alias k9="sudo kill -9"
 alias la='ls -A'
-alias ll='ls -la --color --group-directories-first'
-alias l='ls -CFxa --color --group-directories-first'
+alias ll='ls -la -G'
+alias l='ls -CFxaG'
 alias m="java mocha.Decompiler"
 alias mn=makensis
 alias .b='. ~/.bashrc'
@@ -156,35 +154,30 @@ alias find.="find . -name"
 alias less="less -N"
 alias q="vi ~/bin/.load_prerequisites"
 alias s=store
+alias wn="route get default | grep interface"
+alias t1="tree -L 1 -a -p"
+alias t2="tree -L 2 -a -p"
+alias t3="tree -L 3 -a -p"
+alias t4="tree -L 4 -a -p"
 
+export wifi="$(route get default | grep interface | awk '{print $2}')"
+
+title () {
+	echo -n "\033]0;$1\007"
+}
+
+echo ===================================================
+export myip="$( ifconfig $wifi | egrep netmask | awk '{print $2}' )"
+
+nodis () {
+	cd /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources
+	sudo ./airport $wifi prefs DisconnectOnLogout=NO
+	cd -
+}
+nodis
 #######################################################################
 
 set -o vi
-
-dcl () {
-	# remove containers
-	sudo docker stop $(sudo docker ps -a -q)
-	sudo docker rm $(sudo docker ps -a -q)
-}
-
-dclean () {
-	#first containers
-	sudo docker stop $(sudo docker ps -a -q)
-	sudo docker rm $(sudo docker ps -a -q)
-	#then images
-	sudo docker stop $(sudo docker ps -a -q)
-	sudo docker rm $(sudo docker ps -a -q)
-	sudo docker rmi $(sudo docker images -a -q)
-}
-
-db () {
-	if [ ! $# = 1 ]
-	then
-		echo "usage: db name"
-		return 1
-	fi
-	sudo docker build -rm -t $1 .
-}
 
 nse () {
 	sudo nsenter -m -u -i -n -p -t $1 -r -w -- /bin/su -
@@ -210,10 +203,7 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
-
-dcr () {
-        while [ '$PWD' != "/" ] ; do if [ -d .dotcloud ] ; then return; else cd ..; fi; done
-}
+echo ===================================================
 
 function cdd {
         if [ $# -lt 1 ]
@@ -278,12 +268,7 @@ function f {
 }
 
 
-function sdkm {
-  cd ~/ThirdParty/android-sdk
-  java -Xmx256M -Dcom.android.sdkmanager.toolsdir=~/ThirdParty/android-sdk/tools -classpath ~/ThirdParty/android-sdk/tools/lib/sdkmanager.jar:~/ThirdParty/android-sdk/tools/lib/swtmenubar.jar:~/ThirdParty/android-sdk/tools/lib/x86_64/swt.jar com.android.sdkmanager.Main update sdk --no-ui
-  cd -
-}
-PROMPT_COMMAND='export O=$?;[ ! $O = 0 ] && PS1="$USER:\W:$O> " || PS1="$USER:\W> ";history -a ; printf %s "$PWD" > ~/.cdrc'
+PROMPT_COMMAND='export O=$?;[ ! $O = 0 ] && PS1="Apple:\W:$O> " || PS1="Apple:\W> ";history -a ; printf %s "$PWD" > ~/.cdrc'
 
 shopt -s histappend
 shopt -s cmdhist
@@ -395,8 +380,21 @@ function pp {
 }
 
 ############################################################
-trap 'store; exit' 0 15
+###trap 'store; exit' 0 15
 ############################################################
 rm "$HOME/.ABORT" 
-alias sv="ssh -v -i /home/tim/.ssh/Nov2013-Amazon-key.pem ubuntu@ec2-54-226-179-107.compute-1.amazonaws.com"
-alias fv="sftp -i   /home/tim/.ssh/Nov2013-Amazon-key.pem ubuntu@ec2-54-226-179-107.compute-1.amazonaws.com"
+export MIP="54.163.69.232"
+alias sv="ssh -i ~/.ssh/11-2014.pem ec2-user@$MIP"
+alias fv="sftp -i ~/.ssh/11-2014.pem ec2-user@$MIP"
+alias s32="ssh 10.156.74.32"
+alias f32="sftp 10.156.74.32"
+alias s1="ssh 10.156.74.30"
+alias f1="sftp 10.156.74.30"
+alias s2="ssh 10.156.74.122"
+alias f2="sftp 10.156.74.122"
+alias s3="ssh 10.156.74.128"
+alias f3="sftp 10.156.74.128"
+alias s4="ssh 10.156.74.213"
+alias f4="sftp 10.156.74.213"
+alias s5="ssh 10.156.74.47"
+alias f5="sftp 10.156.74.47"

@@ -1,0 +1,13 @@
+on run {input}
+   set the_path to POSIX path of input
+   set cmd to "vim " & quoted form of the_path
+   tell application "System Events" to set terminalIsRunning to exists application process "Terminal"
+   tell application "Terminal"
+      activate
+      if terminalIsRunning is true then
+         do script with command cmd
+      else
+         do script with command cmd in window 1
+      end if
+   end tell
+end run
