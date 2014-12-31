@@ -1,6 +1,3 @@
-# On branch develop
-nothing to commit (working directory clean)
-47:bre-administration:1> cat bootstrap_nexus 
 #!/bin/bash
 echo "Enter Bucket Name: "
 read MY_BUCKET_NAME
