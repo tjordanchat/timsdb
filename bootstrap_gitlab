@@ -1,0 +1,454 @@
+#!/bin/bash
+echo "Enter Bucket Name: "
+read MY_BUCKET_NAME
+echo "Enter Access Key: "
+read MY_ACCESS_KEY
+echo "Enter Secret Key: "
+read MY_SECRET_KEY
+echo "Enter Gitlab roor password: "
+read GITLAB_ROOT_PASSWORD
+set -x
+exec &> >(tee  bootstrap_gitlab.out)
+date
+MYIP=$( ip route show | sed -n 1p | awk '{ print $NF }' )
+IAM=`whoami`
+MYWD=`pwd`
+sudo service iptables stop
+sudo puppet agent --disable
+sudo mount -o remount,rw /tmp
+curl -O https://downloads-packages.s3.amazonaws.com/centos-6.5/gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
+sudo yum -y install openssh-server
+sudo yum -y install postfix
+sudo service postfix start
+sudo chkconfig postfix on
+sudo rpm -i gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
+sudo bash -c 'cat >  /etc/gitlab/gitlab.rb' <<EOF
+# Change the external_url to the address your users will type in their browser
+external_url 'http://$MYIP'
+EOF
+sudo gitlab-ctl reconfigure
+sudo lokkit -s http -s ssh
+sudo yum -y install python python-devel
+sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+sudo yum -y install python-pip
+sudo python-pip install boto
+sudo bash -c 'cat > /var/opt/gitlab/send_select_s3' <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME) 
+k = Key(bucket)
+k.key=str(sys.argv[1])
+k.set_contents_from_filename(str(sys.argv[1]),reduced_redundancy=True)
+EOF
+sudo chmod +x /var/opt/gitlab/send_select_s3
+sudo bash -c 'cat > /var/opt/gitlab/retrieve_backup' <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob, subprocess
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME)
+i=0
+mylist = []
+for key in bucket.list():
+   if "_gitlab_backup.tar" in key.name:
+      i+=1
+      mylist.append(key.name)
+      print "{line}\t{name}\t{size}\t{modified}".format(
+       line = i,
+       name = key.name,
+       size = key.size,
+       modified = key.last_modified)
+print "Enter 1-7: "
+sys.stdout.flush()
+saved_stdin = sys.stdin
+sys.stdin = open('/dev/tty','r')
+while True:
+   item=int(raw_input(''))
+   if item > 0 and item < 8:
+     break
+print mylist[item-1]
+key = bucket.get_key(mylist[item-1])
+key.get_contents_to_filename('/var/opt/gitlab/backups/1416382724_gitlab_backup.tar')
+subprocess.call(['gitlab-rake','gitlab:backup:restore'])
+EOF
+sudo chmod +x /var/opt/gitlab/retrieve_backup
+sudo bash -c 'cat > /var/opt/gitlab/failsafe_backups' <<EOF
+#!/bin/bash
+cd ~
+set -x
+exec &> >(tee log.out)
+sudo gitlab-rake gitlab:backup:create
+FNAME=\`ls -t backups/*.tar | sed -n 1p\`
+DAY=\`date +%A\`
+BNAME=\$( basename \`echo "\$FNAME" | sed "s#[0-9][0-9]*#\$DAY#"\` )
+rm -f "\$BNAME"
+ln "\$FNAME" "\$BNAME"
+./send_select_s3 "\$BNAME"
+EOF
+sudo chmod +x /var/opt/gitlab/failsafe_backups
+sudo yum -y groupinstall "Development tools"
+wget http://pyyaml.org/download/pyyaml/PyYAML-3.11.tar.gz
+tar xvzf PyYAML-3.11.tar.gz
+cd PyYAML-3.11
+python setup.py --with-libyaml install
+python setup.py test
+( cat <<EOF
+38 2 * * * /var/opt/gitlab/failsafe_backups
+28 3 * * * /var/opt/gitlab/nightly_backups
+EOF
+) | sudo runuser -l git -c "crontab -"
+rm -f $MYWD/PyYAML-3.11.tar.gz
+rm -rf $MYWD/PyYAML-3.11
+rm -f $MYWD/gitlab-7.3.1_omnibus-1.el6.x86_64.rpm
+sudo bash -c 'cat > /var/opt/gitlab/gitlab-rails/etc/gitlab.yml' <<EOF
+# This file is managed by gitlab-ctl. Manual changes will be
+# erased! To change the contents below, edit /etc/gitlab/gitlab.rb
+# and run sudo gitlab-ctl reconfigure.
+
+production: &base
+  #
+  # 1. GitLab app settings
+  # ==========================
+
+  ## GitLab settings
+  gitlab:
+    ## Web server settings (note: host is the FQDN, do not include http://)
+    host: $MYIP
+    port: 80
+    https: false
+
+    # Uncommment this line below if your ssh host is different from HTTP/HTTPS one
+    # (you'd obviously need to replace ssh.host_example.com with your own host).
+    # Otherwise, ssh host will be set to the `host:` value above
+    ssh_host: 
+
+    # WARNING: See config/application.rb under "Relative url support" for the list of
+    # other files that need to be changed for relative url support
+    # relative_url_root: /gitlab
+
+    # Uncomment and customize if you can't use the default user to run GitLab (default: 'git')
+    user: git
+
+    ## Email settings
+    # Email address used in the "From" field in mails sent by GitLab
+    email_from: gitlab@$MYIP
+
+    # Email server smtp settings are in [a separate file](initializers/smtp_settings.rb.sample).
+
+    ## User settings
+    default_projects_limit: 
+    default_can_create_group:   # default: true
+    username_changing_enabled:  # default: true - User can change her username/namespace
+    ## Default theme
+    ##   BASIC  = 1
+    ##   MARS   = 2
+    ##   MODERN = 3
+    ##   GRAY   = 4
+    ##   COLOR  = 5
+    default_theme:  # default: 2
+
+    ## Users can create accounts
+    # This also allows normal users to sign up for accounts themselves
+    # default: false - By default GitLab administrators must create all new accounts
+    signup_enabled: 
+
+    ## Standard login settings
+    # The standard login can be disabled to force login via LDAP
+    # default: true - If set to false the standard login form won't be shown on the sign-in page
+    signin_enabled: 
+
+    # Restrict setting visibility levels for non-admin users.
+    # The default is to allow all levels.
+    restricted_visibility_levels: 
+
+    ## Automatic issue closing
+    # If a commit message matches this regular expression, all issues referenced from the matched text will be closed.
+    # This happens when the commit is pushed or merged into the default branch of a project.
+    # When not specified the default issue_closing_pattern as specified below will be used.
+    # Tip: you can test your closing pattern at http://rubular.com
+    # issue_closing_pattern: '([Cc]lose[sd]\|[Ff]ixe[sd]) +#\d+'
+    issue_closing_pattern: 
+
+    ## Default project features settings
+    default_projects_features:
+      issues: 
+      merge_requests: 
+      wiki: 
+      snippets: 
+      visibility_level:   # can be "private" \| "internal" \| "public"
+
+    ## Webhook settings
+    # Number of seconds to wait for HTTP response after sending webhook HTTP POST request (default: 10)
+    webhook_timeout: 
+
+    ## Repository downloads directory
+    # When a user clicks e.g. 'Download zip' on a project, a temporary zip file is created in the following directory.
+    # The default is 'tmp/repositories' relative to the root of the Rails app.
+    repository_downloads_path: 
+
+  ## External issues trackers
+  issues_tracker:
+
+
+  ## Gravatar
+  gravatar:
+    enabled: true            # Use user avatar image from Gravatar.com (default: true)
+    # gravatar urls: possible placeholders: %{hash} %{size} %{email}
+    plain_url:      # default: http://www.gravatar.com/avatar/%{hash}?s=%{size}\&d=identicon
+    ssl_url:       # default: https://secure.gravatar.com/avatar/%{hash}?s=%{size}\&d=identicon
+
+  #
+  # 2. Auth settings
+  # ==========================
+
+  ## LDAP settings
+  # You can inspect a sample of the LDAP users with login access by running:
+  #   bundle exec rake gitlab:ldap:check RAILS_ENV=production
+  ldap:
+    enabled: true
+    host: 'ldap.company.com'
+    port: 389
+    method: 'plain'
+    uid: 'sAMAccountName'
+    bind_dn: 'CN=gitlabldap,OU=Service Accounts,OU=Accounts,OU=New AD Structure,DC=class,DC=net'
+    password: 'Password'
+    
+    active_directory: true
+    
+    # This setting controls the amount of time between LDAP permission checks for each user.
+    # After this time has expired for a given user, their next interaction with GitLab (a click in the web UI, a git pull etc.) will be slower because the LDAP permission check is being performed.
+    # How much slower depends on your LDAP setup, but it is not uncommon for this check to add seconds of waiting time.
+    # The default value is to have a 'slow click' once every 3600 seconds, i.e. once per hour.
+    #
+    # Warning: if you set this value too low, every click in GitLab will be a 'slow click' for all of your LDAP users.
+    sync_time: 
+
+    # If allow_username_or_email_login is enabled, GitLab will ignore everything
+    # after the first '@' in the LDAP username submitted by the user on login.
+    #
+    # Example:
+    # - the user enters 'jane.doe@example.com' and 'p@ssw0rd' as LDAP credentials;
+    # - GitLab queries the LDAP server with 'jane.doe' and 'p@ssw0rd'.
+    #
+    # If you are using "uid: 'userPrincipalName'" on ActiveDirectory you need to
+    # disable this setting, because the userPrincipalName contains an '@'.
+    allow_username_or_email_login: true
+
+    # Base where we can search for users
+    #
+    #   Ex. ou=People,dc=gitlab,dc=example
+    #
+    base: 'DC=class,DC=net'
+
+    # Filter LDAP users
+    #
+    #   Format: RFC 4515
+    #   Ex. (employeeType=developer)
+    #
+    user_filter:
+
+    # Base where we can search for groups
+    #
+    #   Ex. ou=Groups,dc=gitlab,dc=example
+    #
+    group_base: 'OU=Groups,OU=Accounts,OU=New AD Structure,DC=class,DC=net'
+
+    # LDAP group of users who should be admins in GitLab
+    #
+    #   Ex. GLAdmins
+    #
+    admin_group: lnxadmins
+
+    # Name of attribute which holds a ssh public key of the user object.
+    # If false or nil, SSH key syncronisation will be disabled.
+    #
+    #   Ex. sshpublickey
+    #
+    sync_ssh_keys: 
+
+  ## OmniAuth settings
+  omniauth:
+    # Allow login via Twitter, Google, etc. using OmniAuth providers
+    enabled: false
+
+    # CAUTION!
+    # This allows users to login without having a user account first (default: false).
+    # User accounts will be created automatically when authentication was successful.
+    allow_single_sign_on: 
+    # Locks down those users until they have been cleared by the admin (default: true).
+    block_auto_created_users: 
+
+    ## Auth providers
+    # Uncomment the following lines and fill in the data of the auth provider you want to use
+    # If your favorite auth provider is not listed you can use others:
+    # see https://github.com/gitlabhq/gitlab-public-wiki/wiki/Custom-omniauth-provider-configurations
+    # The 'app_id' and 'app_secret' parameters are always passed as the first two
+    # arguments, followed by optional 'args' which can be either a hash or an array.
+    # Documentation for this is available at http://doc.gitlab.com/ce/integration/omniauth.html
+    providers:
+      # - { name: 'google_oauth2', app_id: 'YOUR APP ID',
+      #     app_secret: 'YOUR APP SECRET',
+      #     args: { access_type: 'offline', approval_prompt: '' } }
+      # - { name: 'twitter', app_id: 'YOUR APP ID',
+      #     app_secret: 'YOUR APP SECRET'}
+      # - { name: 'github', app_id: 'YOUR APP ID',
+      #     app_secret: 'YOUR APP SECRET',
+      #     args: { scope: 'user:email' } }
+
+
+
+  #
+  # 3. Advanced settings
+  # ==========================
+
+  # GitLab Satellites
+  satellites:
+    # Relative paths are relative to Rails.root (default: tmp/repo_satellites/)
+    path: /var/opt/gitlab/git-data/gitlab-satellites
+    timeout: 
+
+  ## Backup settings
+  backup:
+    path: "/var/opt/gitlab/backups"   # Relative paths are relative to Rails.root (default: tmp/backups/)
+    keep_time:    # default: 0 (forever) (in seconds)
+
+  ## GitLab Shell settings
+  gitlab_shell:
+    path: /opt/gitlab/embedded/service/gitlab-shell/
+
+    # REPOS_PATH MUST NOT BE A SYMLINK!!!
+    repos_path: /var/opt/gitlab/git-data/repositories
+    hooks_path: /opt/gitlab/embedded/service/gitlab-shell/hooks/
+
+    # Git over HTTP
+    upload_pack: 
+    receive_pack: 
+
+    # If you use non-standard ssh port you need to specify it
+    ssh_port: 
+
+  ## Git settings
+  # CAUTION!
+  # Use the default values unless you really know what you are doing
+  git:
+    bin_path: /opt/gitlab/embedded/bin/git
+    # The next value is the maximum memory size grit can use
+    # Given in number of bytes per git object (e.g. a commit)
+    # This value can be increased if you have very large commits
+    max_size: 
+    # Git timeout to read a commit, in seconds
+    timeout: 
+
+  #
+  # 4. Extra customization
+  # ==========================
+
+  extra:
+
+
+
+development:
+  <<: \*base
+
+test:
+  <<: \*base
+  gravatar:
+    enabled: true
+  gitlab:
+    host: localhost
+    port: 80
+
+    # When you run tests we clone and setup gitlab-shell
+    # In order to setup it correctly you need to specify
+    # your system username you use to run GitLab
+    # user: YOUR_USERNAME
+  satellites:
+    path: tmp/tests/gitlab-satellites/
+  gitlab_shell:
+    path: tmp/tests/gitlab-shell/
+    repos_path: tmp/tests/repositories/
+    hooks_path: tmp/tests/gitlab-shell/hooks/
+  issues_tracker:
+    redmine:
+      title: "Redmine"
+      project_url: "http://redmine/projects/:issues_tracker_id"
+      issues_url: "http://redmine/:project_id/:issues_tracker_id/:id"
+      new_issue_url: "http://redmine/projects/:issues_tracker_id/issues/new"
+
+staging:
+  <<: \*base
+EOF
+sudo gitlab-ctl restart
+sudo chown git:git /var/opt/gitlab
+sudo /var/opt/gitlab/retrieve_backup
+cd ~
+git clone https://github.com/gpocentek/python-gitlab.git
+cd python-gitlab
+sudo python setup.py install
+sudo yum -y install jq
+export GITLAB_PRIVATE_TOKEN=$( curl http://$MYIP/api/v3/session --data "login=root&password=$GITLAB_ROOT_PASSWORD" | jq .private_token )
+sudo bash -c 'cat > /var/opt/gitlab/.python-gitlab.cfg' <<EOF
+[global]
+default = local
+ssl_verify = true
+
+[local]
+url = http://$MYIP
+private_token = $GITLAB_PRIVATE_TOKEN
+
+[distant]
+url = https://$MYIP
+private_token = $GITLAB_PRIVATE_TOKEN
+ssl_verify = false
+EOF
+export BACKUPS=/var/opt/gitlab/BACKUPS
+sudo mkdir $BACKUPS
+sudo bash -c 'cat > /var/opt/gitlab/nightly_backups' <<EOF
+#!/bin/bash
+set -x
+gitlab -v project list | egrep 'ssh-url-to-repo:' | awk '{print \$2}' | while read t
+do
+   [ \`pwd\` = "\$WORKSPACE" ] && rm -rf *
+   git clone \${t}
+   export DIR=\`ls\`
+   cd \${DIR}
+   git ls-remote -h \${t} |
+      awk '{print \$2}' |
+      awk -F/ '{print \$3}' | while read u
+      do
+         git checkout \$u
+      done
+   dow=\`date +%A\`
+   wom=\$(((\$(date +%d)-1)/7+1))
+   moy=\`date +%B\`
+   if git bundle create ../\${DIR}.bundle --all 2>/dev/null
+   then
+      git ls-remote ../\${DIR}.bundle 
+      ln ../\${DIR}.bundle \${DIR}.bundle-\${dow}
+      ln ../\${DIR}.bundle \${DIR}.bundle-\${moy}
+      ln ../\${DIR}.bundle \${DIR}.bundle-week.\${wom}
+      ~/bin/send_select_s3 \${DIR}.bundle-\${dow}
+      ~/bin/send_select_s3 \${DIR}.bundle-\${moy}
+      ~/bin/send_select_s3 \${DIR}.bundle-week.\${wom}
+   fi
+   cd $BACKUPS
+done
+EOF
+sudo chmod +x /var/opt/gitlab/nightly_backups
+

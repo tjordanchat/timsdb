@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "Enter Bucket Name: "
+read MY_BUCKET_NAME
+echo "Enter Access Key: "
+read MY_ACCESS_KEY
+echo "Enter Secret Key: "
+read MY_SECRET_KEY
+echo "Enter Gitlab roor password: "
+read GITLAB_ROOT_PASSWORD
+set -x
+exec &> >(tee  bootstrap_gitlab.out)
+date
+MYIP=$( ip route show | sed -n 1p | awk '{ print $NF }' )
+cd
+pwd
+wget http://download.sonatype.com/nexus/oss/nexus-2.9.2-bundle.tar.gz
+sudo tar xvzf nexus-2.9.2-bundle.tar.gz -C /usr/local
+rm nexus-2.9.2-bundle.tar.gz
+cd /usr/local
+sudo ln -s nexus-2.9.2-01 nexus
+sudo service iptables stop
+sudo yum -y install java-1.7.0-openjdk
+sudo adduser nexus
+sudo chown -R nexus:nexus /usr/local/sonatype-work
+sudo chown -R nexus:nexus /usr/local/nexus-2.9.2-01
+sudo chown -R nexus:nexus /usr/local/nexus
+sudo cp /usr/local/nexus/bin/nexus /etc/init.d
+sudo chmod 755 /etc/init.d/nexus
+sudo chkconfig --add nexus
+sudo chkconfig --level 345 nexus on
+sudo runuser -l nexus -c "export JAVA_HOME=/usr/lib/jvm/jre-1.7.0-openjdk.x86_64; cd /usr/local/nexus; /usr/local/nexus/bin/nexus console"
+#sudo service nexus start
+

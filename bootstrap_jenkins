@@ -1,0 +1,115 @@
+#!/bin/bash
+echo "Enter Bucket Name: "
+read MY_BUCKET_NAME
+echo "Enter Access Key: "
+read MY_ACCESS_KEY
+echo "Enter Secret Key: "
+read MY_SECRET_KEY
+echo "Enter Gitlab root Password: "
+read MY_GITLAB_PASSWORD
+set -x
+exec &> >(tee  bootstrap_jenkins.out)
+date
+MYIP=$( ip route show | sed -n 1p | awk '{ print $NF }' )
+sudo mount -o remount,exec /tmp
+sudo service iptables stop
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum -y install jenkins
+sudo yum -y install libgcc_s.so.1
+sudo yum -y install java
+sudo rpm -iUv jdk-7u67-linux-i586.rpm 
+sudo rpm -e jdk-1.7.0_67-fcs.i586
+#################### Which build environment do I build ?
+sudo yum -y install python python-devel
+sudo rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+sudo yum -y install python-pip
+sudo python-pip install boto
+sudo bash -c 'cat > /var/lib/jenkins/send_select_s3' <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME) 
+k = Key(bucket)
+k.key=str(sys.argv[1])
+k.set_contents_from_filename(str(sys.argv[1]),reduced_redundancy=True)
+EOF
+sudo chmod +x /var/lib/jenkins/send_select_s3
+sudo chmod 700 /var/lib/jenkins/send_select_s3
+sudo bash -c 'cat > /var/lib/jenkins/jenkins_retrieve_backup' <<EOF
+#!/usr/bin/python
+import datetime, os, sys, glob, subprocess
+from boto import connect_s3 
+from boto import logging 
+from boto.s3.key import Key
+from boto.s3.connection import S3Connection
+logging.getLogger('boto').setLevel(logging.CRITICAL) 
+paccessKey = "$MY_ACCESS_KEY"
+secretKey = "$MY_SECRET_KEY"
+BUCKET_NAME = "$MY_BUCKET_NAME"
+conn = S3Connection(paccessKey,secretKey)
+bucket = conn.get_bucket(BUCKET_NAME)
+i=0
+mylist = []
+for key in bucket.list():
+   if "jenkins_backup_" in key.name:
+      i+=1
+      mylist.append(key.name)
+      print "{line}\t{name}\t{size}\t{modified}".format(
+       line = i,
+       name = key.name,
+       size = key.size,
+       modified = key.last_modified)
+print "Enter 1-7: "
+sys.stdout.flush()
+saved_stdin = sys.stdin
+sys.stdin = open('/dev/tty','r')
+while True:
+   item=int(raw_input(''))
+   if item > 0 and item < 8:
+     break
+print mylist[item-1]
+key = bucket.get_key(mylist[item-1])
+key.get_contents_to_filename('/var/lib/jenkins/jenkins_backup.tgz')
+EOF
+sudo chmod +x /var/lib/jenkins/jenkins_retrieve_backup
+sudo chmod 700 /var/lib/jenkins/jenkins_retrieve_backup
+sudo bash -c 'cat > /var/lib/jenkins/jenkins_failsafe_backups' <<EOF
+#!/bin/bash
+cd ~
+set -x
+exec &> >(tee jenkins_log.out)
+DOW=\`date +%A\`
+BNAME="/tmp/jenkins_backup_\$DOW"
+sudo tar czvf \$BNAME ~jenkins
+cd /tmp
+sudo /var/lib/jenkins/send_select_s3 jenkins_backup_\$DOW
+sudo rm "\$BNAME"
+EOF
+sudo chmod +x /var/lib/jenkins/jenkins_failsafe_backups
+( cat <<EOF
+15 2 * * * /var/lib/jenkins/jenkins_failsafe_backups
+EOF
+) | sudo runuser -l jenkins -c "crontab -"
+sudo chmod +x /var/lib/jenkins/jenkins_failsafe_backups
+sudo chown jenkins:jenkins /var/lib/jenkins/jenkins_failsafe_backups
+sudo sed -ri 's#^jenkins:(.*):/bin/false#jenkins:\1:/bin/bash#' /etc/passwd
+sudo /var/lib/jenkins/jenkins_retrieve_backup
+sudo chmod 700 /var/lib/jenkins/jenkins_backup.tgz
+sudo mkdir /tmp/jenkins_$$
+sudo cp /var/lib/jenkins/jenkins_retrieve_backup /var/lib/jenkins/jenkins_failsafe_backups /tmp/jenkins_$$
+sudo cp /var/lib/jenkins/send_select_s3 /var/lib/jenkins/jenkins_backup.tgz /tmp/jenkins_$$
+cd /var/lib/jenkins
+sudo tar tzvf /tmp/jenkins_$$/jenkins_backup.tgz
+sudo rm -f /tmp/jenkins_$$/jenkins_backup.tgz
+sudo cp /tmp/jenkins_$$/* /var/lib/jenkins
+sudo rm -rf /tmp/jenkins_$$
+sudo service jenkins start
