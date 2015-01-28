@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /root/AutoCheckin/src
+buildear -s -ear /opt/tibco/AutoCheckin/src/AutoCheckIn/Deployments/ACI-CheckinProcessor.archive  -p /root/AutoCheckin/src/AutoCheckIn

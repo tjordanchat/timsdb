@@ -1,0 +1,135 @@
+#
+# Copyright (c) 2003-2004 TIBCO Software Inc.
+# All Rights Reserved.
+#
+# This software is the confidential and proprietary information of
+# TIBCO Software Inc.
+#
+#==========================================================
+# *** Common variables. Modify these only. ***
+#==========================================================
+#
+tibco.env.PSP=:
+tibco.env.psp=:
+tibco.env.TIB_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco
+tibco.env.JVM_LIB_PATH=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tibcojre64/1.7.0/lib/amd64/server/libjvm.so
+tibco.env.JVM_LIB_DIR=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tibcojre64/1.7.0/lib/amd64
+tibco.env.JVM_LIB_SERVER_DIR=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tibcojre64/1.7.0/lib/amd64/server
+tibco.env.RV_HOME=/opt/tibco/DSEngine/work/tibco/tibrv/8.4
+tibco.env.TIB_JAVA_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tibcojre64/1.7.0
+tibco.env.TPCL_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tpcl/5.8
+tibco.env.TRA_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tra/5.8
+tibco.env.TRA_APPEND_VERSION=5.8
+tibco.env.HAWK_HOME=/opt/tibco/DSEngine/work/tibco/hawk/4.9
+tibco.env.BW_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/bw/5.11
+tibco.env.BW_PLUGINS_HOME=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/bw/plugins
+
+#
+# Other arguments to application, JVM etc.
+#
+tibco.env.APP_ARGS=
+tibco.env.HEAP_SIZE=512M
+
+#
+# Customizable Classpath information...
+#    e.g g:/a1/b1;d:/a2/b2/c.jar
+#    All classes and jars in these directories will be automatically picked
+#    up. You can also specify individual files. Use forward slashes only.
+#
+tibco.env.CUSTOM_EXT_PREPEND_CP=/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/bw/5.11/hotfix/lib%psp%%TRA_HOME%/hotfix/lib%PSP%%RV_HOME%/lib/tibrvnative.jar%PSP%%RV_HOME%/lib/tibrvnativesd.jar:%RV_HOME%/lib/64:%TPCL_HOME%/lib/mail.jar:%TRA_HOME%/lib/TIBCrypt.jar:%TRA_HOME%/lib/TIBCOjms.jar:/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/bw/5.11/lib/palettes:/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/bw/5.11/lib
+
+tibco.env.CUSTOM_EXT_APPEND_CP=%BW_PLUGINS_HOME%/lib
+
+#
+#==========================================================
+# *** Do NOT modify beyond this line ***
+#==========================================================
+#
+# TIBCO standard classpath
+#
+tibco.env.STD_EXT_CP=%TIB_JAVA_HOME%/lib:%BW_HOME%/hotfix/lib:%BW_HOME%/lib:%BW_HOME%/lib/palettes:%BW_PLUGINS_HOME%/lib:%BW_PLUGINS_HOME%/lib/palettes:%TRA_HOME%/hotfix/lib:%TRA_HOME%/lib:%TRA_HOME%/hotfix/lib/palettes:%TRA_HOME%/lib/palettes:%TRA_HOME%/lib/repository_mappers:%TRA_HOME%/hotfix/icjava/6.2/lib:%TRA_HOME%/icjava/6.2/lib:%RV_HOME%/lib:%TPCL_HOME%/lib/httpclient_3.0:%TPCL_HOME%/jdbc:%TPCL_HOME%/tomcat/7/bin:%TPCL_HOME%/tomcat/7/lib:%TPCL_HOME%/lib:%HAWK_HOME%/lib:%TPCL_HOME%/lib/entrust
+
+#
+# TIBCO Standard Path (Applicable to all Platforms)
+#
+tibco.env.PATH=%BW_PLUGINS_HOME%/lib%psp%%BW_PLUGINS_HOME%/activespaces/bin%psp%%BW_HOME%/hotfix/bin:%BW_HOME%/bin:%TRA_HOME%/hotfix/bin:%TRA_HOME%/bin:%TRA_HOME%/hotfix/icjava/6.2/lib:%TRA_HOME%/icjava/6.2/lib:%TRA_HOME%/hotfix/icjava/6.2/bin:%TRA_HOME%/icjava/6.2/bin:%TPCL_HOME%/bin:%RV_HOME%/bin:%HAWK_HOME%/bin:/opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tibcojre64/1.7.0/bin:%PATH%
+
+#
+# TIBCO Load Library Path
+# Load Library Path (LD_LIBRARY_PATH, SHLIB_PATH, LIBPATH) are ignored
+# on Windows environments.
+#
+tibco.env.LD_LIBRARY_PATH=%BW_PLUGINS_HOME%/lib%psp%%BW_PLUGINS_HOME%/activespace/bin%psp%%RV_HOME%/lib/64:%TPCL_HOME%/lib/httpclient_3.0:%TRA_HOME%/hotfix/lib:%TRA_HOME%/lib:%TPCL_HOME%/lib:%RV_HOME%/lib:%JVM_LIB_SERVER_DIR%:%JVM_LIB_DIR%:%TRA_HOME%/hotfix/icjava/6.2/lib:%TRA_HOME%/icjava/6.2/lib:%LD_LIBRARY_PATH%
+
+tibco.env.SHLIB_PATH=%RV_HOME%/lib/64:%TPCL_HOME%/lib/httpclient_3.0:%TRA_HOME%/hotfix/lib:%TRA_HOME%/lib:%TPCL_HOME%/lib:%RV_HOME%/lib:%JVM_LIB_SERVER_DIR%:%JVM_LIB_DIR%:%TRA_HOME%/hotfix/icjava/6.2/lib:%TRA_HOME%/icjava/6.2/lib:%SHLIB_PATH%
+
+tibco.env.LIBPATH=%RV_HOME%/lib:%TRA_HOME%/hotfix/lib:%TRA_HOME%/lib:%TPCL_HOME%/lib:%JVM_LIB_SERVER_DIR%:%JVM_LIB_DIR%:%TRA_HOME%/hotfix/icjava/6.2/lib:%TRA_HOME%/icjava/6.2/lib:%LIBPATH%
+
+#
+# Specifies the Xalan compatibility issue to launch this application
+#
+#java.property.java.endorsed.dirs=%TPCL_HOME%/lib
+
+#
+# Specifies the JVM to be used to launch this application
+#
+java.library=%JVM_LIB_PATH%
+
+#
+# Specifies the JVM to be used to launch this application
+#
+java.start.class=com.tibco.pe.PEMain
+
+#
+# Specifies the main function in invoke
+#
+java.start.method=main
+
+#
+# Specifies the javaCode directory to use
+#
+java.property.javaCode=%BW_HOME%/lib/palettes
+
+#
+# Specifies the maximum Java heap size to allocate
+#
+java.heap.size.max=%HEAP_SIZE%
+
+#
+# Specifies the TNT palettes directory
+#
+java.property.palettePath=%BW_HOME%/lib/palettes:%BW_PLUGINS_HOME%/lib/palettes:%TRA_HOME%/lib/palettes
+
+#
+# Installation details
+#
+java.property.tibco_home=%TIB_HOME%
+java.property.tibco_tra_version=%TRA_APPEND_VERSION%
+
+#
+# Specifies the classpath with expansion on
+#
+tibco.class.path.extended=%CUSTOM_EXT_PREPEND_CP%:%STD_EXT_CP%:%CUSTOM_EXT_APPEND_CP%
+
+#
+# Sets the SAX and DOM JAXP factories to use
+#
+java.property.javax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl
+java.property.javax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+
+#
+# Specifies the remaining arguments to pass into the application
+#
+application.args=%APP_ARGS%
+#
+# Specify values to connect to the domain for authorization (http activity)
+#
+java.property.TIBCO_TRA_HOME=%TRA_HOME%
+java.property.TIBCO_DOMAIN_HOME=%TRA_HOME%/../domain
+
+#
+# Specifies the Service Agent for Built-in Resource Provider
+#
+ServiceAgent.builtinResource.serviceagent.Class=com.tibco.plugin.brp.BRPServiceAgent
+java.property.java.awt.headless=true
+
