@@ -1,0 +1,39 @@
+#!/usr/bin/env python 
+from subprocess import Popen, PIPE
+import socket 
+from shlex import split
+import json, re
+
+host = '' 
+port = 8000
+backlog = 5 
+size = 1024 
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.bind((host,port)) 
+s.listen(backlog) 
+while 1: 
+    client, address = s.accept() 
+    data = client.recv(size) 
+    client.close()
+    client, address = s.accept() 
+    data = client.recv(size) 
+    if data: 
+       try:
+         m = re.search("{.*",data)
+         t = "%s\"}]}" % m.group()
+         j = json.loads(t)
+         remote = j['repository']['url'].replace(":","/")
+         command="git archive --remote=ssh://%s develop build.yml | tar xvf -" % remote
+         p = Popen(command , shell=True, stdout=PIPE, executable="/bin/bash")
+         out, err = p.communicate()
+         if p.returncode == 0:
+            f = open("build.yml")
+            lines = f.readlines()
+            f.close
+            print ' '.join(lines)
+            print remote
+       except:
+          print
+    client.close()
+
