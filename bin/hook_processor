@@ -1,6 +1,6 @@
 #!/usr/bin/env python 
 from subprocess import Popen, PIPE
-import socket 
+import socket, yaml, urllib 
 from shlex import split
 import json, re, os
 
@@ -8,6 +8,7 @@ host = ''
 port = 6060
 backlog = 5 
 size = 1024 
+os.environ['JENKINS_URL']="http://10.156.74.30:8080"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 s.bind((host,port)) 
@@ -29,12 +30,12 @@ while 1:
          out, err = p.communicate()
          if p.returncode == 0:
             f = open("build.yml")
-            lines = f.readlines()
+            l = yaml.load(f)
             f.close
-            env = ' '.join(lines).replace('\n',',').replace(' ','')
-            print env
-            print remote
-            os.system("java -jar /home/JJordan/jenkins-cli.jar -i /home/JJordan/.ssh/id_rsa build Builds/JetBlue_Builds -p env=%s -p url=%s" % (env, remote))
+            env = l['env']
+            cmd = str(l['cmd'])
+            code = urllib.quote(cmd)
+            os.system("java -jar /home/JJordan/jenkins-cli.jar -i /home/JJordan/.ssh/id_rsa build Builds/JetBlue_Builds -p env=%s -p url=%s -p cmd=%s" % (env, remote, code))
        except:
-          print
+          print "Exception oocured"
     client.close()

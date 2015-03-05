@@ -1,0 +1,6 @@
+#/bin/bash
+COMMAND="$( python -c 'import sys, urllib; print urllib.unquote("'$cmd'")' )"
+CONTAINER=$( sudo docker run -itd $env bash )
+cat ~/.ssh/id_rsa | sudo docker exec -i $CONTAINER bash -c 'cat > /root/.ssh/id_rsa'
+sudo docker exec -i $CONTAINER bash -c "y Yes | git clone $url"
+sudo docker exec -i $CONTAINER bash -c "$COMMAND"
