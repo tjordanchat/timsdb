@@ -1,0 +1,8 @@
+env: tibco
+cmd: |
+     cd /opt/tibco/DSEngine_INT
+     ./configure.sh -s 99.99.99.99:8080
+     ./engine.sh start 
+     /usr/bin/Xvfb :1 -screen 0 1024x768x24 & 
+     cd /opt/tibco/DSEngine/work/jbccllbre101-0/tibco/tra/5.8/bin
+     buildear -x -a /root/project/somename.properties -ear /Deployments/Processor.archive -o /tmp/tibco.ear -p /root/project/src/project
