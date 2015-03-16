@@ -7,8 +7,8 @@ import json, re, os
 host = '' 
 port = 6060
 backlog = 5 
-size = 1024 
-os.environ['JENKINS_URL']="http://10.156.74.30:8080"
+size = 2048 
+os.environ['JENKINS_URL']="http://99.99.99.99:8080"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 s.bind((host,port)) 
@@ -22,9 +22,10 @@ while 1:
     if data: 
        try:
          m = re.search("{.*",data)
-         t = "%s\"}]}" % m.group()
+         t = "%s" % m.group()
          j = json.loads(t)
          remote = j['repository']['url'].replace(":","/")
+         url = str(j['repository']['url'])
          command="git archive --remote=ssh://%s develop build.yml | tar xvf -" % remote
          p = Popen(command , shell=True, stdout=PIPE, executable="/bin/bash")
          out, err = p.communicate()
@@ -33,9 +34,7 @@ while 1:
             l = yaml.load(f)
             f.close
             env = l['env']
-            cmd = l['cmd']
-            code = urllib.quote(str(cmd))
-            os.system("java -jar /home/JJordan/jenkins-cli.jar -i /home/JJordan/.ssh/id_rsa build Builds/JetBlue_Builds -p env=%s -p url=%s -p cmd=%s" % (env, remote, code))
+            os.system("java -jar /home/user/jenkins-cli.jar -i /home/user/.ssh/id_rsa build Builds/Builds -p env=%s -p url=%s" % (env, url))
        except:
           print "Exception oocured"
     client.close()
