@@ -1,0 +1,25 @@
+#!/bin/bash
+set -x
+rm -rf *
+git clone $url
+DIR=$( basename $url ); DIR=${DIR%%.git}
+echo $commit > $DIR/.commit
+cd $DIR
+(
+git show --pretty="format:" --name-only `cat .commit` |
+         grep -v '^$' | while read t
+         do
+             env="`dirname $t`"
+             if [ ! "$env" = . ]
+                 then
+                    echo "$env"
+         
+             fi
+         done
+         ) | sort -u | while read u
+         do
+         	sudo docker rmi "$u"
+            cd "$u"
+            sudo docker build -rm=true -t "$u" .
+            cd ..
+         done
