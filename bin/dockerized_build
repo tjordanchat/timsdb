@@ -1,9 +1,21 @@
 #/bin/bash
-CONTAINER=$( sudo docker run -itd $env bash )
+set -x
+CONTAINER=$( sudo docker run -id $env bash )
 DIR=$( basename $url ); DIR=${DIR%%.git}
 cat ~/.ssh/id_rsa | sudo docker exec -i $CONTAINER bash -c 'cat > /root/.ssh/id_rsa'
-sudo docker exec -i $CONTAINER bash -c "git clone $url"
+sudo docker exec -i $CONTAINER bash -c "rm -rf * ; git clone $url"
 sudo docker exec -i $CONTAINER bash -c "echo $commit > $DIR/.commit"
-sudo docker exec -i $CONTAINER bash -c ". ./.bashrc; cd $DIR; export commit; shyaml get-value cmd < build.yml | timeout 30m bash"
+sudo docker exec -i $CONTAINER bash -c ". ./.bashrc; cd $DIR; shyaml get-value build < build.yml | timeout 10m bash"
+sudo docker exec -i $CONTAINER bash -c "cd $DIR; shyaml get-value deploy < build.yml | timeout 10m bash"
+sudo docker exec -i $CONTAINER bash -c "cd $DIR; shyaml get-value test < build.yml | timeout 10m bash"
+sudo docker cp $CONTAINER:/root/$DIR/build.yml .
+IMAGE="$( shyaml get-value image < build.yml )"
+JUNIT="$( shyaml get-value junit < build.yml )"
+sudo docker cp $CONTAINER:/root/$DIR/$IMAGE .
+sudo docker exec -i $CONTAINER bash -c "cd $DIR; shopt -s globstar; ls -1 $JUNIT" > JUNITS
+cat JUNITS | while read t
+do
+   sudo docker cp $CONTAINER:/root/$DIR/$t .
+done
 sudo docker stop $CONTAINER
 sudo docker rm $CONTAINER
