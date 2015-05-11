@@ -1,5 +1,6 @@
 #/bin/bash
 set -x
+VERSION=${1:-develop} 
 CONTAINER=$( sudo docker run -id $env bash )
 DIR=$( basename $url ); DIR=${DIR%%.git}
 cat ~/.ssh/id_rsa | sudo docker exec -i $CONTAINER bash -c 'cat > /root/.ssh/id_rsa'
@@ -11,11 +12,37 @@ sudo docker exec -i $CONTAINER bash -c "cd $DIR; shyaml get-value test < build.y
 sudo docker cp $CONTAINER:/root/$DIR/build.yml .
 IMAGE="$( shyaml get-value image < build.yml )"
 JUNIT="$( shyaml get-value junit < build.yml )"
+TARGETS="$( shyaml get-value targets < build.yml )"
 sudo docker cp $CONTAINER:/root/$DIR/$IMAGE .
 sudo docker exec -i $CONTAINER bash -c "cd $DIR; shopt -s globstar; ls -1 $JUNIT" > JUNITS
+sudo docker exec -i $CONTAINER bash -c "cd $DIR; shopt -s globstar; ls -1 $TARGETS" > TARGETS
+export LOC=$( echo $url | sed 's#^[^:]*:\(.*\)\.git$#\1#;s#/#.#' )
+cat TARGETS | while read t
+do
+   sudo docker cp $CONTAINER:/root/$DIR/$t .
+   A=$( basename $t | sed 's#\(.*\)\.[^.]*$#\1#' )
+   P=$( basename $t | sed 's#.*\.\([^.]*\)$#\1#' )
+   FILE=$( basename $t )
+   curl -v -F r=releases -F "g=com.jetblue.$LOC" -F a=$A -F "v=$VERSION" -F p=$P -F file=@./$FILE -u admin:admin123 http://10.156.74.122:8081/nexus/service/local/artifact/maven/content
+done
 cat JUNITS | while read t
 do
    sudo docker cp $CONTAINER:/root/$DIR/$t .
 done
 sudo docker stop $CONTAINER
 sudo docker rm $CONTAINER
+(
+cd $WORKSPACE
+export PAT="$( basename $( shyaml get-value junit < build.yml ) )"
+ls -1 $PAT | while read u
+do
+   echo "$u"
+   xml2 < "$u" | egrep "/testsuite/@failures="
+done
+) > .test_results
+mutt "$email" -s "Build Results for $JOB_NAME #$BUILD_NUMBER" -a "$IMAGE" <<EOF
+Build Complete
+$BUILD_URL
+$( cat .test_results )
+Smoke Test image $IMAGE attached.
+EOF
