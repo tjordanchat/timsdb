@@ -23,7 +23,7 @@ do
    A=$( basename $t | sed 's#\(.*\)\.[^.]*$#\1#' )
    P=$( basename $t | sed 's#.*\.\([^.]*\)$#\1#' )
    FILE=$( basename $t )
-   curl -v -F r=releases -F "g=com.jetblue.$LOC" -F a=$A -F "v=$VERSION" -F p=$P -F file=@./$FILE -u admin:admin123 http://10.156.74.122:8081/nexus/service/local/artifact/maven/content
+   curl -v -F r=releases -F "g=company.$LOC" -F a=$A -F "v=$VERSION" -F p=$P -F file=@./$FILE -u admin:admin123 http://10.156.74.122:8081/nexus/service/local/artifact/maven/content
 done
 cat JUNITS | while read t
 do
