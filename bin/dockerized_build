@@ -40,10 +40,14 @@ do
    A=$( basename $t | sed 's#\(.*\)\.[^.]*$#\1#' )
    P=$( basename $t | sed 's#.*\.\([^.]*\)$#\1#' )
    FILE=$( basename $t )
+<<<<<<< HEAD
    FME=$( echo "$FILE" | cut -d. -f1 )
    export CMD=$( printf "curl -X DELETE -u admin:admin123 http://nexus.company.com:8081/nexus/service/local/repositories/releases/content/com/company/%s/%s/%s/%s" "$GROUP" "$DIR" "$FME" "$TAG" )  
    $($CMD)
    curl -v -F r=releases -F "g=com.company.$LOC" -F a=$A -F "v=$TAG" -F p=$P -F file=@./$FILE -u admin:admin123 http://nexus.company.com:8081/nexus/service/local/artifact/maven/content
+=======
+   curl -v -F r=releases -F "g=company.$LOC" -F a=$A -F "v=$VERSION" -F p=$P -F file=@./$FILE -u admin:admin123 http://10.156.74.122:8081/nexus/service/local/artifact/maven/content
+>>>>>>> 543553dab2873bfde2d938bff4739abfa938fe73
 done
 cat JUNITS | while read t
 do

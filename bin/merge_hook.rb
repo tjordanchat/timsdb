@@ -20,7 +20,7 @@ server.mount_proc '/' do |req, res|
       mid = p["object_attributes"]["id"]
       command="gitlab user get --id=%s -v | shyaml get-value email" % uid
       email = `#{command}`
-      cmd = "curl -X PUT http://scm.jblab.net/api/v3/projects/%s/merge_request/%s/merge?private_token=xyWFSCLUfPyVmUvkrZHm" % [pid, mid]
+      cmd = "curl -X PUT http://www.company.com/api/v3/projects/%s/merge_request/%s/merge?private_token=xxxxxxxxxxxxxxxxxxxxx" % [pid, mid]
       result=`#{cmd}`
       puts result
       body = "mail %s <<EOF
