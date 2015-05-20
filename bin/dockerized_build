@@ -1,10 +1,26 @@
 #/bin/bash
 set -x
-VERSION=${1:-develop} 
+rm -rf *
 CONTAINER=$( sudo docker run -id $env bash )
 DIR=$( basename $url ); DIR=${DIR%%.git}
+REF=$( echo "$ref" | cut -d/ -f2,3 )
+TAG=$( echo "$ref" | cut -d/ -f3 )
 cat ~/.ssh/id_rsa | sudo docker exec -i $CONTAINER bash -c 'cat > /root/.ssh/id_rsa'
 sudo docker exec -i $CONTAINER bash -c "rm -rf * ; git clone $url"
+sudo docker exec -i $CONTAINER bash -c "cd $DIR; git checkout $REF"
+if [ ! "$TAG" = "develop" ]
+then
+  if [[ $TAG == *"_released" ]]
+  then
+     echo "Do not tag within container"
+  else
+     echo "execute 'git tag' in container"
+     RTAG=$( echo "$TAG" | sed 's/RC_/REL_/' )
+     sudo docker exec -i $CONTAINER bash -c "cd $DIR; git tag ${RTAG}_released; git push --tags"
+  fi  
+else
+     echo "Do not tag while building"
+fi
 sudo docker exec -i $CONTAINER bash -c "echo $commit > $DIR/.commit"
 sudo docker exec -i $CONTAINER bash -c ". ./.bashrc; cd $DIR; shyaml get-value build < build.yml | timeout 10m bash"
 sudo docker exec -i $CONTAINER bash -c "cd $DIR; shyaml get-value deploy < build.yml | timeout 10m bash"
@@ -17,13 +33,17 @@ sudo docker cp $CONTAINER:/root/$DIR/$IMAGE .
 sudo docker exec -i $CONTAINER bash -c "cd $DIR; shopt -s globstar; ls -1 $JUNIT" > JUNITS
 sudo docker exec -i $CONTAINER bash -c "cd $DIR; shopt -s globstar; ls -1 $TARGETS" > TARGETS
 export LOC=$( echo $url | sed 's#^[^:]*:\(.*\)\.git$#\1#;s#/#.#' )
+GROUP=$( echo "$LOC" | cut -d. -f1 )
 cat TARGETS | while read t
 do
    sudo docker cp $CONTAINER:/root/$DIR/$t .
    A=$( basename $t | sed 's#\(.*\)\.[^.]*$#\1#' )
    P=$( basename $t | sed 's#.*\.\([^.]*\)$#\1#' )
    FILE=$( basename $t )
-   curl -v -F r=releases -F "g=com.jetblue.$LOC" -F a=$A -F "v=$VERSION" -F p=$P -F file=@./$FILE -u admin:admin123 http://10.156.74.122:8081/nexus/service/local/artifact/maven/content
+   FME=$( echo "$FILE" | cut -d. -f1 )
+   export CMD=$( printf "curl -X DELETE -u admin:admin123 http://nexus.company.com:8081/nexus/service/local/repositories/releases/content/com/company/%s/%s/%s/%s" "$GROUP" "$DIR" "$FME" "$TAG" )  
+   $($CMD)
+   curl -v -F r=releases -F "g=com.company.$LOC" -F a=$A -F "v=$TAG" -F p=$P -F file=@./$FILE -u admin:admin123 http://nexus.company.com:8081/nexus/service/local/artifact/maven/content
 done
 cat JUNITS | while read t
 do
@@ -40,9 +60,9 @@ do
    xml2 < "$u" | egrep "/testsuite/@failures="
 done
 ) > .test_results
-mutt "$email" -s "Build Results for $JOB_NAME #$BUILD_NUMBER" -a "$IMAGE" <<EOF
+mutt "$email" -s "Jenkins Results - $JOB_NAME - #$BUILD_NUMBER" -a "$IMAGE" <<EOF
 Build Complete
 $BUILD_URL
 $( cat .test_results )
-Smoke Test image $IMAGE attached.
+Image $IMAGE attached.
 EOF
