@@ -1,0 +1,4040 @@
+   1  cd ../merge_dir
+    2  pw
+    3  ps -ef
+    4  ps -ef | grep ruby
+    5  kill -9 27296
+    6  sudo kill -9 27296
+    7  ps -ef | grep ruby
+    8  ruby ../merge_hook.rb
+    9  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=RC_v1.&ref=master&message="Master merge by first.last@mycompany.com"'
+   10  curl -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=RC_v1.&ref=master&message="Master merge by first.last@mycompany.com"'
+   11  curl -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=test&ref=master&message="Master merge by first.last@mycompany.com"'
+   12  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=test&ref=master&message="Master merge by first.last@mycompany.com"'
+   13  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=test&ref=master&message="Master merge by firstm"'
+   14  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=143&tag_name=test&ref=master&message="Master merge by first"'
+   15  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=test&ref=master&message="Master merge by first"'
+   16  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=postv2&ref=master&message="test"'
+   17  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=postv2&ref=master&message="test"'curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=test&ref=master&message="test2"'
+   18  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=test&ref=master&message="test2"'
+   19  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=test&ref=master&message="test2 3"'
+   20  curl -v -X POST 'http://scm.domain.net/api/v3/projects/143/repository/tags?private_token=po1wcvFfDnxz9wQ9zGA4&id=143&tag_name=test&ref=master&message=\"test2 e\"'
+   21  sudo vi ../merge_hook.rb
+   22  ruby ../merge_hook.rb
+   23  cd continuous/
+   24  git pull
+   25  git branch -av
+   26  git checkout F_TWW
+   27  cd misc
+   28  vi merge_hook.rb
+   29  vi *.rb
+   30  vi merge_hook.json
+   31  curl -v -X POST 'http://scm.domain.net/api/v3/projects/%s/repository/tags?                                                                          private_token=xyWFSCLUfPyVmUvkrZHm&id=%s&tag_name=%s&ref=master&message=\"merge_hook.rb\"'
+   32  curl -v -X POST 'http://scm.domain.net/api/v3/projects/%s/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=%s&tag_name=%s&ref=master&message=\"merge_hook.rb\"'
+   33  curl -v --data-urlencode -X POST 'http://scm.domain.net/api/v3/projects/%s/repository/tags?private_token=xyWFSCLUfPyVmUvkrZHm&id=%s&tag_name=%s&ref=master&message=\"merge_hook.rb\"'
+   34  git branch
+   35  git merge develop
+   36  git branch develop
+   37  git branch
+   38  git status
+   39  git checkout develop
+   40  git status
+   41  git merge F_TWW
+   42  git add *
+   43  git commit
+   44  git status
+   45  vi merge_hook.rb
+   46  git add *
+   47  cd misc
+   48  cat build.yml
+   49  git commit -a
+   50  git pull
+   51  cd misc
+   52  vi *.rb
+   53  git push
+   54  git status
+   55  vi *.rb
+   56  git commit -a
+   57  git push
+   58  cd push_dir/
+   59  k9 14060
+   60  k9 18365
+   61  k9 25242
+   62  nohup ../push_hook.rb &> nohup.out &
+   63  ../push_hook.rb
+   64  vi ../push_hook.rb
+   65  nohup ../push_hook.rb &> nohup.out &
+   66  cd ..
+   67  cd merge_dir/
+   68  nohup ../merge_hook.rb &> nohup.out &
+   69  cd ..
+   70  cd tag_dir/
+   71  nohup ../tag_hook.rb &> nohup.out &
+   72  ../tag_hook.rb
+   73  vi ../tag_hook.rb
+   74  nohup ../tag_hook.rb &> nohup.out &
+   75  cd ..
+   76  vi tag_hook.rb
+   77  vi merge_hook.rb
+   78  vi push_hook.rb
+   79  k9 166688
+   80  k9 16688
+   81  k9 16665
+   82  k9 16663
+   83  cd push_dir/
+   84  ../push_hook.rb
+   85  nohup ../push_hook.rb &> nohup.out &
+   86  cd ..
+   87  cd merge_dir/
+   88  nohup ../merge_hook.rb &> nohup.out &
+   89  cd ../tag_dir/
+   90  nohup ../tag_hook.rb &> nohup.out &
+   91  git commit -a
+   92  git push
+   93  cd continuous/
+   94  cd misc/
+   95  vi *.rb
+   96  vi dockerized_build
+   97  vi *.rb
+   98  egrep -i user *
+   99  vi dockerized_build
+  100  k9 16865
+  101  k9 16859
+  102  k9 16857
+  103  sudo su jenkins
+  104  whoami
+  105  sudo su - jenkins
+  106  sudo su - jenkins
+  107  k9 17524
+  108  k9 17522
+  109  sj
+  110  cd citest/
+  111  git pull
+  112  vi build.yml
+  113  gcpy
+  114  sj
+  115  ll *jar
+  116  sudo cp jenkins-cli.jar /var/lib/jenkins/
+  117  cd $_
+  118  ll *jar
+  119  sudo chown jenkins:jenkins jenkins-cli.jar
+  120  ll *jar
+  121  chmod +x jenkins-cli.jar
+  122  sudo chmod +x jenkins-cli.jar
+  123  ll *jar
+  124  cd citest/
+  125  git pull
+  126  vi build.yml
+  127  gcpy
+  128  sj
+  129  cd continuous/
+  130  cd misc/
+  131  vi dockerized_build
+  132  sj
+  133  de 80
+  134  a de
+  135  de 80
+  136  cp push_hook.rb push_dir/
+  137  cp tag_hook.rb tag_dir/
+  138  cp merge_hook.rb merge_dir/
+  139  cd push_dir
+  140  vi push_hook.rb
+  141  nohup ./push_hook.rb &> nohup.out &
+  142  cd ..
+  143  cd tag_dir/
+  144  vi *.rb
+  145  nohup ./tag_hook.rb &> nohup.out &
+  146  cd ../merge_dir/
+  147  vi merge_hook.rb
+  148  nohup merge_hook.rb &> nohup.out &
+  149  vi merge_hook.rb
+  150  nohup merge_hook.rb &> nohup.out &
+  151  ./merge_hook.rb
+  152  nohup merge_hook.rb &> nohup.out &
+  153  vi merge_hook.rb
+  154  nohup ./merge_hook.rb &> nohup.out &
+  155  cd citest
+  156  git pull
+  157  vi build.yml
+  158  gcpy
+  159  qu
+  160  cd citest/
+  161  git pull
+  162  vi build.yml
+  163  gcpy
+  164  sj
+  165  k9 18494
+  166  sj
+  167  dk f3
+  168  dk 03
+  169  dk eb
+  170  de 80
+  171  dk 80
+  172  xidel
+  173  sj
+  174  cd continuous/
+  175  cd misc
+  176  cp /tmp/push_hook.rb .
+  177  cp /tmp/tag_hook.rb  .
+  178  git pull
+  179  git commit -a
+  180  git push
+  181  ./list_bucket
+  182  1088routedata.bundle-May3053022015-05
+  183  sj
+  184  cd continuous/
+  185  cd misc
+  186  vi dockerized_build
+  187  sj
+  188  vi dockerized_build
+  189  git pull
+  190  git status
+  191  git add *_dir
+  192  git commit
+  193  cpp dockerized_build /tmp
+  194  cp dockerized_build /tmp
+  195  sudo cp dockerized_build /tmp
+  196  sj
+  197  cd citest/
+  198  git pull
+  199  vi build.yml
+  200  gcpy
+  201  sj
+  202  cd citest/
+  203  git pull
+  204  vi build.yml
+  205  gcpy
+  206  sj
+  207  git pull
+  208  gcpy
+  209  sj
+  210  cd continuous/
+  211  cd misc
+  212  cp /tmp/dockerized_build .
+  213  git pull
+  214  git commit -a
+  215  git push
+  216  cd continuous/
+  217  git pull
+  218  cd misc
+  219  vi mk_hooks_services
+  220  cd /etc/init.d
+  221  cat netfs
+  222  cat lxc
+  223  cat > mk_hooks_services
+  224  cd ..
+  225  cd continuous/
+  226  cd bootstraps/
+  227  vi bootstrap_gitlab
+  228  pf wp
+  229  fp wp
+  230  a wp
+  231  netstat -tulpn
+  232  netstat -a
+  233  netstat -tulpn
+  234  netstat -tulpn | egrep :6060
+  235  cp mk_hooks_services brepushport
+  236  chmod brepushport +x
+  237  chmod +x brepushport
+  238  ./brepushport start
+  239  vi brepushport
+  240  ./brepushport start
+  241  cd /etc/init.d
+  242  cat halt
+  243  ./brepushport start
+  244  ./brepushport start
+  245  git status
+  246  rm mk_hooks_services
+  247  git status
+  248  rm push_ook.out
+  249  git status
+  250  git fetch origin
+  251  git checkout -b F_TWW origin/F_TWW
+  252  git checkout develop
+  253  git merge --no-ff F_TWW
+  254  git push origin develop
+  255  vi dockerized_build
+  256  cd continuous/
+  257  cd misc/
+  258  egrep pretty *
+  259  vi merge_hook.rb
+  260  git status
+  261  git merge F_TWW
+  262  vi merge_hook.rb
+  263  sj
+  264  git status
+  265  sj
+  266  cd continuous/
+  267  git pull
+  268  git checkout F_TWW
+  269  cd ..
+  270  rm -rf continuous/
+  271  git clone git@scm.domain.net:continuous/continuous.git
+  272  git checkout F_TWW
+  273  cd continuous/
+  274  git checkout F_TWW
+  275  cd misc
+  276  vi merge_hook.r
+  277  vi merge_hook.rb
+  278  git checkout develop
+  279  vi merge_hook.rb
+  280  git merge F_TWW
+  281  git branch
+  282  vi merge_hook.rb
+  283  git commit -a
+  284  git push origin develop
+  285  sj
+  286  cd continuous/
+  287  git status
+  288  cd misc
+  289  git status
+  290  cp push_hook.rb push_dir/
+  291  cp tag_hook.rb tag_dir/
+  292  cp merge_hook.rb merge_dir/
+  293  git commit -a
+  294  git push
+  295  man crontab
+  296  git mv push_hook.rb push_dir/
+  297  git rm push_hook.rb merge_hook.rb tag_hook.rb
+  298  git commit -a
+  299  git push
+  300  ll -d .
+  301  c bre
+  302  sj
+  303  k9 23275
+  304  k9 20135
+  305  k9 17531
+  306  k9 20217
+  307  k9 18470
+  308  k9 20110
+  309  sj
+  310  cd /etc/init.d
+  311  file *
+  312  cat > merge_hook.rb
+  313  sj
+  314  q
+  315  k9 32118
+  316  sj
+  317  cd citest/
+  318  git pull
+  319  vi build.yml
+  320  git commit -a
+  321  git push
+  322  git tag RC_v26.16.28
+  323  git push --tags
+  324  sj
+  325  git pull
+  326  vi build.yml
+  327  gcpy
+  328  qu
+  329  git tag RC_28.16.39
+  330  git push --tags
+  331  sj
+  332  git pull
+  333  k9 3244
+  334  sj
+  335  git pull
+  336  vi build.yml
+  337  gcpy
+  338  git tag RC_28.16.46
+  339  git push --tags
+  340  sj
+  341  cd continuous/
+  342  cd misc
+  343  cd merge_dir/
+  344  cp /tmp/merge_hook.rb .
+  345  git commit -a
+  346  git push
+  347  vi merge_hook.rb
+  348  sj
+  349  !
+  350  k9 11715
+  351  sj
+  352  cd citest/
+  353  git pull
+  354  vi build.yml
+  355  gcpy
+  356  git tag RC_26.17.22
+  357  git push --tags
+  358  sj
+  359  cat .bashrc
+  360  cat .bashrc
+  361  clear
+  362  cat .vimrc
+  363  sudo su - jenkins
+  364  df -h
+  365  cd /var
+  366  cd local
+  367  ..
+  368  mkdir jenkins_backups
+  369  sudo mkdir jenkins_backups
+  370  sudo chown jenkins jenkins_backups/
+  371  sudo su - jenkins
+  372  sudo chown jenkins:jenkins jenkins_backups/
+  373  cd jenkins_backups/
+  374  whoami
+  375  sudo su - jenkins
+  376  cd /var
+  377  cd jenkins_backups/
+  378  ll -h
+  379  tar tzf *gz
+  380  rm -rf  backup_20150527_1128.tar.gz
+  381  sudo rm  backup_20150527_1128.tar.gz
+  382  ll -h
+  383  tar tzf *gz
+  384  sudo su - jenkins
+  385  ./list_bucket
+  386  sudo su - jenkins
+  387  cat /etc/passwd
+  388  sudo su - rundeck
+  389  cd /var/spool
+  390  cd cron
+  391  sudo su
+  392  sj
+  393  cd continuous/
+  394  cd misc/
+  395  ls | awk '{ print strftime()" : "$0; }'
+  396  d run -p 8080:9999 jenkins
+  397  dk 8e
+  398  dk 70
+  399  dk 61
+  400  dk b9
+  401  d rmi jenkins
+  402  d rmi -f 15
+  403  d run -p 80:8888 jira
+  404  d run -p 80:8888 atlassianfan/jira
+  405  docker run --detach --publish 8080:8888 cptactionhank/atlassian-jira:latest
+  406  sudo docker run --detach --publish 8080:8888 cptactionhank/atlassian-jira:latest
+  407  df -h
+  408  d rmi b0
+  409  d rmi -f b0
+  410  d rmi -f b072
+  411  cd /var/lib
+  412  cd docker/
+  413  sudo su
+  414  cd continuous/
+  415  cd misc
+  416  cd ..
+  417  cd backup_utils/
+  418  vi backup_jenkins
+  419  date +%F
+  420  cat send_select_s3
+  421  cat nightly-backups
+  422  cd /var
+  423  cd jenkins_backups/
+  424  cd bre
+  425  cd misc
+  426  cd continuous/
+  427  cd misc/
+  428  cd ..
+  429  cd backup_utils/
+  430  vi backup_jenkins
+  431  sj
+  432  sudo su
+  433  cd /var/lib/docker
+  434  sudo su
+  435  sudo docker run -p 5000:5000 registry:2.0
+  436  cd continuous/
+  437  cd backup_utils/
+  438  vi backup_jenkins
+  439  git add backup_jenkins
+  440  git commit
+  441  git push
+  442  cp backup_jenkins /tmp
+  443  sj
+  444  chmod +x backup_jenkins
+  445  git commit -a
+  446  git push
+  447  sj
+  448  ./list_bucket
+  449  crontab -e
+  450  cd continuous/
+  451  cd backup_utils/
+  452  egrep jenkins *
+  453  vi nightly-backups
+  454  vi failsafe_backups
+  455  sudo su
+  456  sj
+  457  cp /tmp/jenkins_failsafe_backups .
+  458  git add jenkins_failsafe_backups
+  459  git commit
+  460  git push
+  461  sj
+  462  cd citest/
+  463  git pull
+  464  vi build.yml
+  465  gcpy
+  466  sj
+  467  de d0
+  468  xidel
+  469  de d0
+  470  npm
+  471  sudo npm install web-terminal -g
+  472  web-terminal --port 8088
+  473  sudo docker run -d --name=gateone -p 443:8888 liftoff/gateone
+  474  d start gateone
+  475  ps -ef
+  476  d stop gateone
+  477  d rmi 133
+  478  d rmi 133c
+  479  d rmi -f 133c
+  480  sudo docker run -d --name=gateone -p 8888:8000 liftoff/gateone
+  481  d rmi -f listoff/gateone
+  482  d rmi -f gateone
+  483  d rmi -f 133c
+  484  d rmi -f b39
+  485  #sudo docker run -d --name=gateone -p 8888:8000 liftoff/gateone
+  486  sudo docker run -d --name=gateone -p 8888:8000 liftoff/gateone
+  487  d rmi  -f 826463e9e91c
+  488  d ps -a
+  489  dk 826463e9e91c
+  490  dc -a
+  491  d rmi -f 133c
+  492  dc -a
+  493  sudo docker run -d --name=gateone -p 8888:8000 liftoff/gateone
+  494  d start gateone
+  495  df -h
+  496  dc -a
+  497  telnet localhost 8888
+  498  lynx localhost:8888
+  499  d stop gateone
+  500  pip
+  501  sudo pip install tornado
+  502  sudo yum install gcc python-devel
+  503  d start gateone
+  504  lynx localhost:8888
+  505  de a2
+  506  dk a2
+  507  dc -a
+  508  d rmi -f 133c
+  509  sudo docker run -d --name=gateone -p 8888:8000 liftoff/gateone
+  510  d start gateone
+  511  lynx localhost:8888
+  512  qu
+  513  shyaml
+  514  boto
+  515  python
+  516  cd continuous/
+  517  cd backup_utils/
+  518  cat send_select_s3
+  519  less *
+  520  cd ..
+  521  cd bootstraps/
+  522  less bootstrap_jenkins
+  523  sj
+  524  less bootstrap_jenkins
+  525  cd /tmp
+  526  -
+  527  less bootstrap_jenkins
+  528  cat bootstrap_jenkins
+  529  q
+  530  cd continuous/
+  531  cd misc/
+  532  cat > jenkins_retrieve_backup
+  533  chmod +x jenkins_retrieve_backup
+  534  git add jenkins_retrieve_backup
+  535  git commit
+  536  git push
+  537  vi jenkins_retrieve_backup
+  538  cat /etc/passwd
+  539  sj
+  540  xilan
+  541  cd citest/
+  542  cat build.yml
+  543  xidel
+  544  wget http://downloads.sourceforge.net/project/videlibri/Xidel/Xidel%200.8.4/xidel-0.8.4.linux64.tar.gz?r=http%3A%2F%2Fvidelibri.sourceforge.net%2Fxidel.html&ts=1433170566&use_mirror=softlayer-dal
+  545  rm xidel-0.8.4.linux64.tar.gz\?r\=http\:%2F%2Fvidelibri.sourceforge.net%2Fxidel.html
+  546  tar zvf xidel-0.8.4.linux64.tar.gz
+  547  tar tzvf xidel-0.8.4.linux64.tar.gz
+  548  extract xidel-0.8.4.linux64.tar.gz
+  549  mv xidel /usr/local/bin
+  550  ll xidel
+  551  sudo mv xidel /usr/local/bin
+  552  zidel
+  553  cd /usr/local/bin
+  554  xidel
+  555  xidel www.google.com
+  556  xidel www.google.com -e //a
+  557  xidel
+  558  xidel --help
+  559  xidel --usage
+  560  xidel http://www.google.com -e //a
+  561  df -h
+  562  cd citest/
+  563  vi build.yml
+  564  shyaml
+  565  shyaml get-value image < build.yml
+  566  vi build.yml
+  567  shyaml get-value image < build.yml
+  568  dk d0
+  569  cd citest/
+  570  git pull
+  571  vi build.yml
+  572  gcpy
+  573  ruby
+  574  which ruby
+  575  de fe
+  576  de fe
+  577  dk fe
+  578  sj
+  579  cd citest/
+  580  git pull
+  581  vi build.yml
+  582  gcpy
+  583  de 63
+  584  sj
+  585  de 63
+  586  s2
+  587  de 63
+  588  cd .ssh
+  589  cat id_rsa
+  590  s1
+  591  de 63
+  592  sj
+  593  de 63
+  594  man tar
+  595  d rmi -f 3d
+  596  dk 63
+  597  cd build_environments/
+  598  git pull
+  599  cd java
+  600  cd java_node/
+  601  vi config
+  602  gcpy
+  603  d run -itd d9
+  604  d run -itd d9 bash
+  605  de 50
+  606  git pull
+  607  chmod +x jdk-6u45-linux-i586-rpm.bin
+  608  git commit -a
+  609  git push
+  610  cd continuous/
+  611  cd misc/
+  612  cd push_dir/
+  613  sj
+  614  cd continuous/
+  615  cd misc
+  616  cd push_dir/
+  617  vi push_hook.rb
+  618  sj
+  619  gem
+  620  gem install logging
+  621  sudo gem install logging
+  622  irb
+  623  sudo gem install logging
+  624  sudo gem install logger
+  625  irb
+  626  vi push_hook.rb
+  627  cd continuous/
+  628  cd misc/
+  629  cd push_dir/
+  630  vi push_hook.rb
+  631  cp push_hook.rb /tmp
+  632  sj
+  633  k9 32020
+  634  nohup ./push_hook.rb &> nohup.out &
+  635  ./push_hook.rb
+  636  sj
+  637  k9 32014
+  638  sj
+  639  cd citest/
+  640  git pull
+  641  vi build.yml
+  642  gcpy
+  643  sj
+  644  git clone  git@scm.domain.net:webui/jbSelect.git
+  645  cd jbSelect/
+  646  git branch
+  647  git checkout develop
+  648  git branch -av
+  649  cd ..
+  650  rm -rf jbSelect/
+  651  git clone  git@scm.domain.net:flightsearchapps/minibooker-wrapper.git
+  652  cd minibooker-wrapper/
+  653  git branch
+  654  pw
+  655  git checkout develop
+  656  git branch
+  657  vi build.yml
+  658  git pull
+  659  vi build.yml
+  660  gcpy
+  661  sj
+  662  vi build.yml
+  663  gcpy
+  664  sj
+  665  vi build.yml
+  666  gcpy
+  667  sj
+  668  cd continuous/
+  669  cd pu
+  670  cd misc/
+  671  cd push_
+  672  cd push_dir/
+  673  git status
+  674  git rm nohup.out
+  675  rm nohup.out
+  676  rm log_file.log
+  677  vi push_hook.rb
+  678  git commit -a
+  679  git push
+  680  vi push_hook.rb
+  681  sj
+  682  vi push_hook.rb
+  683  cd ..
+  684  cd tag_dir/
+  685  vi tag_hook.rb
+  686  gitlab -h
+  687  gitlab user help
+  688  gitlab user get --id=1
+  689  gitlab user get --id=1 -v
+  690  gitlab user get --id=1 -v | shaml get-value email
+  691  gitlab user get --id=1 -v | shyaml get-value email
+  692  cd continuous/
+  693  cd misc/
+  694  cd push_dir/
+  695  vi push_hook.rb
+  696  cp push_hook.rb /tmp
+  697  sj
+  698  k9 23235
+  699  sj
+  700  cd minibooker-wrapper/
+  701  git pull
+  702  vi build.yml
+  703  gcpy
+  704  sj
+  705  cd continuous/
+  706  cd misc/
+  707  cd push_dir/
+  708  vi push_hook.rb
+  709  git status
+  710  git commit -a
+  711  git push
+  712  vi push_hook.rb
+  713  vi build.yml
+  714  shyaml get-value war < build.yml
+  715  cat build
+  716  cat build.yml
+  717  vi build.yml
+  718  cd build
+  719  cd build_environments/
+  720  cd continuous/
+  721  cd environments/
+  722  cd tibco/
+  723  cdd t
+  724  echo $t
+  725  cd build_environments/
+  726  git pull
+  727  cp $t .
+  728  git status
+  729  cp -r $t .
+  730  git add tibco
+  731  git commit
+  732  git reset tibco
+  733  cd tibco/
+  734  find -ls
+  735  git status
+  736  echo $t
+  737  rm -rf *
+  738  git status
+  739  git pull
+  740  cd continuous/
+  741  cd environments/
+  742  cd tibco
+  743  dcc tt
+  744  cdd tt
+  745  echo $tt
+  746  cd build_environments/
+  747  cd tibco
+  748  ls $tt
+  749  cp -r $tt/* .
+  750  git status
+  751  git add *
+  752  git status
+  753  git commit
+  754  git push
+  755  cd continuous/
+  756  cd environments/
+  757  cd tibco/
+  758  git clone git@scm.domain.net:continuous/tibco_build_files.git
+  759  cd tibco_build_files/
+  760  echo $tt
+  761  cp tibco.tar.gz $tt
+  762  df -h
+  763  cd
+  764  du -s *
+  765  rm -rf tibco_build_files/
+  766  df -h
+  767  cd /opt/user/
+  768  cdd ttt
+  769  cd tibco
+  770  cd ..
+  771  git clone git@scm.domain.net:continuous/build_environments.git
+  772  cd build_environments/
+  773  cd tibco/
+  774  cp $ttt/*.gz .
+  775  git add tibco.tar.gz
+  776  git commit
+  777  git push
+  778  ls -lh
+  779  df -h
+  780  dc | awk '{print $1}'
+  781  dc -q | awk '{print $1}'
+  782  dc
+  783  dc -q | awk '{print $1}' | while read t; do dk $t; done
+  784  d rmi -f 545
+  785  d rmi -f 5f4f
+  786  d rmi -f d9
+  787  cd /opt/user/
+  788  cd build_environments/
+  789  cd tibco/
+  790  vi Dockerfile
+  791  git commit -a
+  792  git push
+  793  vi Dockerfile
+  794  git commit -a
+  795  git push
+  796  cd
+  797  cd acitest
+  798  cd /opt/user/
+  799  git clone git@scm.domain.net:Tlast/acitest.git
+  800  cd acitest/
+  801  vi build.yml
+  802  gcpy
+  803  sj
+  804  ping cibuild
+  805  vi build.yml
+  806  gcpy
+  807  sj
+  808  vi build.yml
+  809  gcpy
+  810  cd continuous/
+  811  cd misc
+  812  cd push_
+  813  cd push_di
+  814  cd push_dir/
+  815  vi push_hook.rb
+  816  cp push_hook.rb /tmp
+  817  sj
+  818  k9 26583
+  819  sj
+  820  cd acitest/
+  821  vi build.yml
+  822  gcpy
+  823  k9 14466
+  824  sj
+  825  gcpy
+  826  k9 14552
+  827  cd acitest/
+  828  git pull
+  829  vi build.yml
+  830  gcpy
+  831  #cat gitlab.json | python -m json.tool
+  832  cat > kk
+  833  cat kk | python -m json.tool
+  834  cd acitest/
+  835  cat build.yml
+  836  git branch
+  837  git checkout develop
+  838  cat build.yml
+  839  vi build.yml
+  840  gcpy
+  841  sj
+  842  sj
+  843  vi build.yml
+  844  gcpy
+  845  de b5
+  846  vi build.yml
+  847  gcpy
+  848  sj
+  849  vi build.yml
+  850  gcpy
+  851  qu
+  852  a qu
+  853  vi build.yml
+  854  git status
+  855  top
+  856  vi build.yml
+  857  man mkdir
+  858  df -h
+  859  dc | wc -l
+  860  sudo docker ps -q
+  861  a di
+  862  a de
+  863  sj
+  864  cd /var/lib
+  865  sudo su
+  866  cd minibooker-wrapper/
+  867  vi build.yml
+  868  git branch
+  869  vi build.yml
+  870  cd acitest/
+  871  vi build.yml
+  872  git commit -a
+  873  gcpy
+  874  vi build.yml
+  875  gcpy
+  876  k9 15103
+  877  vi build.yml
+  878  gcpy
+  879  gcpy
+  880  gcpy
+  881  sj
+  882  de dad
+  883  cd continuous/
+  884  cd misc/
+  885  git pull
+  886  ll *.yml
+  887  cat build
+  888  cat build.yml
+  889  shyaml get-value was < build.yml
+  890  shyaml -h
+  891  shyaml
+  892  shyaml -h
+  893  shyaml usage
+  894  shyaml --help
+  895  jq
+  896  shyaml keys-0 subvalue < build.yml
+  897  shyaml keys-0 . < build.yml
+  898  vi dockerized_build
+  899  shyaml get-type . < build.yml
+  900  shyaml get-type build
+  901  k9 19572
+  902  cd acitest/
+  903  git pull
+  904  vi build.yml
+  905  gcpy
+  906  sj
+  907  de 87
+  908  vi build.yml
+  909  de 87
+  910  cd /opt
+  911  ls'
+  912  cd /opt
+  913  cd user/
+  914  cd tibco
+  915  cd DSEngine/
+  916  cd work
+  917  de 87
+  918  ping 127.0.0.105
+  919  buildear -x -a /root/AutoCheckin/src/common/JB/iAPIClient/src/iapi.properties -ear /Deployments/ACI-CheckinProcessor.archive -o /tmp/tibco.ear -p /root/AutoCheckin/src/AutoCheckIn
+  920  df -h
+  921  sj
+  922  de 87
+  923  jar tf iAPIClient.projlib
+  924  cd acitest/
+  925  cp ~/iAPIClient.projlib .
+  926  cp ~/somename.properties .
+  927  git add *
+  928  git commit
+  929  git push
+  930  vi build.yml
+  931  gcpy
+  932  cat build.yml
+  933  cd continuous/
+  934  df -h
+  935  cd misc
+  936  cd push_dir/
+  937  cp push_hook.rb test_element.rb
+  938  vi test_element.rb
+  939  gem install ruby-beautify
+  940  sudo gem install ruby-beautify
+  941  ruby -v
+  942  sudo su -
+  943  ruby -v
+  944  \curl -sSL https://get.rvm.io | bash -s stable
+  945  ruby -v
+  946  sudo yum install ruby
+  947  sudo su -
+  948  sudo gem install ruby-beautify
+  949  ruby -v
+  950  which ruby
+  951  ff ruby
+  952  cd /usr/local/rvm/rubies/
+  953  cd ruby-2.1.2/
+  954  sudo su -
+  955  rvm install 2.1.2
+  956  sudo gem install ruby-beautify
+  957  ruby -v
+  958  gem -v
+  959  gem install ruby-beautify
+  960  sudo gem install ruby-beautify
+  961  env
+  962  cd continuous/
+  963  cd misc
+  964  cd push_dir/
+  965  cat > beautify.rb
+  966  chmod +x *
+  967  ./beautify.rb
+  968  ./beautify.rb test_element.rb
+  969  vi test_element.rb~
+  970  vi test_element.rb
+  971  sj
+  972  cp /tmp/push_hook.rb .
+  973  vi push_hook.rb
+  974  ./beautify.rb push_hook.rb
+  975  vi push_hook.rb~
+  976  rm *~
+  977  vi push_hook.rb
+  978  git commit -a
+  979  git pull
+  980  git push
+  981  mv beautify.rb ..
+  982  ..
+  983  git add beautify.rb
+  984  git commit
+  985  git push
+  986  qu
+  987  cd acitest/
+  988  git status
+  989  vi build.yml
+  990  git commit -a
+  991  git push
+  992  vi ff
+  993  cat build.yml
+  994  vi kk
+  995  x kk
+  996  ./kk
+  997  ./kk 2>/dev/null
+  998  cat kk
+  999  de a6
+ 1000  eb
+ 1001  whoami
+ 1002  eb
+ 1003  vi .bashrc
+ 1004  eb
+ 1005  ls *.tra
+ 1006  cd continuous/
+ 1007  cd misc
+ 1008  git pull
+ 1009  cd misc
+ 1010  cp ~/*.tra .
+ 1011  git commit -a
+ 1012  git add *.tra
+ 1013  git commit
+ 1014  git push
+ 1015  de a6
+ 1016  BUILD_URL=www.google.com
+ 1017  BR=BBBBBBB
+ 1018  CQR=QQQQQQQ
+ 1019  echo "Budsjhsss
+ 1020  jenkind $BUILD_URL
+ 1021  $CQR" > ./BODY
+ 1022  cat .BODY
+ 1023  cat BODY
+ 1024  $(printf "mutt -s \"Build report\" %s %s < BODY" user@mycompany.com file_attachment
+ 1025  )
+ 1026  echo "hello
+ 1027  there
+ 1028  world"
+ 1029  de a6
+ 1030  egrep Au *.tra
+ 1031  de a6
+ 1032  ll somename.properties
+ 1033  cd -
+ 1034  cp ~/somename.properties .
+ 1035  vi somename.properties
+ 1036  git add somename.properties
+ 1037  git pull
+ 1038  git commit
+ 1039  git push
+ 1040  vi dockerized_build
+ 1041  de a6
+ 1042  cat > greenize
+ 1043  cat greenize
+ 1044  ll greenize
+ 1045  cat greenize
+ 1046  cat > kk
+ 1047  vi kk
+ 1048  x kk
+ 1049  ./kk
+ 1050  x greenize
+ 1051  ./kk
+ 1052  vi kk
+ 1053  ./kk
+ 1054  cat .green_23459
+ 1055  cat kk | ./.green_23459
+ 1056  vi kk
+ 1057  cat kk | ./.green_23459
+ 1058  kibitz
+ 1059  sudo yum install kibitz
+ 1060  kibitz
+ 1061  expect
+ 1062  de a6
+ 1063  npm install kibitz
+ 1064  kibitz
+ 1065  source
+ 1066  sudo npm install kibitz
+ 1067  kibitz
+ 1068  ff kibitz
+ 1069  /home/user/node_modules/kibitz
+ 1070  cd /home/user/node_modules/kibitz
+ 1071  cd t
+ 1072  ./kibitz
+ 1073  cd kibitz/
+ 1074  vi *
+ 1075  sudo yum -y install expect
+ 1076  kibitz
+ 1077  kibitz bash
+ 1078  kibitz -23819
+ 1079  kibitz user
+ 1080  who
+ 1081  kibitz tlast
+ 1082  cd continuous/
+ 1083  cd misc
+ 1084  cat designer.tra
+ 1085  de a6
+ 1086  cd /opt
+ 1087  cd user/
+ 1088  cd tibco
+ 1089  de a6
+ 1090  cd ..
+ 1091  cd tibco/DSEngine/work/jbccllbre101-0/tibco/designer/5.8/bin/
+ 1092  vi designer.tra
+ 1093  de a6
+ 1094  cat designer.tra
+ 1095  ls -la designer.tra
+ 1096  de a6
+ 1097  cat > d.tra
+ 1098  sdiff d.tra designer.tra
+ 1099  sdiff -w 130 d.tra designer.tra
+ 1100  diff -w 130 d.tra designer.tra
+ 1101  diff d.tra designer.tra
+ 1102  mv d.tra  designer.tra
+ 1103  cd /opt/user/
+ 1104  mv *.gz tib.tar.gz
+ 1105  tar cvzf tibco.tar.gz tibco
+ 1106  cd build_environments/
+ 1107  cd tibco/
+ 1108  git pull
+ 1109  df -h
+ 1110  df -h .
+ 1111  du -s *
+ 1112  df -h
+ 1113  du -s *
+ 1114  du -s * | sort -n
+ 1115  rm -rf continuous/
+ 1116  df -h
+ 1117  df -h
+ 1118  cd /var
+ 1119  cd user/
+ 1120  rm -rf *
+ 1121  df -h
+ 1122  git clone git@scm.domain.net:continuous/build_environments.git
+ 1123  du *
+ 1124  du -h *
+ 1125  cd tibco
+ 1126  cd build_environments/
+ 1127  cd tibco/
+ 1128  cd /opt
+ 1129  cd user/
+ 1130  cd /var/user/
+ 1131  cd build_environments/
+ 1132  cd tibco/
+ 1133  cp /opt/user/tibco.tar.gz .
+ 1134  vi iAPIClient.projlib
+ 1135  vi somename.properties
+ 1136  cat autocheckin_build
+ 1137  git commit -a
+ 1138  git push
+ 1139  df -h
+ 1140  de a6
+ 1141  ./list_bucket
+ 1142  cd acitest/
+ 1143  vi build.yml
+ 1144  gcpy
+ 1145  cat iAPIClient.projlib
+ 1146  cat somename.properties
+ 1147  git pull
+ 1148  git rm somename.properties
+ 1149  git commit
+ 1150  git push
+ 1151  de 61
+ 1152  cd /var/user/
+ 1153  cd build_environments/
+ 1154  cd tibco/
+ 1155  git status
+ 1156  cat somename.properties
+ 1157  de 61
+ 1158  dk 61
+ 1159  de c0
+ 1160  dk c0
+ 1161  d rmi -f 6fb
+ 1162  d rmi -f 6fb22
+ 1163  dk a6
+ 1164  d rmi -f 6fb22
+ 1165  git status
+ 1166  cd citest/
+ 1167  git status
+ 1168  vi build.yml
+ 1169  gcpy
+ 1170  git pull
+ 1171  rm ff
+ 1172  git status
+ 1173  gcpy
+ 1174  cd acitest/
+ 1175  git pull
+ 1176  git status
+ 1177  rm kk
+ 1178  git pull
+ 1179  vi build.yml
+ 1180  gcpy
+ 1181  vi build.yml
+ 1182  gcpy
+ 1183  de 8b
+ 1184  git status
+ 1185  cd /var/user/
+ 1186  cd build_environments/
+ 1187  cd tibco/
+ 1188  git status
+ 1189  git add somename.properties
+ 1190  git commit -a
+ 1191  git status
+ 1192  de 8b
+ 1193  cd acitest/
+ 1194  git pull
+ 1195  cat > somename.properties
+ 1196  git add somename.properties
+ 1197  git commit -a
+ 1198  git push
+ 1199  vi build.yml
+ 1200  git commit -a
+ 1201  git push
+ 1202  vi build.yml
+ 1203  dk 70
+ 1204  dk 31
+ 1205  dk 8b
+ 1206  dk 6e
+ 1207  git commit -a
+ 1208  git push
+ 1209  finger
+ 1210  who
+ 1211  tty
+ 1212  w
+ 1213  kibitz-4002
+ 1214  kibitz -4002
+ 1215  de 3b
+ 1216  w
+ 1217  who
+ 1218  df -h
+ 1219  echo ~jenkins
+ 1220  cd /var
+ 1221  cd citest/
+ 1222  vi build.yml
+ 1223  sudo su - jenkins
+ 1224  cd /var
+ 1225  cd user/
+ 1226  cd /opt/user/
+ 1227  cd tibco
+ 1228  find . -name tibjms.jar
+ 1229  find . -name tibcrypt.jar
+ 1230  find . -name tibjmsadmin.jar
+ 1231  find . -name mssql.jar
+ 1232  cat .gitconfig
+ 1233  gitlab
+ 1234  curl -X PUT http://scm.domain.net/api/v3/users/1/email/j.j@mycompany.com?private_token=xyWFSCLUfPyVmUvkrZHm"
+ 1235  curl -X PUT http://scm.domain.net/api/v3/users/1/email/j.j@mycompany.com?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1236  which gitlab
+ 1237  cat gitlab.py
+ 1238  ll git*
+ 1239  ll .git*
+ 1240  cat .gitconfig
+ 1241  ll .py*
+ 1242  vi .python-gitlab.cfg
+ 1243  sudo su - jenkins
+ 1244  ff jenkins.war
+ 1245  cd /etc/init.d
+ 1246  wget http://updates.jenkins-ci.org/download/war/1.617/jenkins.war
+ 1247  sudo su
+ 1248  gitlab -h
+ 1249  gitlab hook  help
+ 1250  gitlab hook create help
+ 1251  getlab hook get --id=1
+ 1252  gitlab hook get --id=1
+ 1253  gitlab hook get --id=2
+ 1254  gitlab hook get --id=3
+ 1255  gitlab hook get --id=22
+ 1256  gitlab hook get
+ 1257  gitlab project get -v
+ 1258  gitlab project list
+ 1259  gitlab hook create --id=4 --url=127.0.0.30:6060 push_events
+ 1260  gitlab hook create push_events --id=4 --url=127.0.0.30:6060
+ 1261  gitlab hook create  --id=4 --url=127.0.0.30:6060
+ 1262  gitlab hook help
+ 1263  curl -X PUT http://scm.domain.net/api/v3/projects/4/hooks/push_events/127.0.0.30:8888?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1264  gitlab hook get --id=4
+ 1265  gitlab hook help
+ 1266  gitlab hook get --id=1
+ 1267  pip install pyapi-gitlab
+ 1268  sudo pip install pyapi-gitlab
+ 1269  pyapi-gitlab
+ 1270  ff pyapi-gitlab
+ 1271  /tmp/pip-build-root/pyapi-gitlab
+ 1272  cd /tmp/pip-build-root/pyapi-gitlab
+ 1273  ./gitlab
+ 1274  gitlab
+ 1275  gitlab -v
+ 1276  gitlab -h
+ 1277  sudo pip install gitlab3
+ 1278  gitlab3
+ 1279  ff gitlab3
+ 1280  python
+ 1281  sudo su - jenkins
+ 1282  cd /opt
+ 1283  cd user/
+ 1284  cd /var/user/
+ 1285  df -h
+ 1286  vi note
+ 1287  cat note
+ 1288  sj
+ 1289  sj
+ 1290  cd citest/
+ 1291  git pull
+ 1292  vi build.yml
+ 1293  gpcy
+ 1294  gcpy
+ 1295  vi build.yml
+ 1296  cd /opt
+ 1297  df -h
+ 1298  cd citest/
+ 1299  cd ..
+ 1300  cd acitest/
+ 1301  vi build.yml
+ 1302  git pull
+ 1303  vi build.yml
+ 1304  gcpy
+ 1305  de 06
+ 1306  vv
+ 1307  gcpy
+ 1308  de b7
+ 1309  cd build_environments/
+ 1310  df -h
+ 1311  git pull
+ 1312  cd ..
+ 1313  rm -rf build_environments/
+ 1314  df -h
+ 1315  cd /var
+ 1316  cd user/
+ 1317  cd build_environments/
+ 1318  git pull
+ 1319  cd tibco/
+ 1320  vi Dockerfile
+ 1321  git commit -a
+ 1322  git push
+ 1323  dk b7
+ 1324  cd acitest/
+ 1325  git pull
+ 1326  vi build.yml
+ 1327  git pull
+ 1328  git commit -a
+ 1329  gcpy
+ 1330  de b4
+ 1331  cd acitest/
+ 1332  git pull
+ 1333  vi build.yml
+ 1334  cd /opt
+ 1335  cd user/
+ 1336  cd build_environments/
+ 1337  git pull
+ 1338  cd tibco/
+ 1339  vi Dockerfile
+ 1340  de b4
+ 1341  cd acitest/
+ 1342  vi build.yml
+ 1343  git commit -a
+ 1344  git push
+ 1345  cd /var
+ 1346  cd user/
+ 1347  cd build_environments/
+ 1348  cd tibco/
+ 1349  vi Dockerfile
+ 1350  git commit -a
+ 1351  git push
+ 1352  dk b4
+ 1353  cd acitest/
+ 1354  vi build.yml
+ 1355  gcpy
+ 1356  cd /opt
+ 1357  cd user/
+ 1358  cd /var
+ 1359  cd user/
+ 1360  cd lib
+ 1361  mkdir lib
+ 1362  cd lib
+ 1363  get http://repo1.maven.org/maven2/com/madgag/bfg/1.12.3/bfg-1.12.3.jar
+ 1364  wget http://repo1.maven.org/maven2/com/madgag/bfg/1.12.3/bfg-1.12.3.jar
+ 1365  df -h
+ 1366  cd /var/user/
+ 1367  git clone git@scm.domain.net:continuous/continuous.git
+ 1368  git clone --mirror git@scm.domain.net:continuous/continuous.git
+ 1369  cd lib
+ 1370  mv bfg-1.12.3.jar bfg.jar
+ 1371  java -jar ~/lib/bfg.jar  --strip-blobs-bigger-than 10M  continuous.git
+ 1372  du -s *
+ 1373  cd continuous.git
+ 1374  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 1375  cd ..
+ 1376  du -s *
+ 1377  cd continuous.git
+ 1378  tree
+ 1379  git clone /var/user/continuous.git
+ 1380  cd continuous/
+ 1381  cd bootstraps/
+ 1382  vi *
+ 1383  git log
+ 1384  cd ..
+ 1385  cd misc
+ 1386  cd /var
+ 1387  cd /var/user/continuous.git
+ 1388  git push
+ 1389  mv continuous/ old_continuous
+ 1390  git clone git@scm.domain.net:continuous/continuous.git
+ 1391  cd continuous/
+ 1392  vi build
+ 1393  vi build.yml
+ 1394  git branch
+ 1395  cd misc
+ 1396  vi dockerized_build
+ 1397  cd push_dir/
+ 1398  vi push_hook.rb
+ 1399  sj
+ 1400  k9 19981
+ 1401  sj
+ 1402  vi push_hook.rb
+ 1403  vi push_hook.rb
+ 1404  vi push_hook.rb
+ 1405  sj
+ 1406  sudo gen install json
+ 1407  sudo gem install json
+ 1408  sj
+ 1409  cd /usr/lib/ruby/site_ruby/1.8/rubygems
+ 1410  vi custom_require.rb
+ 1411  sj
+ 1412  cd /usr/lib/ruby
+ 1413  cd gems
+ 1414  cd 1.8
+ 1415  cd gems
+ 1416  ruby -v
+ 1417  env
+ 1418  sudo gem install json
+ 1419  sudo gem install json -v 2.1.2
+ 1420  sj
+ 1421  cd /tmp
+ 1422  mv push_hook.rb push_hook.rb.bak
+ 1423  irb
+ 1424  vi push_hook.rb.bak
+ 1425  sj
+ 1426  k9 29021
+ 1427  cd acitest/
+ 1428  git pull
+ 1429  vi build.yml
+ 1430  gcpy
+ 1431  irb
+ 1432  sj
+ 1433  sj
+ 1434  cd acitest/
+ 1435  git pull
+ 1436  vi build.yml
+ 1437  gcpy
+ 1438  gcpy
+ 1439  sj
+ 1440  gcpy
+ 1441  sj
+ 1442  gcpy
+ 1443  a di
+ 1444  df -h
+ 1445  cd /opt
+ 1446  df -h
+ 1447  sudo service docker restart
+ 1448  d rmi -f 15
+ 1449  vi build.yml
+ 1450  gcpy
+ 1451  sudo su
+ 1452  sj
+ 1453  cat build.yml
+ 1454  sj
+ 1455  k9 31817
+ 1456  gcpy
+ 1457  sj
+ 1458  cd continuous/
+ 1459  cd misc/
+ 1460  cd push_dir/
+ 1461  git pull
+ 1462  cd ..
+ 1463  cd build_environments
+ 1464  cat build_environments
+ 1465  cd ..
+ 1466  cd environments/
+ 1467  cd tibco/
+ 1468  cd continuous/
+ 1469  cd misc/
+ 1470  cd push_dir/
+ 1471  cat > push_hook.rb
+ 1472  git commit -a
+ 1473  git push
+ 1474  cd ..
+ 1475  cd merge_dir/
+ 1476  vi merge_hook.rb
+ 1477  cd ../tag_dir/
+ 1478  vi tag_hook.rb
+ 1479  ll emm*
+ 1480  extract emma-2.0.5312.zip
+ 1481  cd emma-2.0.5312
+ 1482  tree
+ 1483  wd
+ 1484  java emmarun
+ 1485  vir
+ 1486  vr
+ 1487  cd examples/
+ 1488  vr
+ 1489  cd ..
+ 1490  cd docs
+ 1491  lynx index.html
+ 1492  env
+ 1493  cd $JAVA_HOME
+ 1494  cd jre
+ 1495  cd ..
+ 1496  tree
+ 1497  find . -name ext
+ 1498  cd jre/lib/ext/
+ 1499  java -v
+ 1500  java --version
+ 1501  java -version
+ 1502  ll ~/emma-2.0.5312
+ 1503  ll ~/emma-2.0.5312/lib
+ 1504  cp  ~/emma-2.0.5312/lib/emma.jar .
+ 1505  sudo cp  ~/emma-2.0.5312/lib/emma.jar .
+ 1506  java emmarun
+ 1507  cd acitest/
+ 1508  vi build.yml
+ 1509  ll *.yml
+ 1510  vi build.yml
+ 1511  cat build
+ 1512  cat build.yml
+ 1513  shyaml get-value emma
+ 1514  shyaml get-value emma < build.yml
+ 1515  vi build.yml
+ 1516  shyaml get-value emma.war < build.yml
+ 1517  sudo gen install ytools
+ 1518  sudo gem install ytools
+ 1519  ytools
+ 1520  ff '*ytools*'
+ 1521  /usr/lib/ruby/gems/1.8/specifications/ytools-0.3.1
+ 1522  cd usr/lib/ruby/gems/1.8/gems/
+ 1523  cd /usr/lib/ruby/gems/1.8/gems/
+ 1524  cd ytools-0.3.1/
+ 1525  cd bin
+ 1526  ypath
+ 1527  cat build.yml
+ 1528  ypath -l /emma build.yml
+ 1529  sudo gem install ypath
+ 1530  env
+ 1531  env | egrep GEM
+ 1532  unset GEM_HOME
+ 1533  ypath -l /emma build.yml
+ 1534  ypath -p /emma build.yml
+ 1535  cat build.yml
+ 1536  ypath -p /emma/war build.yml
+ 1537  ypath -p '/emma/*/war' build.yml
+ 1538  man ypath
+ 1539  which ypath
+ 1540  file `which ypath`
+ 1541  vi /usr/bin/ypath
+ 1542  vi `which ypath`
+ 1543  ypath
+ 1544  ypath -p
+ 1545  ypath -p emma
+ 1546  ypath -p emma build.yml
+ 1547  ypath -p /emma build.yml
+ 1548  cat build.yml
+ 1549  vi build.yml
+ 1550  ypath -p /emma build.yml
+ 1551  cat build.yml
+ 1552  ypath -p emma build.yml
+ 1553  ypath -p /emma build.yml
+ 1554  cat build.yml
+ 1555  ypath -p '/emma/*' build.yml
+ 1556  ypath -p '/emma' build.yml
+ 1557  vi build.yml
+ 1558  ypath -p '/emma' build.yml
+ 1559  ypath -p '/emma/war' build.yml
+ 1560  cat build.yml
+ 1561  ypath -p '/emma/1' build.yml
+ 1562  vi test.yml
+ 1563  cat > test.yml
+ 1564  ypath -p '/languages' test.yml
+ 1565  ypath -p '/languages/name' test.yml
+ 1566  ypath -p '/languages/%' test.yml
+ 1567  ypath -p '/languages' test.yml
+ 1568  ypath -p 'languages' test.yml
+ 1569  shyaml keys < test.yml
+ 1570  shyaml languages < test.yml
+ 1571  shyaml /languages < test.yml
+ 1572  shyaml key-values-0 < test.yml
+ 1573  cat test.yml
+ 1574  shyaml key-values < test.yml
+ 1575  shy
+ 1576  cat test.yml
+ 1577  ypath -p languages test.yml
+ 1578  env
+ 1579  unset GEM_HOME
+ 1580  ypath -p languages test.yml
+ 1581  cat test.yml
+ 1582  ypath -p languages/war test.yml
+ 1583  ytemplates
+ 1584  ytool
+ 1585  ytools
+ 1586  ytemplate test.yml
+ 1587  ytemplates test.yml
+ 1588  ll WheelchairSSRFeedFlightProcessor.ear
+ 1589  mkdir kk
+ 1590  rm kk
+ 1591  mkdir kk
+ 1592  mv WheelchairSSRFeedFlightProcessor.ear kk
+ 1593  cd kk
+ 1594  jar xvf WheelchairSSRFeedFlightProcessor.ear
+ 1595  jar tf lib.zip
+ 1596  file *
+ 1597  cat test.yml
+ 1598  cat test.yml| shyaml get-values languages
+ 1599  cat test.yml| shyaml get-value languanges
+ 1600  cat test.yml| shyaml get-value languages
+ 1601  cat test.yml| shyaml get-values languages
+ 1602  shyaml -v
+ 1603  which shyaml
+ 1604  git clone https://github.com/0k/shyaml.git
+ 1605  ll sh*
+ 1606  cd shyaml/
+ 1607  vr
+ 1608  file *
+ 1609  sudo pip install shyaml
+ 1610  sudo pip --upgrade shyaml
+ 1611  sudo pip install --upgrade shyaml
+ 1612  sudo pip install --upgrade shyaml
+ 1613  sudo
+ 1614  sudo python setup.py install
+ 1615  cat test.yml| shyaml get-values languages
+ 1616  sudo yum install python3-yaml
+ 1617  sudo yum install pyyaml
+ 1618  sudo yum install python-dev
+ 1619  sudo yum install python-devel
+ 1620  sudo pip install pyyaml
+ 1621  cat test.yml| shyaml get-values languages
+ 1622  sudo vi /usr/bin/shyaml
+ 1623  sudo easy_install --upgrade pyyaml
+ 1624  cat test.yml| shyaml get-values languages
+ 1625  ll `which shyaml`
+ 1626  cat test.yml| shyaml get-value languages
+ 1627  cat test.yml
+ 1628  cat test.yml| shyaml get-value-0 languages
+ 1629  shyaml -help
+ 1630  unset GEM_HOME
+ 1631  cat test.yml| shyaml get-value-0 languages
+ 1632  cat <<EOF > test.yaml
+ 1633  name: "MyName !!"
+ 1634  subvalue:
+ 1635      how-much: 1.1
+ 1636      how-many: 2
+ 1637      things:
+ 1638          - first
+ 1639          - second
+ 1640          - third
+ 1641      maintainer: "Valentin Lab"
+ 1642      description: |
+ 1643          Multiline description:
+ 1644          Line 1
+ 1645          Line 2
+ 1646  subvalue.how-much: 1.2
+ 1647  subvalue.how-much\more: 1.3
+ 1648  subvalue.how-much\.more: 1.4
+ 1649  EOF
+ 1650  cat test.yaml | shyaml get-value name
+ 1651  cat test.yaml | shyaml get-value subvalue.how-much
+ 1652  cat test.yaml | shyaml get-type name
+ 1653  cat test.yaml | shyaml keys
+ 1654  cat test.yaml | shyaml values-0 subvalue |   while read -r -d $'\0' value; do       echo "RECEIVED: '$value'";   done
+ 1655  cat test.yaml | shyaml key-values-0 subvalue |   while read-0 key value; do       echo "KEY: '$key'";       echo "VALUE: '$value'";       echo;   done
+ 1656  read-0() {     while [ "$1" ]; do         IFS=$'\0' read -r -d '' "$1" || return 1;         shift;     done;   }
+ 1657  cat test.yaml | shyaml key-values-0 subvalue |   while read-0 key value; do       echo "KEY: '$key'";       echo "VALUE: '$value'";       echo;   done
+ 1658  shyaml --help
+ 1659  cd acitest/
+ 1660  cp build.yml ~
+ 1661  vi build.yml
+ 1662  cd acitest/
+ 1663  cp build.yml ~
+ 1664  vi build.yml
+ 1665  df -h
+ 1666  cd /opt
+ 1667  cd user/
+ 1668  rm -rf build_environments/
+ 1669  df -h
+ 1670  dk 1c
+ 1671  dk c3
+ 1672  dk 733
+ 1673  dk c36
+ 1674  a dk
+ 1675  vi build.yml
+ 1676  cd odadminui/
+ 1677  cp build.yml ~
+ 1678  vi build.yml
+ 1679  cd citest/
+ 1680  git pull
+ 1681  git branch -va
+ 1682  git checkout -b F_102
+ 1683  vi build.yml
+ 1684  wget http://127.0.0.122:8081/nexus/service/local/repositories/releases/content/Tlast/citest/ond/develop/ond-develop.war
+ 1685  jar tf ond-develop.war
+ 1686  vi build.yml
+ 1687  cd citest/
+ 1688  git branch
+ 1689  vi build.yml
+ 1690  cat build.yml | shyaml keys-0 coverage
+ 1691  cat build.yml
+ 1692  cat build.yml | shyaml keys-0 properties.coverage
+ 1693  cat build.yml | shyaml keys-0 properties.coverage | xargs -0 -n 1 echo "VALUE:"
+ 1694  cat test.yaml | shyaml get-values-0 subvalue |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1695  cat test.yaml | shyaml get-values-0 properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1696  cat test.yaml | shyaml get-values-0 properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1697  cat test.yaml | shyaml get-values-0 properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1698  cat test.yaml | shyaml get-values properties.coverage
+ 1699  cat build.yaml | shyaml get-values properties.coverage
+ 1700  cat build.yml | shyaml get-values properties.coverage
+ 1701  cat build.yml | shyaml get-values properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1702  cat build.yml | shyaml get-values-0 properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1703  vi build.yml
+ 1704  cat build.yml | shyaml get-values-0 properties.coverage |   while IFS='' read -r -d '' key &&         IFS='' read -r -d '' value; do       echo "'$key' -> '$value'";   done
+ 1705  cat build.yml
+ 1706  cat > kk
+ 1707  vi kk
+ 1708  ./kk
+ 1709  x kk
+ 1710  ./kk
+ 1711  vi kk
+ 1712  ./kk
+ 1713  ./kk
+ 1714  cat build.yml
+ 1715  vi kk
+ 1716  ./kk
+ 1717  vi kk
+ 1718  ./kk
+ 1719  vi build.yml
+ 1720  vi kk
+ 1721  ./kk
+ 1722  vi kk
+ 1723  ./kk
+ 1724  cl
+ 1725  ./kk
+ 1726  cat build.yml
+ 1727  ./kk
+ 1728  vi build.yml
+ 1729  ./kk
+ 1730  vi build.yml
+ 1731  ./kk
+ 1732  vi build.yml
+ 1733  ./kk
+ 1734  vi build.yml
+ 1735  ./kk
+ 1736  vi build.yml
+ 1737  ./kk
+ 1738  cat build.yml | shyaml get-values properties.coverage.ond-develop.war
+ 1739  cat build.yml | shyaml get-values properties.coverage.ond-develop
+ 1740  vi build.yml
+ 1741  cat build.yml | shyaml get-values properties.coverage.ond-develop
+ 1742  cat build.yml | shyaml get-values properties.coverage.ond-develop\.war
+ 1743  cat build.yml
+ 1744  vi build.yml
+ 1745  cat build.yml | shyaml get-values properties.coverage.ond-develop
+ 1746  vi build.yml
+ 1747  cat build.yml | shyaml get-values properties.coverage.ond-develop\.war
+ 1748  cat build.yml | shyaml get-values properties.coverage.ond-develop.war
+ 1749  cat build.yml | shyaml get-values properties.coverage.ond-developr\.war
+ 1750  vi build.yml
+ 1751  cat build.yml | shyaml get-values properties.coverage.ond-developr\.war
+ 1752  cat build.yml | shyaml get-values properties.coverage.ond-develop
+ 1753  cat build.yml | shyaml get-values properties.coverage.ond-develop\.war
+ 1754  cat build.yml | shyaml get-values properties.coverage.ond-develop\\.war
+ 1755  cat build.yml | shyaml get-values properties.coverage
+ 1756  cat build.yml | shyaml get-values properties.coverage.1
+ 1757  cat build.yml | shyaml get-values properties.coverage.2
+ 1758  cat build.yml | shyaml get-values properties.coverage.0
+ 1759  cat build.yml | shyaml get-values properties.coverage
+ 1760  cat build.yml | shyaml get-values properties.coverage.-1
+ 1761  sudo npm install yaml-to-json -g.
+ 1762  yaml2jason
+ 1763  yaml2json
+ 1764  cat build.yml | yaml2json
+ 1765  cat build.yml
+ 1766  cat build.yml | yaml2json  --convert-all
+ 1767  yaml2json build.yml
+ 1768  sudo npm install -g yamljs
+ 1769  yaml2json build.yml
+ 1770  sudo rm /usr/bin/yaml2json
+ 1771  sudo npm install -g yamljs
+ 1772  yaml2json build.yml
+ 1773  vi build.yml
+ 1774  yaml2json build.yml
+ 1775  jq --help
+ 1776  jq
+ 1777  yaml2json build.yml
+ 1778  vi build.yml
+ 1779  jar tf ond-develop.war
+ 1780  cd -
+ 1781  yaml2json build.yml
+ 1782  yaml2json build.yml | jq properties.coverage
+ 1783  cat > jj
+ 1784  cat jj | python -m json.tool
+ 1785  yaml2json build.yml | jq .properties.coverage
+ 1786   java -jar jenkins-cli.jar -s http://127.0.0.30:8080 get-job od
+ 1787   java -jar jenkins-cli.jar -s http://127.0.0.30:8080
+ 1788  unset GEM_HOME
+ 1789   java -jar jenkins-cli.jar -s http://127.0.0.30:8080
+ 1790   java -jar jenkins-cli.jar -s http://127.0.0.30:8080 get-job od
+ 1791  java -jar jenkins-cli.jar -s http://127.0.0.30:8080 get-job od/odadminui
+ 1792  sj
+ 1793  cd continuous/
+ 1794  git pull
+ 1795  cd misc
+ 1796  cd ..
+ 1797  git branch
+ 1798  mkdir jenkins_bin
+ 1799  cd jenkins_bin/
+ 1800  cp ../misc/mkjobs .
+ 1801  mv mkjobs mkjob
+ 1802  vi mkjob
+ 1803  ./mkjob
+ 1804  ./mkjob 1 2 3
+ 1805  git commit -a
+ 1806  git add mkjob
+ 1807  git commit
+ 1808  git push
+ 1809  cd ..
+ 1810  cd misc/
+ 1811  git pull
+ 1812  cd push_
+ 1813  cd push_dir/
+ 1814  vi push_hook.rb
+ 1815  cat push_hook.rb
+ 1816  sj
+ 1817  k9 2278
+ 1818  sj
+ 1819  cd citest/
+ 1820  git pull
+ 1821  git push
+ 1822  git pull
+ 1823  git push
+ 1824  git branch
+ 1825  git checkout develop
+ 1826  git pull
+ 1827  git push
+ 1828  vi build.yml
+ 1829  git branch
+ 1830  vi build.yml
+ 1831  git commit -a
+ 1832  git push
+ 1833  git pull
+ 1834  vi build.yml
+ 1835  git commit -a
+ 1836  git push
+ 1837  sj
+ 1838  cd cit
+ 1839  rm kk
+ 1840  vi build.yml
+ 1841  gcpy
+ 1842  vi build.yml
+ 1843  cat build.yml |yaml2json
+ 1844  yaml2json build.yml
+ 1845  yaml2json build.yml | jq .
+ 1846  curl 'http://stash.compciv.org/congress-twitter/json/joni-ernst.json'
+ 1847  curl 'http://stash.compciv.org/congress-twitter/json/hillary-clinton.json'
+ 1848  curl 'http://stash.compciv.org/congress-twitter/json/bill-clinton.json'
+ 1849  curl 'http://stash.compciv.org/congress-twitter/json/william-clinton.json'
+ 1850  yaml2json build.yml | jq .[]
+ 1851  yaml2json build.yml | jq .
+ 1852  yaml2json build.yml | jq '.[]'
+ 1853  yaml2json build.yml | jq '.'
+ 1854  yaml2json build.yml | jq '. | .properties.coverage'
+ 1855  vi build.yml
+ 1856  yaml2json build.yml
+ 1857  yaml2json build.yml
+ 1858  yaml2json build.yml | jq .
+ 1859  yaml2json build.yml | jq '. | .properties.coverage'
+ 1860  yaml2json build.yml | jq '. | .properties.coverage[]'
+ 1861  yaml2json build.yml | jq '. | .properties.coverage'
+ 1862  yaml2json build.yml | jq -r '. | .properties.coverage'
+ 1863  yaml2json build.yml | jq '.
+ 1864  yaml2json build.yml
+ 1865  shyaml get-value properties < build.yml
+ 1866  shyaml get-value properties.coverage < build.yml
+ 1867  vi build.yml
+ 1868  shyaml get-value properties.coverage < build.yml
+ 1869  yaml2json build.yml
+ 1870  shyaml get-value properties.coverage < build.yml
+ 1871  shyaml get-value properties.coverage < build.yml | while read t; do
+ 1872  git pull
+ 1873  git commit -a
+ 1874  git push
+ 1875  gcpy
+ 1876  sj
+ 1877  cd citest/
+ 1878  vi build.yml
+ 1879  gcpy
+ 1880  sj
+ 1881  cat build.yml
+ 1882  shyaml get-value properties.coverage < build.yml
+ 1883  shyaml get-value properties.coverage < build.yml | while read t; do
+ 1884  vi build.yml
+ 1885  vi kk
+ 1886  x kk
+ 1887  ./kk
+ 1888  ./kk
+ 1889  shyaml get-value properties.coverage < build.yml
+ 1890  ./kk
+ 1891  ./kk | sed 's/://g'
+ 1892  vi kk
+ 1893  ./kk
+ 1894  ping barchart.com
+ 1895  lynx barchart.com
+ 1896  man awk
+ 1897  ./kk
+ 1898  vi kk
+ 1899  ./kk
+ 1900  ./kk
+ 1901  ./kk
+ 1902  ./kk
+ 1903  ./kk
+ 1904  ./kk
+ 1905  ./kk
+ 1906  ./kk
+ 1907  ./kk
+ 1908  gitlab -h
+ 1909  gitlab hook help
+ 1910  gitlab hook create help
+ 1911  gitlab hook create -h
+ 1912  gitlab-projects
+ 1913  cd continuous/
+ 1914  find . -type f | while read t; do echo "=========================== $t"; egrep gitlab $t; done
+ 1915  find . -type f | while read t; do echo "=========================== $t"; egrep "gitlab hook" $t; done
+ 1916  find . -type f | while read t; do echo "=========================== $t"; egrep "gitlab hook" $t; done
+ 1917  find . -type f | while read t; do echo "=========================== $t"; egrep "gitlab $t; done
+ 1918  find . -type f | while read t; do echo "=========================== $t"; egrep "gitlab $t; done
+ 1919  find . -type f | while read t; do echo "=========================== $t"; egrep "gitlab $t; done
+ 1920  find . -type f | while read t; do echo "=========================== $t"; egrep hook $t; done
+ 1921  gitlab hook help
+ 1922  gitlab hook create --url=www.example.com:6060
+ 1923  gitlab hook create --url=www.example.com:6060 --id=1
+ 1924  h | egrep hook
+ 1925  git pull
+ 1926  cd misc
+ 1927  vi hook_create
+ 1928  git add hook_create
+ 1929  git commit -a
+ 1930  git push
+ 1931  gitlab project list
+ 1932  gitlab project list --per-page=9999
+ 1933  gitlab project list --per-page=9999 | egrep id:
+ 1934  gitlab project list --per-page=9999
+ 1935  curl -X PUT http://scm.domain.net/api/v3/projects/4/hooks/push_events/127.0.0.30:8888?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1936  gitlab projects list --per-page=999 -v
+ 1937  gitlab projects list --per-page=999
+ 1938  gitlab project list --per-page=9999 -v
+ 1939  gitlab project list --per-page=9999 -v > m
+ 1940  vi m
+ 1941  rm m
+ 1942  h | hook
+ 1943  h | egrep hook
+ 1944  gitlab hook create push_events --id=4 --url=127.0.0.30:6060
+ 1945  curl -X PUT http://scm.domain.net/api/v3/projects/4/hooks/push_events/127.0.0.30:8888?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1946  gitlab hook create  --id=4 --url=127.0.0.30:6060
+ 1947  gitlab hook create push_events --id=4 --url=127.0.0.30:6060
+ 1948  curl -X POST http://scm.domain.net/api/v3/projects/4/hooks/push_events/127.0.0.30:8888?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1949  curl -X PUT http://scm.domain.net/api/v3/projects/4/hooks/push_events/127.0.0.30:8888?private_token=xyWFSCLUfPyVmUvkrZHm
+ 1950  cat /etc/passwd
+ 1951  sudo su - rundeck
+ 1952  ff rundeck
+ 1953  cd /var/lib/rundeck/
+ 1954  find . -name '*resource*'
+ 1955  sudo find . -name '*resource*'
+ 1956  cd /var/rundeck/projects/
+ 1957  cd IBM
+ 1958  cd etc
+ 1959  vi resources.xml
+ 1960  cd ../..
+ 1961  cd Gitlab
+ 1962  cd etc
+ 1963  vi resources.xml
+ 1964  cd .ssh
+ 1965  cd citest/
+ 1966  sj
+ 1967  shyaml get-value properties.coverage < build.yml
+ 1968  export FF="`shyaml get-value properties.coverage < build.yml`"
+ 1969  echo $FF
+ 1970  echo $FF | while read t; do echo $t; done
+ 1971  export FF=`shyaml get-value properties.coverage < build.yml`
+ 1972  echo $FF
+ 1973  shyaml get-value properties.coverage < build.yml
+ 1974  shyaml get-value properties.coverage < build.yml | while read t; do echo $t; done
+ 1975  cat kk
+ 1976  ./kk
+ 1977  GG=$"`shyaml get-value properties.coverage < build.yml`"
+ 1978  echo $GG
+ 1979  GG=$'`shyaml get-value properties.coverage < build.yml`'
+ 1980  echo $GG
+ 1981  read -r -d '' HH <<EOF
+ 1982  `shyaml get-value properties.coverage < build.yml`
+ 1983  EOF
+ 1984  echo $HH
+ 1985  shyaml get-value properties.coverage < build.yml | read -d '' sql
+ 1986  echo $sql
+ 1987  shyaml get-value properties.coverage < build.yml | read -d '' II
+ 1988  echo $II
+ 1989  shyaml get-value properties.coverage < build.yml | read -d -r '' II
+ 1990  shyaml get-value properties.coverage < build.yml | read -r -d '' II
+ 1991  echo $II
+ 1992  urlencode
+ 1993  cd continuous/
+ 1994  find . -type f | while read t; do echo "======================== $t"; egrep url $t; done
+ 1995  sudo yum install urlencode
+ 1996  sudo yum update
+ 1997  sudo yum install urlencode
+ 1998  man urlencode
+ 1999  cd citest/
+ 2000  shyaml get-value properties.coverage < build.yml | uuencode
+ 2001  uuencode --help
+ 2002  shyaml get-value properties.coverage < build.yml | python -c "import urllib, sys; print urllib.quote(sys.argv[1])"
+ 2003  shyaml get-value properties.coverage < build.yml
+ 2004  cat <<EOF
+ 2005  $( python -c "import urllib, sys; print urllib.quote(sys.argv[1])" )
+ 2006  EOF
+ 2007  cat <<EOF
+ 2008  `shyaml get-value properties.coverage < build.yml`
+ 2009  EOF
+ 2010  cat > .kk <<EOF
+ 2011  JJ=\$'
+ 2012  `shyaml get-value properties.coverage < build.yml`
+ 2013  '
+ 2014  EOF
+ 2015  . .kk
+ 2016  echo $JJ
+ 2017  cat .kk
+ 2018  cat kk
+ 2019  ./kk
+ 2020  uuencode
+ 2021  man uuencode
+ 2022  ./kk | uuencode -
+ 2023  ./kk | uuencode - | uudecode -
+ 2024  ./kk | uuencode - | uudecode
+ 2025  url-encode
+ 2026  encode
+ 2027  sudo yum install encode
+ 2028  HH='gggg
+ 2029  rrrr
+ 2030  sssss
+ 2031  vvvvv
+ 2032  bbbbb
+ 2033  '
+ 2034  echo $HH
+ 2035  HH=$',mjhk
+ 2036  tttt
+ 2037  yyyy
+ 2038  uuuu
+ 2039  iiii
+ 2040  ddd'
+ 2041  echo $HH
+ 2042  HH=<<EOF
+ 2043  fff
+ 2044  ggg
+ 2045  hhh
+ 2046  jjj
+ 2047  EOF
+ 2048  echo $HH
+ 2049  HH="
+ 2050  d
+ 2051  s
+ 2052  a
+ 2053  w
+ 2054  e
+ 2055  "
+ 2056  echo $HH
+ 2057  cd continuous/
+ 2058  cd misc
+ 2059  vi dockerized_build
+ 2060  vi parse_build_yml_v1_1.sh
+ 2061  cd citest/
+ 2062  cp kk /tmp
+ 2063  cd -
+ 2064  cd continuous/
+ 2065  cd misc/
+ 2066  vi parse_build_yml_v1_1.sh
+ 2067  cp parse_build_yml_v1_1.sh /tmp
+ 2068  sj
+ 2069  cd continuous/
+ 2070  cd misc/
+ 2071  vi parse_build_yml_v1_1.sh
+ 2072  x dockerized_build_v1_1.sh
+ 2073  git commit -a
+ 2074  rm -rf continuous/
+ 2075  git clone git@scm.domain.net:continuous/continuous.git
+ 2076  cd continuous/
+ 2077  cd misc/
+ 2078  chmod +x dockerized_build_v1_1.sh
+ 2079  git commit -a
+ 2080  git push
+ 2081  vi dockerized_build_v1_1.sh
+ 2082  cp  dockerized_build_v1_1.sh  /tmp
+ 2083  sj
+ 2084  cd citest/
+ 2085  git pull
+ 2086  vi build.yml
+ 2087  git commit -a
+ 2088  git push
+ 2089  de a7
+ 2090  de a7
+ 2091  sj
+ 2092  vi build.yml
+ 2093  gcpy
+ 2094  sj
+ 2095  vi build.yml
+ 2096  git commit -a
+ 2097  git push
+ 2098  qu
+ 2099  de 75
+ 2100  rm kk
+ 2101  sj
+ 2102  cd continuous/
+ 2103  cd misc/
+ 2104  cp ~jenkins/bin/dockerized_build_v1_1.sh .
+ 2105  git commit -a
+ 2106  git push
+ 2107  qu
+ 2108  dk 75
+ 2109  dk b6
+ 2110  dk a7
+ 2111  cd citest/
+ 2112  vi build.yml
+ 2113  git commit -a
+ 2114  git push
+ 2115  de 6d
+ 2116  cd odadminui/
+ 2117  cat .green_23459
+ 2118  cd acitest/
+ 2119  vi build.yml
+ 2120  git pull
+ 2121  vi build.
+ 2122  vi build.yml
+ 2123  git commit -a
+ 2124  git push
+ 2125  dk e3
+ 2126  dk 6d
+ 2127  vi build.yml
+ 2128  git commit -a
+ 2129  git push
+ 2130  df -h
+ 2131  ./list_bucket
+ 2132  cd continuous/
+ 2133  git pull
+ 2134  cd misc
+ 2135  vi dockerized_build_v1_1.sh
+ 2136  cp dockerized_build_v1_1.sh /tmp
+ 2137  git commit -a
+ 2138  git push
+ 2139  sj
+ 2140  cd citest/
+ 2141  git pull
+ 2142  vi build.yml
+ 2143  git commit -a
+ 2144  git push
+ 2145  sj
+ 2146  cd citest/
+ 2147  git pull
+ 2148  vi build.yml
+ 2149  git commit -a
+ 2150  sj
+ 2151  cd citest
+ 2152  git push
+ 2153  git commit -a
+ 2154  git push
+ 2155  cd continuous/
+ 2156  cd misc/
+ 2157  cp /tmp/dockerized_build .
+ 2158  vi dockerized_build
+ 2159  cp ~jenkins/bin/color .
+ 2160  git add color
+ 2161  git commit -a
+ 2162  git push
+ 2163  vi color
+ 2164  cp color /tmp
+ 2165  git commit -a
+ 2166  git push
+ 2167  cd
+ 2168  sj
+ 2169  cd citest/
+ 2170  git pull
+ 2171  vi b
+ 2172  vi build.yml
+ 2173  git commit -a
+ 2174  git push
+ 2175  sj
+ 2176  git commit -a
+ 2177  git push
+ 2178  sj
+ 2179  cd citest/
+ 2180  vi b
+ 2181  vi build.yml
+ 2182  git commit -a
+ 2183  git push
+ 2184  dk e2
+ 2185  dk bd
+ 2186  dk 36
+ 2187  dk d0
+ 2188  dk cd
+ 2189  dk cd89
+ 2190  de bb
+ 2191  cd /opt/user/
+ 2192  cd /var/user/
+ 2193  cd build_environments/
+ 2194  git pull
+ 2195  cd mvn_env/
+ 2196  vi Dockerfile
+ 2197  git commit -a
+ 2198  git pull
+ 2199  git push
+ 2200  dk bb
+ 2201  cd citest/
+ 2202  vi build.yml
+ 2203  git commit -a
+ 2204  git push
+ 2205  de 0f
+ 2206  find . -name '*.war'
+ 2207  find . -name '*.ear'
+ 2208  cd web
+ 2209  sudo docker run -d --name=gateone -p 443:8000 liftoff/gateone
+ 2210  d start gateone
+ 2211  telnet localhost 8000
+ 2212  de 1d
+ 2213  d stop gateone
+ 2214  d start gateone
+ 2215  lynx localhost 443
+ 2216  telnet localhost 443
+ 2217  d stop gateone
+ 2218  php
+ 2219  x oterm
+ 2220  ./oterm
+ 2221  cd /lib
+ 2222  rm *.gz
+ 2223  df -h .
+ 2224  git clone https://github.com/liftoff/GateOne.git
+ 2225  cd GateOne/
+ 2226  sudo python setup.py install
+ 2227  sudo gateone
+ 2228  sudo gateone start
+ 2229  sudo npm install tty.js
+ 2230  cat > kk.js
+ 2231  nodejs
+ 2232  node
+ 2233  node kk.js
+ 2234  node tty.js --port 3000
+ 2235  vi kk.js
+ 2236  de 0f
+ 2237  node kk.js
+ 2238  git clone git@scm.domain.net:profileservice/CTR-ProfileService.git
+ 2239  cd CTR-ProfileService/
+ 2240  du -h
+ 2241  cd ff
+ 2242  ..
+ 2243  find . -name '*.war'
+ 2244  df -h
+ 2245  ll *.war
+ 2246  java emma
+ 2247  de 0f
+ 2248  cd continuous/
+ 2249  git pull
+ 2250  cd misc
+ 2251  vi explode_war
+ 2252  dirname
+ 2253  x explode_war
+ 2254  ./explode_war ./targets/ond-develop.war
+ 2255  basename
+ 2256  ./explode_war WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar
+ 2257   ./explode_war WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar
+ 2258   ./explode_war WEB-INF/lib/spring-context-support-4.0.2.RELEASE.war
+ 2259   ./explode_war WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar
+ 2260  ps -ef
+ 2261  unshare
+ 2262  manb unshare
+ 2263  man unshare
+ 2264  df -h
+ 2265  unshare -m
+ 2266  man unshare
+ 2267  unshare -p
+ 2268  ps -ef
+ 2269  sudo unshare -p
+ 2270  man unshare
+ 2271  unshare -p -f bash
+ 2272  sudo unshare -p -f bash
+ 2273  man jar
+ 2274  git add explode_war
+ 2275  git pull
+ 2276  git commit -a
+ 2277  git push
+ 2278  cd /opt
+ 2279  cd user/
+ 2280  cd /var/user/
+ 2281  rm -rf bre-*
+ 2282  cd build_environments/
+ 2283  git pull
+ 2284  cd mvn_env/
+ 2285  cp ~user/continuous/misc/explode_war .
+ 2286  vi Dockerfile
+ 2287  git commit -a
+ 2288  git push
+ 2289  dk 0f
+ 2290  a dk
+ 2291  pf dk
+ 2292  fp dk
+ 2293  cd citest/
+ 2294  git pull
+ 2295  vi build.yml
+ 2296  git commit -a
+ 2297  git push
+ 2298  de 28
+ 2299  de 280
+ 2300  cd /opt
+ 2301  cd user/
+ 2302  cd /var
+ 2303  cd user/
+ 2304  cd build_environments/
+ 2305  cd mvn_env/
+ 2306  vi Dockerfile
+ 2307  git commit -a
+ 2308  git push
+ 2309  vi Dockerfile
+ 2310  git commit -a
+ 2311  git push
+ 2312  cd /opt
+ 2313  cd user/
+ 2314  cd /var/user/
+ 2315  cd build_environments/
+ 2316  cd mvn_env/
+ 2317  vi Dockerfile
+ 2318  git commit -a
+ 2319  git push
+ 2320  wd
+ 2321  mkdir bin
+ 2322  mv xidel explode_war bin
+ 2323  mv bin/explode_war bin/xidel .
+ 2324  git mv explode_war bin
+ 2325  vi Dockerfile
+ 2326  mv explode_war bin/
+ 2327  git mv xidel bin
+ 2328  git add bin
+ 2329  git commit
+ 2330  git push
+ 2331  d rmi -f b4c
+ 2332  dk 280
+ 2333  d rmi -f 1e
+ 2334  d rmi -f 41
+ 2335  d rmi -f ce
+ 2336  d rmi -f 99
+ 2337  d rmi -f b9
+ 2338  d rmi -f 42
+ 2339  d rmi -f 42e
+ 2340  vi Dockerfile
+ 2341  git commit -a
+ 2342  git push
+ 2343  got commit -a
+ 2344  git commit -a
+ 2345  git push
+ 2346  cd citest/
+ 2347  vi b
+ 2348  vi build.yml
+ 2349  git commit -a
+ 2350  git push
+ 2351  sj
+ 2352  cd citest/
+ 2353  vi build.yml
+ 2354  git commit -a
+ 2355  vi build.yml
+ 2356  git commit -a
+ 2357  git push
+ 2358  vi build.yml
+ 2359  git commit -a
+ 2360  git pull
+ 2361  rm .kk
+ 2362  vi build.yml
+ 2363  git commit -a
+ 2364  git push
+ 2365  de 38
+ 2366  cd /var/user/
+ 2367  cd build_environments/
+ 2368  cd mvn_env/
+ 2369  vi Dockerfile
+ 2370  git commit -a
+ 2371  git push
+ 2372  dk 38
+ 2373  cd
+ 2374  cd citest/
+ 2375  vi build.yml
+ 2376  git comit -a
+ 2377  git commit -a
+ 2378  git push
+ 2379  de 33
+ 2380  cd /var/user/
+ 2381  cd build_environments/
+ 2382  c be
+ 2383  cd mvn_env/
+ 2384  vi Dockerfile
+ 2385  git commit -a
+ 2386  git push
+ 2387  find -ls
+ 2388  cd bin
+ 2389  cd ..
+ 2390  dk 33
+ 2391  d rmi -f 118
+ 2392  d rmi -f 3f5
+ 2393  cd citest/
+ 2394  vi build.yml
+ 2395  git commit -a
+ 2396  git push
+ 2397  de 4c
+ 2398  c be
+ 2399  cd mvn_env/
+ 2400  vi Dockerfile
+ 2401  git commit -a
+ 2402  git push
+ 2403  dk 4c
+ 2404  de b8
+ 2405  c be
+ 2406  cd mvn_env/
+ 2407  vi Dockerfile
+ 2408  dk b8
+ 2409  cd citest/
+ 2410  vi build.yml
+ 2411  gc
+ 2412  git branch
+ 2413  git commit -a
+ 2414  gp
+ 2415  gc
+ 2416  gp
+ 2417  d rmi -f 72
+ 2418  c be
+ 2419  cd mvn_env/
+ 2420  vi Dockerfile
+ 2421  gc
+ 2422  gp
+ 2423  cd citest/
+ 2424  vi build.yml
+ 2425  gc
+ 2426  gp
+ 2427  de e9
+ 2428  dk e9
+ 2429  c be
+ 2430  cd mvn_env/
+ 2431  vi Dockerfile
+ 2432  gc
+ 2433  gp
+ 2434  cd citest/
+ 2435  vi build.yml
+ 2436  gc
+ 2437  gp
+ 2438  de 29
+ 2439  cd ..
+ 2440  dk 29
+ 2441  c be
+ 2442  cd mvn_env/
+ 2443  i Dockerfile
+ 2444  vi Dockerfile
+ 2445  gc
+ 2446  gp
+ 2447  cd citest/
+ 2448  gc
+ 2449  vi build.yml
+ 2450  gc
+ 2451  de ed
+ 2452  c be
+ 2453  cd mvn_env/
+ 2454  vi Dockerfile
+ 2455  gc
+ 2456  gc
+ 2457  dk ed
+ 2458  d rmi -f c0
+ 2459  d rmi -f c06
+ 2460  d tag bbd mvn_env
+ 2461  cd citest/
+ 2462  vi build.yml
+ 2463  gc
+ 2464  de fe
+ 2465  dk fee
+ 2466  c be
+ 2467  cd mvn_env/
+ 2468  vi Dockerfile
+ 2469  gc
+ 2470  cd citest/
+ 2471  vi build.yml
+ 2472  gc
+ 2473  de f8
+ 2474  d -v
+ 2475  de f8
+ 2476  c be
+ 2477  dk f8
+ 2478  sudo yum update
+ 2479  sudo yum localinstall --nogpgcheck docker-engine-1.7.0-1.el6.x86_64.rpm
+ 2480  curl -O -sSL https://get.docker.com/rpm/1.7.0/centos-6/RPMS/x86_64/docker-engine-1.7.0-1.el6.x86_64.rpm
+ 2481  sudo yum localinstall --nogpgcheck docker-engine-1.7.0-1.el6.x86_64.rpm
+ 2482  d -v
+ 2483  ll *rpm
+ 2484  sudo yum localinstall --nogpgcheck docker-engine-1.7.0-1.el6.x86_64.rpm
+ 2485  sudo yum upgrade docker-io
+ 2486  d -v
+ 2487  c be
+ 2488  cd mvn_env/
+ 2489  vi Dockerfile
+ 2490  gc
+ 2491  cd citest/
+ 2492  vi build.yml
+ 2493  gc
+ 2494  de 81
+ 2495  dk 81
+ 2496  c be
+ 2497  cd mvn_env/
+ 2498  vi Dockerfile
+ 2499  gc
+ 2500  cd
+ 2501  cd citest/
+ 2502  vi build.yml
+ 2503  gc
+ 2504  de 97
+ 2505  dk 97
+ 2506  c be
+ 2507  cd mvn_env/
+ 2508  vi Dockerfile
+ 2509  gc
+ 2510  cd citest/
+ 2511  vi build.yml
+ 2512  gc
+ 2513  de c5
+ 2514  c be
+ 2515  cd mvn_env/
+ 2516  vi Dockerfile
+ 2517  de c5
+ 2518  dk c5
+ 2519  vi Dockerfile
+ 2520  gc
+ 2521  cd citest/
+ 2522  vi build.yml
+ 2523  gc
+ 2524  de fe
+ 2525  dk fe
+ 2526  c be
+ 2527  cd mvn_env/
+ 2528  vi Dockerfile
+ 2529  gc
+ 2530  cd citest/
+ 2531  vi build.yml
+ 2532  gc
+ 2533  de f0
+ 2534  c be
+ 2535  cd mvn_env/
+ 2536  de f0
+ 2537  vi Dockerfile
+ 2538  gc
+ 2539  de f0
+ 2540  vi Dockerfile
+ 2541  ll bin
+ 2542  de f0
+ 2543  vi Dockerfile
+ 2544  gc
+ 2545  dk f0
+ 2546  d rmi -f 70
+ 2547  d rmi -f 704
+ 2548  d tag a2f mvn_env
+ 2549  cd citest/
+ 2550  git pull
+ 2551  vi build.yml
+ 2552  gc
+ 2553  de ae
+ 2554  vi build.yml
+ 2555  dk ae
+ 2556  c be
+ 2557  cd mvn_env/
+ 2558  cd bin
+ 2559  cat explode_war
+ 2560  cd
+ 2561  cd citest/
+ 2562  vi build.yml
+ 2563  git pull
+ 2564  git commit -a
+ 2565  vi build.yml
+ 2566  gc
+ 2567  vi build.yml
+ 2568  gc
+ 2569  qu
+ 2570  de 1a
+ 2571  c be
+ 2572  file *
+ 2573  cd mvn_env/
+ 2574  vi Dockerfile
+ 2575  git clone git@scm.domain.net:continuous/build_tools.git
+ 2576  cd build_tools/
+ 2577  cp $be/mvn_env/explode_war .
+ 2578  echo $be
+ 2579  ll $be
+ 2580  cp $be/mvn_env/bin/explode_war .
+ 2581  git add *
+ 2582  git commit -a
+ 2583  git push
+ 2584  git pull
+ 2585  git pull origin master
+ 2586  git config --global user.name "Backups"
+ 2587  git config --global user.email "first.last@mycompany.com"
+ 2588  git push
+ 2589  git branch -va
+ 2590  git pull origin master
+ 2591  git push origin master
+ 2592  git checkout -b develop
+ 2593  git push origin develop
+ 2594  c be
+ 2595  cd mvn_env/
+ 2596  git pull
+ 2597  git rm bin
+ 2598  git rm -r bin
+ 2599  xidel
+ 2600  which zidel
+ 2601  zidel
+ 2602  which xidel
+ 2603  vi Dockerfile
+ 2604  git commit -a
+ 2605  dk 1a
+ 2606  git push
+ 2607  vi Dockerfile
+ 2608  gc
+ 2609  git commit -a
+ 2610  vi Dockerfile
+ 2611  gc
+ 2612  sj
+ 2613  vi Dockerfile
+ 2614  cd build_tools/
+ 2615  cp `which xidel` .
+ 2616  git add x*
+ 2617  git commit -a
+ 2618  git push
+ 2619  c be
+ 2620  cd mvn_env/
+ 2621  vi Dockerfile
+ 2622  gc
+ 2623  d rmi -f 21f
+ 2624  d rmi -f 42e
+ 2625  cd citest/
+ 2626  vi build.yml
+ 2627  gc
+ 2628  de 12
+ 2629  c be
+ 2630  cd mvn_env/
+ 2631  de 12
+ 2632  cd build_tools/
+ 2633  vi explode_war
+ 2634  cd citest/
+ 2635  vi build.yml
+ 2636  sj
+ 2637  dk 124
+ 2638  cd citest/
+ 2639  vi build.yml
+ 2640  gc
+ 2641  de 22
+ 2642  sj
+ 2643  dk 229
+ 2644  vi build.yml
+ 2645  gc
+ 2646  de 79
+ 2647  sj
+ 2648  vi build.yml
+ 2649  sj
+ 2650  vi build.yml
+ 2651  gc
+ 2652  dk 793
+ 2653  sj
+ 2654  gc
+ 2655  dk e8
+ 2656  dk e8c
+ 2657  de od
+ 2658  de od7
+ 2659  cd 0d7
+ 2660  de 0d7
+ 2661  sj
+ 2662  de 0d
+ 2663  sj
+ 2664  dk 0d
+ 2665  c be
+ 2666  cd build_tools/
+ 2667  vi explode_war
+ 2668  git commit -a
+ 2669  git push
+ 2670  c be
+ 2671  cd mvn_env/
+ 2672  vi Dockerfile
+ 2673  gc
+ 2674  cd citest/
+ 2675  vi build.yml
+ 2676  gc
+ 2677  vi build.yml
+ 2678  de d4
+ 2679  dk d4
+ 2680  gc
+ 2681  gc
+ 2682  gc
+ 2683  sj
+ 2684  cd -
+ 2685  vi build.yml
+ 2686  gc
+ 2687  sj
+ 2688  de 73
+ 2689  cd /tmp
+ 2690  rm dock*
+ 2691  sudo rm dock*
+ 2692  cd continuous/
+ 2693  cd misc
+ 2694  cp /tmp/dockerized_build_v1_1.sh .
+ 2695  git commit -a
+ 2696  git push
+ 2697  cd build_tools/
+ 2698  de 73
+ 2699  dk 73
+ 2700  java emma
+ 2701  java emma instr
+ 2702  vi instument_jar
+ 2703  x *
+ 2704  git add instument_jar
+ 2705  git commit -a
+ 2706  git push
+ 2707  c be
+ 2708  cd mvn_env/
+ 2709  vi Dockerfile
+ 2710  gc
+ 2711  cd build_tools/
+ 2712  git branch
+ 2713  cd continuous/
+ 2714  cd misc
+ 2715  cat build_environments
+ 2716  cat > build_environments
+ 2717  git commit -a
+ 2718  git push
+ 2719  sj
+ 2720  cd citest/
+ 2721  vi build.yml
+ 2722  c be
+ 2723  cd mvn_env/
+ 2724  d rmi -f ef0
+ 2725  vi Dockerfile
+ 2726  c be
+ 2727  cd mvn_env/
+ 2728  vi Dockerfile
+ 2729  gc
+ 2730  sj
+ 2731  cd build_tools/
+ 2732  git mv instument_jar instrument_jar
+ 2733  git commit -a
+ 2734  git push
+ 2735  vi Dockerfile
+ 2736  gc
+ 2737  d rmi -f ac6
+ 2738  cd citest/
+ 2739  vi build.yml
+ 2740  gc
+ 2741  vi build.yml
+ 2742  sj
+ 2743  cd
+ 2744  c be
+ 2745  cd mvn_env/
+ 2746  vi Dockerfile
+ 2747  sj
+ 2748  cd continuous/
+ 2749  cd misc/
+ 2750  cp /tmp/dockerized_build_v1_1.sh .
+ 2751  git commit -a
+ 2752  gc
+ 2753  cd citest/
+ 2754  vi build.yml
+ 2755  gc
+ 2756  d rmi -f 66
+ 2757  d rmi -f 66d
+ 2758  dk 66
+ 2759  de b1
+ 2760  cd build_tools/
+ 2761  vi instrument_jar
+ 2762  gc
+ 2763  gc
+ 2764  dk b1
+ 2765  cd
+ 2766  cd citest/
+ 2767  vi build.yml
+ 2768  gc
+ 2769  de 95
+ 2770  cd build_tools/
+ 2771  vi instrument_jar
+ 2772  cd continuous/
+ 2773  cd misc/
+ 2774  vi dockerized_build_v1_1.sh
+ 2775  git commit -a
+ 2776  git push
+ 2777  sj
+ 2778  cd build_tools/
+ 2779  git status
+ 2780  git commit -a
+ 2781  git push
+ 2782  c be
+ 2783  cd mvn_env/
+ 2784  vi Dockerfile
+ 2785  gc
+ 2786  dk 95
+ 2787  sj
+ 2788  cd
+ 2789  cd citest/
+ 2790  vi build.yml
+ 2791  gc
+ 2792  de 13
+ 2793  de 13b
+ 2794  dk 13b
+ 2795  vi build.yml
+ 2796  gc
+ 2797  de b0
+ 2798  dk b0
+ 2799  vi build.yml
+ 2800  cd build_tools/
+ 2801  vi explode_war
+ 2802  vi instrument_jar
+ 2803  sj
+ 2804  cd continuous/
+ 2805  cd misc/
+ 2806  cp /tmp/dockerized_build_v1_1.sh .
+ 2807  gc
+ 2808  cd citest/
+ 2809  vi build.yml
+ 2810  gc
+ 2811  qu
+ 2812  de bd
+ 2813  cd build_tools/
+ 2814  vi assemble_war
+ 2815  cat *
+ 2816  cat explode_war
+ 2817  cd citest/
+ 2818  vi build.yml
+ 2819  gc
+ 2820  de 0c
+ 2821  cd build_tools/
+ 2822  x *
+ 2823  vi assemble_war
+ 2824  cat explode_war
+ 2825  basename
+ 2826  git add assemble_war
+ 2827  git commit -a
+ 2828  git push
+ 2829  c be
+ 2830  cd mvn_env/
+ 2831  vi Dockerfile
+ 2832  gc
+ 2833  cd citest/
+ 2834  vi build.yml
+ 2835  gc
+ 2836  de 74
+ 2837  c be
+ 2838  cd mvn_env/
+ 2839  vi Dockerfile
+ 2840  gc
+ 2841  dk 74
+ 2842  cd citest/
+ 2843  vi build.yml
+ 2844  gc
+ 2845  de f2
+ 2846  cd build_tools/
+ 2847  cat > assemble_war
+ 2848  gc
+ 2849  c be
+ 2850  cd mvn_env/
+ 2851  vi Dockerfile
+ 2852  gc
+ 2853  dk f2
+ 2854  cd citest/
+ 2855  vi build.yml
+ 2856  gc
+ 2857  cd
+ 2858  cd citest/
+ 2859  vi pom.xml
+ 2860  vi build.yml
+ 2861  de e1
+ 2862  dk e1
+ 2863  gc
+ 2864  vi pom.xml
+ 2865  mvn test
+ 2866  mvn sonar:sonar
+ 2867  d run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:5.1
+ 2868  mvn sonar:sonar
+ 2869  cd /home/user/citest/common/target/
+ 2870  cd sonar
+ 2871  mvn com.hello2morrow.sonargraph:maven-sonargraph-plugin:architect-report
+ 2872  cd citest/
+ 2873  cd web
+ 2874  cd src
+ 2875  cd test
+ 2876  cd *
+ 2877  cd w*
+ 2878  cd *
+ 2879  vi *
+ 2880  cd citest/
+ 2881  mvn sonar:start
+ 2882  vi *
+ 2883  mvn sonar:sonar
+ 2884  lynx localhost:9000
+ 2885  ip route
+ 2886  mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true
+ 2887  maven
+ 2888  mvn emma:emma
+ 2889  find -name '*emma*'
+ 2890  cd ./web/target/generated-classes/emma
+ 2891  find . -name '*.xml'
+ 2892  vi ./classes/spring/applicationContext-common.xml
+ 2893  vi `find . -name '*.xml'`
+ 2894  find -ls
+ 2895  cd citest/
+ 2896  cd web
+ 2897  cd target
+ 2898  cd ond
+ 2899  cd citest/
+ 2900  find -name site
+ 2901  mvn emma:emma
+ 2902  cd /home/user/citest/web/target/
+ 2903  vi coverage.em
+ 2904  cd citest/
+ 2905  git pull
+ 2906  mvn clean emma:emma
+ 2907  cd ..
+ 2908  rm -rf citest/
+ 2909  git clone git@scm.domain.net:Tlast/citest.git
+ 2910  cd citest/
+ 2911  mvn emma:emma
+ 2912  rm /home/user/citest/service/target/coverage-0.ec
+ 2913  mvn emma:emma
+ 2914  dk b77
+ 2915  vi build.yml
+ 2916  gc
+ 2917  de 2c
+ 2918  dk
+ 2919  dk 2c
+ 2920  de 86
+ 2921  vi build.yml
+ 2922  cd od
+ 2923  cd odadminui/
+ 2924  git pull
+ 2925  vi build.yml
+ 2926  git pull
+ 2927  vi build.yml
+ 2928  gc
+ 2929  de 13
+ 2930  de 139
+ 2931  git pull
+ 2932  mvn sonar:sonar
+ 2933  find -name settings.xml
+ 2934  find settings.xml
+ 2935  de 139
+ 2936  telnet localhost 9000
+ 2937  de 139
+ 2938  sudo docker run -it -d --name shipyard-rethinkdb-data     --entrypoint /bin/bash shipyard/rethinkdb -l
+ 2939  docker run -it -P -d --name shipyard-rethinkdb     --volumes-from shipyard-rethinkdb-data shipyard/rethinkdb
+ 2940  sudo docker run -it -P -d --name shipyard-rethinkdb     --volumes-from shipyard-rethinkdb-data shipyard/rethinkdb
+ 2941  sudo docker run -it -p 8888:8080 -d --name shipyard     --link shipyard-rethinkdb:rethinkdb shipyard/shipyard
+ 2942  de 139
+ 2943  man docker
+ 2944  man docker-run
+ 2945  sj
+ 2946  dk 765
+ 2947  dk f73
+ 2948  dk b01
+ 2949  dk 139
+ 2950  cd citest/
+ 2951  vi build.yml
+ 2952  gc
+ 2953  de 11
+ 2954  man docker-run
+ 2955  sj
+ 2956  dk 11c
+ 2957  sj
+ 2958  cd
+ 2959  cd citest/
+ 2960  vi build.yml
+ 2961  gc
+ 2962  qu
+ 2963  de 99
+ 2964  cd
+ 2965  cd continuous/
+ 2966  git pull
+ 2967  cd misc
+ 2968  vi dockerized_build_v1_1.sh
+ 2969  git commit -a
+ 2970  git push
+ 2971  de 99
+ 2972  cd odadminui/
+ 2973  git pull
+ 2974  mvn emma:emma
+ 2975  cat /etc/passwd
+ 2976  sudo su - rundeck
+ 2977  ff rundeck
+ 2978  cd /var/lib/rundeck
+ 2979  ff rundeck
+ 2980  cd /etc/rundeck/
+ 2981  vi realm.properties
+ 2982  sudo vi realm.properties
+ 2983  sudo service rundeckd restart
+ 2984  de 99
+ 2985  git clone git@github.com:mojohaus/mojohaus.github.io.git
+ 2986  de 99
+ 2987  git clone https://github.com/mojohaus/mojohaus-all.git
+ 2988  cd mojohaus-all/
+ 2989  cd maven-native/
+ 2990  cd ..
+ 2991  cd sonar-maven-plugin/
+ 2992  git status
+ 2993  git clone https://github.com/mojohaus/mojohaus-all.git
+ 2994  cd mojohaus-all/
+ 2995  cd sonar-maven-plugin/
+ 2996  ls -la
+ 2997  rm -rf mojohaus-all/
+ 2998  wget https://github.com/mojohaus/mojohaus-all/archive/master.zip
+ 2999  expand master.zip
+ 3000  cd ..
+ 3001  eb
+ 3002  exec bash
+ 3003  unzip master.zip
+ 3004  cd mojohaus-all-master/
+ 3005  cd sonar-maven-plugin/
+ 3006  cd ..
+ 3007  rm -rf sonar-maven-plugin/
+ 3008  rm -rf mojohaus-all-master/
+ 3009  git clone git@github.com:mojohaus/mojohaus-all.git
+ 3010  git clone --recursive git@github.com:mojohaus/mojohaus-all.git
+ 3011  git clone --recursive https://github.com/mojohaus/mojohaus-all.git
+ 3012  cd mojohaus-all/
+ 3013  cd sonar-maven-plugin/
+ 3014  rm -rf mojohaus-all/
+ 3015  git clone --recursive git@github.com:mojohaus/sonar-maven-plugin.git
+ 3016  git clone --recursive https://github.com/mojohaus/sonar-maven-plugin.git
+ 3017  cd sonar-maven-plugin/
+ 3018  cd continuous/
+ 3019  c be
+ 3020  git pull
+ 3021  mkdir ibm
+ 3022  cd ibm
+ 3023  cat > Dockerfile
+ 3024  git add *
+ 3025  git commit -a
+ 3026  git push
+ 3027  d run -itd ibm bash
+ 3028  de cb
+ 3029  df -h
+ 3030  de 99
+ 3031  d run -itd tibco bash
+ 3032  de c7
+ 3033  npm
+ 3034  npm install tty.js
+ 3035  sudo npm install tty.js
+ 3036  cat > samp.js
+ 3037  node
+ 3038  k1
+ 3039  node samp.js
+ 3040  sudo su -
+ 3041  ll -a
+ 3042  ff .tty.js
+ 3043  man tty.js
+ 3044  ff config.json
+ 3045  sudo su -
+ 3046  node samp.js
+ 3047  tty.js
+ 3048  ff tty.js
+ 3049  /home/user/node_modules/tty.js
+ 3050  /home/user/node_modules/tty.js/bin/tty.js
+ 3051  ps -ef
+ 3052  sudp pip install butterfly
+ 3053  sudo pip install butterfly
+ 3054  ff butterfly.server.py
+ 3055  /usr/bin/butterfly.server.py
+ 3056  df -h
+ 3057  sudo pip install butterfly
+ 3058  butterfly.server.py --unsecure
+ 3059  python butterfly.server.py --unsecure
+ 3060  sudo pip install tornado.options
+ 3061  sudo pip install tornado
+ 3062  butterfly.server.py --unsecure
+ 3063  docker run -d --name=gateone -p 443:8000 liftoff/gateone
+ 3064  sudo docker run -d --name=gateone -p 443:8000 liftoff/gateone
+ 3065  d rmi -f 133
+ 3066  sudo docker run -d --name=gateone -p 443:8000 liftoff/gateone
+ 3067  dk 1da
+ 3068  d run -itd c35 bash
+ 3069  de ab
+ 3070  dk ab
+ 3071  sudo docker run -d --name=gateone -p 443:8000 liftoff/gateone
+ 3072  telnet localhost 443
+ 3073  dk 4d
+ 3074  d rmi -f c35
+ 3075  sudo service jenkins restart
+ 3076  df -h
+ 3077  top
+ 3078  sudo reboot
+ 3079  telnet localhost 8080
+ 3080  ./list_bucket
+ 3081  sj
+ 3082  svn checkout http://browsershots.googlecode.com/svn/trunk/ browsershots-read-only
+ 3083  cd browsershots-read-only/
+ 3084  docker run -d -P --name selenium-hub selenium/hub
+ 3085  sudo docker run -d -P --name selenium-hub selenium/hub
+ 3086  sudo docker run -d --link selenium-hub:hub selenium/node-chrome
+ 3087  sudo yum -y  install tightvncserver xfonts-base netpbm xautomation scrot subversion
+ 3088  cd citest/
+ 3089  vi build.yml
+ 3090  git pull
+ 3091  git commit -a
+ 3092  git commit -a
+ 3093  gc
+ 3094  de 30
+ 3095  sj
+ 3096  dk 30
+ 3097  gc
+ 3098  dk 35
+ 3099  sj
+ 3100  gc
+ 3101  telnet localhost 7777
+ 3102  de 8b
+ 3103  dk 8b
+ 3104  sj
+ 3105  sj
+ 3106  gc
+ 3107  dcc
+ 3108  de cc
+ 3109  dk cc
+ 3110  sj
+ 3111  gc
+ 3112  telnet localhost 7777
+ 3113  de 22
+ 3114  dk 22
+ 3115  gc
+ 3116  de f6
+ 3117  dk f6
+ 3118  gc
+ 3119  de ac
+ 3120  telnet localhost 7777
+ 3121  ping 64.25.21.13
+ 3122  ping 10.63.161.118
+ 3123  sonar
+ 3124  a sonar
+ 3125  git clone git@github.com:tlastchat/browsershots.git
+ 3126  ll browsershots-read-only/
+ 3127  cd br*
+ 3128  cd ..
+ 3129  ls -ld bro*
+ 3130  cd browsershots-read-only/
+ 3131  tree
+ 3132  dk ac
+ 3133  sj
+ 3134  cd odadminui/
+ 3135  mvn clean install sonar:sonar
+ 3136  sonar
+ 3137  dk 8601856a77ff
+ 3138  sonar
+ 3139  cd odadminui/
+ 3140  mvn sonar:sonar
+ 3141  vi build.yml
+ 3142  gc
+ 3143  dk a69
+ 3144  sj
+ 3145  telnet localhost 7777
+ 3146  vi build.yml
+ 3147  gc
+ 3148  d commit 29d foo/java
+ 3149  d commit 29d food/java
+ 3150  wget http://259f66f7f374dd7328d0a8bd02c3644d3808cccc3c6cd4637c2b43582d187928:8000
+ 3151  de 25
+ 3152  de 259
+ 3153  wget http://259f66f7f374dd7328d0a8bd02c3644d3808cccc3c6cd4637c2b43582d187928:8080
+ 3154  d inspect 29d
+ 3155  d inspect 29d | jq .
+ 3156  d inspect 29d | jq .NetworkSettings
+ 3157  d inspect 29d | jq -r '.[0].NetworkSettings.IPAddress'
+ 3158  dip 29
+ 3159  dop 29 8080 7777
+ 3160  telnet localhost 7777
+ 3161  de 29
+ 3162  dop 29 8080 7777
+ 3163  sj
+ 3164  dk 29
+ 3165  cd odadminui/
+ 3166  gc
+ 3167  qu
+ 3168   sudo iptables -F
+ 3169  sudo reboot
+ 3170  s1
+ 3171  sj
+ 3172  sonar
+ 3173  dk 08
+ 3174  sonar
+ 3175  selenium
+ 3176  unset GEM_HOME
+ 3177  selenium
+ 3178  d rmi -f 8d
+ 3179  d rmi -f 9a
+ 3180  selenium
+ 3181  d rmi -f 8d
+ 3182  dk 2e
+ 3183  selenium
+ 3184  a eb
+ 3185  type ccd
+ 3186  a cdd
+ 3187  type cdd
+ 3188  alias cdd
+ 3189  ps -u user
+ 3190  pa cdd
+ 3191  pa a
+ 3192  unset a
+ 3193  pa a
+ 3194  unalias a
+ 3195  pa a
+ 3196  pa pa
+ 3197  pa dc
+ 3198  selenium
+ 3199  dc -a
+ 3200  dk ac4bd76dd313
+ 3201  dk 1b
+ 3202  dk 48
+ 3203  dk 485862f36743
+ 3204  dc -a
+ 3205  dk 98
+ 3206  dk 9809ac8617ce
+ 3207  dk 167b70852476
+ 3208  dc -a
+ 3209  selenium
+ 3210  dc -a
+ 3211  dk 2cdc
+ 3212  docker run -d --link selenium-hub:hub selenium/node-firefox:2.46.0
+ 3213  sudo docker run -d --link selenium-hub:hub selenium/node-firefox:2.46.0
+ 3214  sudo docker run -d -p 4444:4444 --name selenium-hub selenium/hub:2.46.0
+ 3215  dk 48116b725d88
+ 3216  ppwd
+ 3217  diu
+ 3218  dclean
+ 3219  cd
+ 3220  c be
+ 3221  cd mvn_env/
+ 3222  vi Dockerfile
+ 3223  gc
+ 3224  sj
+ 3225  vi Dockerfile
+ 3226  gc
+ 3227  cd ../tibco/
+ 3228  vi Dockerfile
+ 3229  gc
+ 3230  selenium
+ 3231  h | egrep selen
+ 3232  d rmi -f ec0
+ 3233  d rmi -f 8d3
+ 3234  di -a
+ 3235  sudo  docker run -d -P --name selenium-hub selenium/hub
+ 3236  sonar
+ 3237  de 1f
+ 3238  sj
+ 3239  dk 1f
+ 3240  sj
+ 3241  cd odadminui/
+ 3242  cd citest/
+ 3243  vi build.yml
+ 3244  gc
+ 3245  de 29
+ 3246  sj
+ 3247  dk 29
+ 3248  cd citest/
+ 3249  vi build.yml
+ 3250  gc
+ 3251  de 33
+ 3252  vi build.yml
+ 3253  dk 33
+ 3254  gc
+ 3255  d -v
+ 3256  de aa
+ 3257  a a
+ 3258  a pa
+ 3259  sonar-runner
+ 3260  dk 5e
+ 3261  sonar-runner
+ 3262  h | egrep D
+ 3263  de aa
+ 3264  ls -la
+ 3265  file .sonar/
+ 3266  cd .sonar/
+ 3267  tree
+ 3268  ff settings.xml
+ 3269  cd sonar-runner-2.4/
+ 3270  tree
+ 3271  cd conf
+ 3272  vi *
+ 3273  sonar-runner
+ 3274  sonar
+ 3275  sonar-runner
+ 3276  lynx http://127.0.0.30:9000
+ 3277  dip aa
+ 3278  dip 20
+ 3279  dip aa8
+ 3280  dip bc
+ 3281  de aa
+ 3282  d inspect aa
+ 3283  netstat -tunpl
+ 3284  de a
+ 3285  sj
+ 3286  cd odadminui/
+ 3287  mvn sonar:sonar
+ 3288  ./list_bucket
+ 3289  de a
+ 3290  top
+ 3291  de aa
+ 3292  java -version
+ 3293  mvn -version
+ 3294  ll jdk-*
+ 3295  cd continuous/
+ 3296  cd misc/
+ 3297  cp send2nexus ~/bin
+ 3298  cd ~/bin
+ 3299  vi send2nexus
+ 3300  cd ~/bin
+ 3301  x send2nexus
+ 3302  vi send2nexus
+ 3303  cd
+ 3304  send2nexus
+ 3305  cd ~/bin
+ 3306  pwf
+ 3307  cd continuous/
+ 3308  cd misc
+ 3309  vi send2nexus
+ 3310  ./send2nexus parse_build_yml_v1_1.sh
+ 3311  sj
+ 3312  vi send2nexus
+ 3313  sj
+ 3314  vi send2nexus
+ 3315  ./send2nexus dockerized_build_v1_1.sh
+ 3316  ./send2nexus buildear.tra 1.1
+ 3317  ./send2nexus parse_build_yml_v1_1.sh  1.1
+ 3318  ./send2nexus parse_build_yml_v1_1.sh
+ 3319  ./send2nexus parse_build_yml_v1_1.sh  1.1
+ 3320  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3321  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3322  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3323  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3324  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3325  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3326  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3327  ./send2nexus parse_build_yml_v1_1.sh 1.3
+ 3328  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3329  ./send2nexus parse_build_yml_v1_1.sh 1.1
+ 3330  git pull
+ 3331  mkdir ~/bin
+ 3332  rm ~/bin
+ 3333  mkdir ~/bin
+ 3334  cp send2nexus ~/bin
+ 3335  which send2nexus
+ 3336  send2nexus jdk-7u79-linux-i586.rpm 1.7
+ 3337  c be
+ 3338  tree
+ 3339  cd mvn_env/
+ 3340  send2nexus jdk-6u45-linux-i586-rpm.bin 1.6
+ 3341  cd bin
+ 3342  find . -name bfg.jar
+ 3343  df -h
+ 3344  c de
+ 3345  c be
+ 3346  cd ..
+ 3347  rm -rf build_environments/
+ 3348  git clone --mirror git@scm.domain.net:continuous/build_environments.git
+ 3349  java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 5M build_environments.git
+ 3350  cd *.git
+ 3351  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 3352  git push
+ 3353  cd ..
+ 3354  df -h
+ 3355  rm tibco.tar.gz
+ 3356  df -h
+ 3357  c be
+ 3358  df -h
+ 3359  cd /opt
+ 3360  cd user
+ 3361  cd continuous/
+ 3362  cd misc
+ 3363  cd push_dir/
+ 3364  vi push_hook.rb
+ 3365  cp push_hook.rb /tmp
+ 3366  sj
+ 3367  k9 11792
+ 3368  sj
+ 3369  git pull
+ 3370  git commit -a
+ 3371  git push
+ 3372  c be
+ 3373  cd /var/user/
+ 3374  df -h
+ 3375  cd ..
+ 3376  df -h .
+ 3377  du -s *
+ 3378  cd user/
+ 3379  LL
+ 3380  du -s *
+ 3381  du -s * | sort -n
+ 3382  rm *.rpm
+ 3383  du -s * | sort -n
+ 3384  rm -rf acitest/
+ 3385  df -h
+ 3386  git clone git@scm.domain.net:continuous/build_environments.git
+ 3387  df -h
+ 3388  rm -rf build_environments/
+ 3389  c be
+ 3390  cd /var
+ 3391  cd user/
+ 3392  df -h .
+ 3393  git clone git@scm.domain.net:continuous/build_environments.git
+ 3394  du -s *
+ 3395  c be
+ 3396  cd ..
+ 3397  rm -rf *
+ 3398  git clone --mirror git@scm.domain.net:continuous/build_environments.git
+ 3399  ll *.jar
+ 3400  ll ~/*jar
+ 3401  ff bfg.jar
+ 3402  #java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M
+ 3403  java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M build_environments.git
+ 3404  rm -rf build_environments.git
+ 3405  rm build_environments.git.bfg-report/
+ 3406  git clone git@scm.domain.net:continuous/build_environments.git
+ 3407  c be
+ 3408  cd mvn_env/
+ 3409  ll -h
+ 3410  cd ../..
+ 3411  rm -rf build_environments
+ 3412  rm -rf *
+ 3413  git clone --mirror git@scm.domain.net:continuous/build_environments.git
+ 3414  java -jar ~/lib/bfg.jar --strip-biggest-blobs 500 build_environments.git
+ 3415  cd *.git
+ 3416  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 3417  git push
+ 3418  git branch
+ 3419  git push origin develop
+ 3420  git push origin
+ 3421  git checkout master
+ 3422  git push
+ 3423  cd ..
+ 3424  rm -rf *
+ 3425  git clone git@scm.domain.net:continuous/build_environments.git
+ 3426  du -s *
+ 3427  cd build_environments/
+ 3428  git branch
+ 3429  cd mvn_env/
+ 3430  cd ..
+ 3431  tree
+ 3432  cd mvn_env/
+ 3433  cd ..
+ 3434  du -s *
+ 3435  du -sh *
+ 3436  cd tibco/
+ 3437  which send2nexus
+ 3438  send2nexus tibco.tar.gz 1.0
+ 3439  cat `which send2nexus`
+ 3440  send2nexus tibco.tar.gz 1.0
+ 3441  which send2nexus
+ 3442  cd bin
+ 3443  vi send2nexus
+ 3444  cd -
+ 3445  cd tib
+ 3446  c t
+ 3447  cd ..
+ 3448  send2nexus tibco.tar.gz
+ 3449  send2nexus tibco.tar.gz 1.0
+ 3450  cd bin
+ 3451  vi send2nexus
+ 3452  send2nexus tibco.tar.gz 1.0
+ 3453  cd -
+ 3454  c be
+ 3455  cd tibco/
+ 3456  send2nexus tibco.tar.gz 1.0
+ 3457  df -h
+ 3458  c be
+ 3459  cd mvn_env/
+ 3460  vi Dockerfile
+ 3461  gc
+ 3462  a sonar
+ 3463  de 32
+ 3464  d rmi -f 6f
+ 3465  d rmi -f 6f0
+ 3466  d rmi -f 6f043
+ 3467  d rmi -f 6f0437b29f43
+ 3468  dk aa
+ 3469  d rmi -f 6f0437b29f43
+ 3470  cd continuous/
+ 3471  git pull
+ 3472  vi build.yml
+ 3473  cd misc
+ 3474  vi color
+ 3475  git commit -a
+ 3476  git push
+ 3477  cd /opt
+ 3478  cd /var
+ 3479  ff tibco.tar.gz
+ 3480  cd /opt/user/
+ 3481  send2nexus tibco.tar.gz 1.0
+ 3482  md5sum tibco.tar.gz
+ 3483  c be
+ 3484  cd mvn_env/
+ 3485  md5sum jdk-6u45-linux-i586-rpm.bin
+ 3486  git pull
+ 3487  git rm jdk-6u45-linux-i586-rpm.bin
+ 3488  cd ..
+ 3489  git commit -a
+ 3490  git push
+ 3491  cd ..
+ 3492  rm -rf build_environments/
+ 3493  git clone --mirror git@scm.domain.net:continuous/build_environments.git
+ 3494  java -jar ~/lib/bfg.jar --strip-biggest-blobs 500 build_environments.git
+ 3495  cd *.git
+ 3496  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 3497  cd ..
+ 3498  du -s *
+ 3499  du -sh *
+ 3500  java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M build_environments.git
+ 3501  rm -rf *
+ 3502  git clone git@scm.domain.net:continuous/build_environments.git
+ 3503  cd build_environments/
+ 3504  cd java_node/
+ 3505  git rm jdk-6u45-linux-i586-rpm.bin
+ 3506  send2nexus xidel 1.0
+ 3507  git rm xidel
+ 3508  cd ..
+ 3509  cd mvn_env/
+ 3510  cd ..
+ 3511  tree
+ 3512  cd tibco/
+ 3513  git rm tibco.tar.gz
+ 3514  git commit -a
+ 3515  git push
+ 3516  cd ../..
+ 3517  rm -rf build_environments/
+ 3518  git clone --mirror git@scm.domain.net:continuous/build_environments.git
+ 3519  java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M build_environments.git
+ 3520  cd *.git
+ 3521  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 3522  cd ..
+ 3523  du -s *
+ 3524  cd *.git
+ 3525  git push
+ 3526  cd ..
+ 3527  rm -rf *
+ 3528  git clone git@scm.domain.net:continuous/build_environments.git
+ 3529  cd build_environments/
+ 3530  cd mvn_env/
+ 3531  vi Dockerfile
+ 3532  gc
+ 3533  d rmi -r f0
+ 3534  d rmi -r f035
+ 3535  d rmi -f f035
+ 3536  d rmi -f 3d79
+ 3537  d rmi -f 236
+ 3538  d rmi -f af
+ 3539  d rmi -f 57
+ 3540  vi Dockerfile
+ 3541  gc
+ 3542  d run -itd 39 bash
+ 3543  de 4e
+ 3545  rm xidel-1.0.xidel
+ 3546  dk 39
+ 3547  dk 39a77
+ 3548  dk 4e
+ 3549  d rmi -f 39
+ 3550  gc
+ 3551  d rmi -f 09
+ 3552  d run centos:6
+ 3553  ps -ef
+ 3554  d run -itd centos:6 bash
+ 3555  de b1
+ 3556  dk b1
+ 3557  gc
+ 3558  cat Dockerfile
+ 3559  de e4
+ 3560  d rmi -f e4
+ 3561  d run -itd centos:6 bash
+ 3562  de b4
+ 3563  dk b4
+ 3564  gc
+ 3565  dk 01
+ 3566  d rmi -f 01
+ 3567  d run -itd centos:6 bash
+ 3568  de 47
+ 3569  mkdir -p ~/.ssh
+ 3570  gc
+ 3571  d run -itd a9 bash
+ 3572  de 41
+ 3573  de 41
+ 3574  d run -itd a9 bash
+ 3575  de 98
+ 3576  ff jdk-6u45-linux-i586-rpm-1.6.bin
+ 3577  ll *bin
+ 3578  md5sum jdk-6u45-linux-i586-rpm.bin
+ 3579  c be
+ 3580  cd mvn_env/
+ 3581  vi Dockerfile
+ 3582  chmod +x jdk-6u45-linux-i586-rpm.bin
+ 3583  dk 41
+ 3584  d run -itd a9 bash
+ 3585  de 2a
+ 3586  c be
+ 3587  git pull
+ 3588  tree
+ 3589  cd mvn_env/
+ 3590  tree
+ 3591  vi Dockerfile
+ 3592  dk 98
+ 3593  de 2a
+ 3594  dk 2a
+ 3595  d rmi -f a9
+ 3596  gc
+ 3597  dk 47
+ 3598  d rmi -f 5e
+ 3599  gc
+ 3600  d rmi -f 199
+ 3601  gc
+ 3602  d rmi -f 7b
+ 3603  gc
+ 3604  d run -itd a0 bash
+ 3605  d run -itd a084 bash
+ 3606  de 3d
+ 3607  vi Dockerfile
+ 3608  gc
+ 3609  d rmi -f a0
+ 3610  d rmi -f a084
+ 3611  dk 3d
+ 3612  d rmi -f a084
+ 3613  ce
+ 3614  cd
+ 3615  cd citest/
+ 3616  git pull
+ 3617  vi build.yml
+ 3618  gc
+ 3619  de 54
+ 3620  java -version
+ 3621  de 54
+ 3622  mvn sonar:sonar
+ 3623  java -version
+ 3624  mvn -version
+ 3625  cd citest/
+ 3626  vi build.yml
+ 3627  gc
+ 3628  git pull
+ 3629  gc
+ 3630  gc
+ 3631  gc
+ 3632  de 68
+ 3633  vi build.yml
+ 3634  c be
+ 3635  cd java_node
+ 3636  cd..
+ 3637  c be
+ 3638  cd mvn_env/
+ 3639  vi Dockerfile
+ 3640  gc
+ 3641  cd citest/
+ 3642  git pull
+ 3643  vi build.yml
+ 3644  gc
+ 3645  de df
+ 3646  c be
+ 3647  cd java_node/
+ 3648  vi Dockerfile
+ 3649  gc
+ 3650  dk df
+ 3651  dk c9
+ 3652  dk 68
+ 3653  git clone git@scm.domain.net:Tlast/wuitest.git
+ 3654  d rmi -f 1f
+ 3655  cd wuitest/
+ 3656  git pull
+ 3657  vi build.yml
+ 3658  gc
+ 3659  gc
+ 3660  vi Dockerfile
+ 3661  cd wuitest/
+ 3662  vi build.yml
+ 3663  gc
+ 3664  sj
+ 3665  gc
+ 3666  gc
+ 3667  sj
+ 3668  k9 23238
+ 3669  gc
+ 3670  sj
+ 3671  k9 17137
+ 3672  \
+ 3673  git pull
+ 3674  gc
+ 3675  sj
+ 3676  vi build.yml
+ 3677  cd bin
+ 3678  yaml2json
+ 3679  cd -
+ 3680  yaml2json build.yml
+ 3681  yaml2json build.yml  | python -m json.tool
+ 3682  gc
+ 3683  gc
+ 3684  git branch
+ 3685  git checkout develop
+ 3686  git pull
+ 3687  gc
+ 3688  vi build.yml
+ 3689  gc
+ 3690  sj
+ 3691  cd be
+ 3692  c be
+ 3693  git pull
+ 3694  cd tibco/
+ 3695  vi Dockerfile
+ 3696  git pull
+ 3697  gc
+ 3698  de b2
+ 3699  dk b2
+ 3700  dk 08
+ 3701  gc
+ 3702  d run -itd 6f bash
+ 3703  d run -itd 86 bash
+ 3704  d run -itd 86f311bec90d bash
+ 3705  de 6e
+ 3706  d rmi -f 86
+ 3707  d rmi -f 86f3
+ 3708  d rmi -f 86f311
+ 3709  d rmi -f dk 6e
+ 3710  dk 6e4c76074cbe
+ 3711  d rmi -f dk 6e
+ 3712  d rmi -f 86f311
+ 3713  d rmi -f 56376d620ccf
+ 3714  vi Dockerfile
+ 3715  d run -itd centas:6 bash
+ 3716  d run -itd centos:6 bash
+ 3717  de 35
+ 3718  de 34
+ 3719  vi Dockerfile
+ 3720  dk 34
+ 3721  gc
+ 3722  git clone git@scm.domain.net:Tlast/SSRFeed.git
+ 3723  vi build
+ 3724  cd SSRFeed/
+ 3725  vi build.yml
+ 3726  gc
+ 3727  git branch
+ 3728  git checkout develop
+ 3729  vi build.yml
+ 3730  gc
+ 3731  cd ibm
+ 3732  cd ib
+ 3733  cd citest/
+ 3734  vi build.yml
+ 3735  gc
+ 3736  git branch
+ 3737  vi build.yml
+ 3738  gc
+ 3739  git pull
+ 3740  gc
+ 3741  de 2e
+ 3742  javac -version
+ 3743  cd /usr/lib
+ 3744  cd jvm
+ 3745  env
+ 3746  export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.75.x86_64
+ 3747  cd citest/
+ 3748  mvn sonar:sonar
+ 3749  java-1.7.0-openjdk-1.7.0.75.x86_64java-1.7.0-openjdk-1.7.0.75.x86_64
+ 3750  vi build.yml
+ 3751  gc
+ 3752  de 79
+ 3753  vi pom.xml
+ 3754  env
+ 3755  de 73
+ 3756  de 79
+ 3757  mvn sonar:sonar
+ 3758  mvn -version
+ 3759  env
+ 3760  ll /usr/local/maven
+ 3761  de 79
+ 3762  echo $JAVA_HOME
+ 3763  de 79
+ 3764  c be
+ 3765  git pull
+ 3766  cd mvn_env/
+ 3767  vi Dockerfile
+ 3768  gc
+ 3769  dk 79
+ 3770  cd citest/
+ 3771  vi build.yml
+ 3772  git pull
+ 3773  gc
+ 3774  de 37
+ 3775  c be
+ 3776  cd mvn_env/
+ 3777  vi Dockerfile
+ 3778  dk 37
+ 3779  d run -itd 9f bash
+ 3780  d run -itd 9f49e6a2e4a8 bash
+ 3781  de d3
+ 3782  dk d3
+ 3783  cat list_bucket
+ 3784  ./list_bucket
+ 3785  sudo su - rundeck
+ 3786  mvn sonar:sonar
+ 3787  h | egrep sonar
+ 3788  [ 0 = 1 \ || echo false
+ 3789  [ 0 = 0 \ && echo true || echo false
+ 3790  [ 0 = 0] && echo true || echo false
+ 3791  [ 0 = 0 ] && echo true || echo false
+ 3792  [ 0 = r10 ] && echo true || echo false
+ 3793  $? && echo true || echo false
+ 3794  [ $? ]  && echo true || echo false
+ 3795  test 0 = 1
+ 3796  manb let
+ 3797  man let
+ 3798  [ 0 = 1 ] && echo true; echo yes || echo false ; echo no
+ 3799  [ 0 = 1 ] && ( echo true; echo yes ) || ( echo false ; echo no )
+ 3800  [ 0 == 1 ]
+ 3801  [[ 0 = 1 ]]
+ 3802  man test
+ 3803  man bash
+ 3804  sudo docker run -d -p 7000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui
+ 3805  sudo
+ 3806  sudo su
+ 3807  de 7a
+ 3808  a de
+ 3809  sudo docker exec -it 7a /bin/bash
+ 3810  d run -itd centos:6 bash
+ 3811  de 97
+ 3812  top
+ 3813  ping http://cibuild.domain.net:8888
+ 3814  ping cibuild.domain.net:8888
+ 3815  ping cibuild.domain.net
+ 3816  telnet  cibuild.domain.net 8888
+ 3817  telnet  cibuild.domain.net/login 8888
+ 3818  git clone git@scm.domain.net:webui/Booker.git
+ 3819  cd Booker/
+ 3820  git branch
+ 3821  git checkout develop
+ 3822  vi build.yml
+ 3823  gc
+ 3824  cat list_bucket
+ 3825  man sh
+ 3826  cd wuitest/
+ 3827  git reflog
+ 3828  git branch -a
+ 3829  sj
+ 3830  git clone git@scm.domain.net:flightdomain/FlightDomain.git
+ 3831  rm -rf FlightDomain/
+ 3832  df -h
+ 3833  df -h .
+ 3834  cd /var
+ 3835  cd user/
+ 3836  git clone git@scm.domain.net:flightdomain/FlightDomain.git
+ 3837  cd FlightDomain/
+ 3838  git reflog
+ 3839  git log
+ 3840  git branch -a
+ 3841  git checkout b7391fccbc19d6d7892c542dba9a1b1e056d0bad
+ 3842  git checkout b242fa3245
+ 3843  git checkout  b242fa3245602cf2c53ec7acac4fbda13259a5c2
+ 3844  git fsck --full --no-reflogs --unreachable --lost-found | grep commit | cut -d\  -f3 | xargs -n 1 git log -n 1 --pretty=oneline
+ 3845  git checkout 897fda093173a6e744329c00ec8cab7e4b68f4ca
+ 3846  git checkout -b feature/FlightR2BlueFPM
+ 3847  git commit -a
+ 3848  git branch
+ 3849  git push
+ 3850  git push origin feature/FlightR2BlueFPM
+ 3851  git log
+ 3852  git reflog
+ 3853  ./list_bucket
+ 3854  feature/FlightR2BlueFPMfeature/FlightR2BlueFPMfeature/FlightR2BlueFPMfeature/FlightR2BlueFPM
+ 3855  cat list_bucket
+ 3856  cd bin
+ 3857  cat > retrieve_backup
+ 3858  x retrieve_backup
+ 3859  vi retrieve_backup
+ 3860  ./retrieve_backup
+ 3861  ./retrieve_backup
+ 3862  cd /opt/user/
+ 3863  ~/bin/retrieve_backup
+ 3864  tar tf backup.tar
+ 3865  ls -h
+ 3866  ls -lh
+ 3867  rm backup.tar
+ 3868  ~/bin/retrieve_backup
+ 3869  file *
+ 3870  tar tf backup.tar
+ 3871  git bundle verify backup.tar
+ 3872  gitlab -v project list
+ 3873  gitlab  project list
+ 3874  gitlab  project list | egrep id: | wc -l
+ 3875  gitlab  --per-page=999 project list | egrep id: | wc -l
+ 3876  gitlab  --per-page=101 project list | egrep id: | wc -l
+ 3877  gitlab -h
+ 3878  gitlab project help
+ 3879  gitlab  --per-page=100 --page=2 project list
+ 3880  git clone https://github.com/gpocentek/python-gitlab.git
+ 3881  cd python-gitlab/
+ 3882  find . -type f -print -exec egrep 100 {} \;
+ 3883  find . -type f -print -exec egrep 101 {} \;
+ 3884  find . -type f -print -exec egrep 99 {} \;
+ 3885  cd build/
+ 3886  tree
+ 3887  cd lib
+ 3888  vi gitlab.py
+ 3889  cd ..
+ 3890  tree
+ 3891  which gitlab
+ 3892  vi /usr/bin/gitlab
+ 3893  vi gitlab.py
+ 3894  sj
+ 3895  ll *.bundle
+ 3896  cd /opt/user
+ 3897  cd wuitest/
+ 3898  git pull
+ 3899  vi build.yml
+ 3900  gc
+ 3901  ff gitlab.yml
+ 3902  curl -u admin:admin http://localhost:9000/api/server/system
+ 3903  curl -u admin:admin http://localhost:9000/api/projects
+ 3904  curl -u admin:admin http://localhost:9000/api/server/system
+ 3905  http://localhost:9000/api/manual_measures?resource=myProject&metric=business_value&format=json
+ 3906  wget http://localhost:9000/api/manual_measures?resource=myProject&metric=business_value&format=json
+ 3907  wget 'http://localhost:9000/api/manual_measures?resource=myProject&metric=business_value&format=json'
+ 3908  wget 'http://localhost:9000/api/manual_measures?resource=ond&metric=business_value&format=json'
+ 3909  curl 'http://localhost:9000/api/manual_measures?resource=ond&metric=business_value&format=json'
+ 3910  curl -d http://localhost:9000/api/manual_measures
+ 3911  curl  http://localhost:9000/api/manual_measures
+ 3912  curl  http://localhost:9000/api/metrics
+ 3913  curl  http://localhost:9000/api/metrics | python -m json.tool
+ 3914  df -h
+ 3915  cd /var
+ 3916  cd user/
+ 3917  #java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M build_environments.git
+ 3918  rm -rf *
+ 3919  df -h .
+ 3920  git clone --mirror git@scm.domain.net:continuous/continuous.git
+ 3921  java -jar bfg --strip-blobs-bigger-than 1M  continuous.git/
+ 3922  ll ~user
+ 3923  java -jar bfg.jar --strip-blobs-bigger-than 1M  continuous.git/
+ 3924  h | egrep bfg
+ 3925  java -jar ~/lib/bfg.jar --strip-blobs-bigger-than 1M  continuous.git/
+ 3926  cd continuous.git
+ 3927  git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ 3928  git push
+ 3929  cd ..
+ 3930  du -s *
+ 3931  rm -rf *
+ 3932  git clone git@scm.domain.net:continuous/continuous.git
+ 3933  du -s *
+ 3934  df -h
+ 3935  cd continuous/
+ 3936  git pull
+ 3937  cd continuous/
+ 3938  git pull
+ 3939  rm -rf continuous/
+ 3940  git clone git@scm.domain.net:continuous/continuous.git
+ 3941  cd .ssh
+ 3942  cd citest/
+ 3943  git pull
+ 3944  sudo su
+ 3945  git pull
+ 3946  cd .ssh
+ 3947  sudo su - git
+ 3948  cd citest/
+ 3949  git pull
+ 3950  man restorecon
+ 3951  s2
+ 3952  sudo vi /etc/ssh/sshd_config
+ 3953  cd bre-
+ 3954  git pull
+ 3955  ./list_bucket
+ 3956  cd citest/
+ 3957  git pull
+ 3958  ./list_bucket
+ 3959  sudo su - git
+ 3960  cd backups
+ 3961  sudo su - git
+ 3962  ./list_bucket
+ 3963  664664664664664664664664
+ 3964  cat ./list_bucket
+ 3965  cd bin
+ 3966  vi retrieve_backup
+ 3967  retrieve_backup
+ 3968  cd citest/
+ 3969  git pull
+ 3970  gitlab -v project list --per-page=999
+ 3971  gitlab -v project list --per-page=999 | egrep id:
+ 3972  gitlab -v project list --per-page=999 | egrep '^id:'
+ 3973  gitlab -v project list --per-page=999 | egrep '^id:' | wc -l
+ 3974  gitlab -v project list --per-page=999 --page=2
+ 3975  gitlab project list --per-page=999 --page=2 | egrep '^id:'
+ 3976  ll *.tar
+ 3977  ll gource.mp4
+ 3978  ll *.mp4
+ 3979  mkdir mp4
+ 3980  mv gource.mp4 mp4
+ 3981  cd $_
+ 3982  mv gource.mp4 continuous.mp4
+ 3983  python -m SimpleHTTPServer 9999
+ 3984  docker run --name=ampache -d -v `pwd`:`pwd`:ro -p 3333:80 ampache/ampache
+ 3985  sudo docker run --name=ampache -d -v `pwd`:`pwd`:ro -p 3333:80 ampache/ampache
+ 3986  cd ..
+ 3987  ll *mp4
+ 3988  ll *.mp4
+ 3989  mv FlightDomain.mp4 mp4/
+ 3990  cd mp4/
+ 3991  cat > index.html
+ 3992  vi index.html
+ 3993  python -m SimpleHTTPServer 9999
+ 3994  python -m SimpleHTTPServer 9999
+ 3995  rm index.html
+ 3996  python -m SimpleHTTPServer 9999
+ 3997  ff nginx
+ 3998  cd /var/lib/nginx/
+ 3999  sudo su
+ 4000  vi index.html
+ 4001  sudo npm install http-server -g
+ 4002  http-server -p 9999
+ 4003  rm index.html
+ 4004  http-server -p 9999 -i
+ 4005  gitlab project list
+ 4006  cat > backuprepos
+ 4007  cat backuprepos | sed 's#.*\([^/]*\)$'
+ 4008  cat backuprepos | sed 's#.*\([^/]*\)$#\1#'
+ 4009  cat backuprepos | sed 's#.*\([^/]*\)$#s$\1#'
+ 4010  cat backuprepos | sed 's#.*\([^/]*\)$#$1#'
+ 4011  cat backuprepos | sed 's#.*\([^/]*\)$#\1#'
+ 4012  cat backuprepos
+ 4013  cat backuprepos | basename
+ 4014  ( cat backuprepos | while read t; do basename $t; done; )
+ 4015  ( cat backuprepos | while read t; do basename $t; done; ) | sed 's/\.bundle$//'
+ 4016  ( cat backuprepos | while read t; do basename $t; done; ) | sed 's/\.bundle$//' | sort > tttt
+ 4017  mv tttt inlastbackup
+ 4018  gitlab project -list --page-size=9999
+ 4019  gitlab project list --page-size=9999
+ 4020  gitlab project list --page-size=9999 | egrep '^id:' | wc -l
+ 4021  gitlab project help
+ 4022  gitlab project list --per-page=9999 | egrep '^id:' | wc -l
+ 4023  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2)  | egrep '^id:' | wc -l
+ 4024  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2)  | egrep '^id:' | sort > incurrentgit
+ 4025  diff tttt incurrentgit
+ 4026  cat tt
+ 4027  cat inlastbackup
+ 4028  diff inlastbackup incurrentgit
+ 4029  vi incurrentgit
+ 4030  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2)  | sort
+ 4031  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2)  | awk '{print $2}'
+ 4032  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2)
+ 4033  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2) | egrep '^path' | awk '{print $2}'
+ 4034  (gitlab project list --per-page=9999; gitlab project list --per-page=999 --page=2) | egrep '^path' | awk '{print $2}' | sort > incurrentgit
+ 4035  diff inlastbackup incurrentgit
+ 4036  vi incurrentgit
+ 4037  vi inlastbackup
+ 4038  http-server --help
+ 4039  docker -v
+ 4040  h | egrep unbundle
+30:~>
