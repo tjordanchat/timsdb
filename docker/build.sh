@@ -2,7 +2,7 @@
 set -x
 date
 export INAME=$( basename $( pwd ) | tr '[A-Z]' '[a-z]' )
-git clone git@10.156.74.122:bre-administration/tibco_build_files.git
+git clone git@192.168.10.1:build/tibco_build_files.git
 cd tibco_build_files
 git checkout develop
 cd ..
