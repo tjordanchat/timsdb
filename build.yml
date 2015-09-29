@@ -1,0 +1,17 @@
+env: java
+build: mvn clean install
+test: |
+   cp web/target/my.war /usr/share/tomcat6/webapps
+   service tomcat6 start
+   Xvfb :1 -screen 0 1280x960x24 &
+   BPID=$!
+   sleep 4
+   firefox localhost:8080/ond &
+   xidel http://localhost:8080/ond --extract //a
+   sleep 20
+   import -window root -crop 1264x948+0+0 -resize 800x600 -quality 95 screenshot.jpg
+   kill -9 $BPID
+
+result:
+ - screenshot.jpg
+
