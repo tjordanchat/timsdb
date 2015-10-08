@@ -22,7 +22,7 @@ server.mount_proc '/' do |req, res|
     if cfg.length > 0
       env = cfg['env']
       command = "java -jar /home/JJordan/jenkins-cli.jar -i /home/JJordan/.ssh/id_rsa build %s -p env=%s -p url=%s -p email=%s -p commit=%s" % [job,env, url,email,after]
-      ENV['JENKINS_URL']="http://10.156.74.30:8080"
+      ENV['JENKINS_URL']="http://198.162.0.1:8080"
       puts command
       puts `#{command}`
     end
