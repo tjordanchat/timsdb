@@ -37,12 +37,13 @@ export a b c d e f g h i j k l m n o p q r s t u v w x y z
 export NODE_PATH="~/node_modules"
 export CDPATH=".:~"
 export GOROOT="$HOME/go"
-export PATH=~/bin:/bin:/usr/bin:/usr/local/bin:$GOROOT/bin:$PATH
+export PATH=~/bin:/bin:/usr/bin:/usr/local/bin:$GOROOT/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export LC_COLLATE=C
 export HISTSIZE=""
 export GREP_OPTIONS='--color=auto'
-export JRE_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/jre"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/"
+export JRE_HOME="$JAVA_HOME/jre"
+export GOROOT="/usr/local/go"
 
 # some aliases
 alias dcn="sudo docker ps -notrunc"
@@ -72,7 +73,7 @@ alias vc="sudo vi ~/projects/MyProject/conf/trac.ini"
 alias server="python -m SimpleHTTPServer"
 alias sai="sudo apt-get install"
 alias lip="curl http://169.254.169.254/latest/meta-data/local-ipv4;echo"
-alias a=alias
+alias a=type
 alias ch="sudo chef-server-ctl"
 alias wu="( line1;cat /etc/*-release;lsb_release -a;uname -a;cat /proc/version; cat /proc/cpuinfo; egrep MemTotal /proc/meminfo; line1)"
 alias ff="sudo find / -name"
@@ -83,10 +84,14 @@ alias lnm="ls ~/node_modules"
 alias plan="vi ~/.plan;"
 alias cj='cat *.json'
 alias lj='less *.json'
+alias gtok'curl -X POST -u tjordanchat -H "Content-Type: application/json" -d "{\"scopes\":[\"public_repo\"],\"note\":\"8506aaa0ee99b37ad26744ec915e4a32182c9028\"}" https://api.github.com/authorizations'
 alias g=git
+alias gp="git pull"
+alias gr="git reset --hard HEAD"
 alias ga="git add"
-alias gt="git tag"
-alias gc="git commit -m '`date`';gpom"
+alias gpt="git push origin --tags"
+alias gts="git tag"
+alias gc="git commit -a -m '`date`';gpom"
 alias gs="git status"
 alias gpom="git push origin master"
 alias sg="sudo su git"
@@ -103,7 +108,6 @@ alias -- -="cd -;"
 alias sx="svn ci -mz"
 alias vf="vim ~/.filterwords"
 alias p.="p=\`pwd\`"
-alias a="alias"
 alias cd.='cd $_;l'
 alias ccd="cdd"
 alias cl="clear"
@@ -159,6 +163,14 @@ title () {
 
 echo ===================================================
 export myip="$( ifconfig $wifi | egrep netmask | awk '{print $2}' )"
+
+gt () {
+  gp
+  git tag -d demo
+  git push origin :refs/tags/demo
+	gts "demo"
+	gpt
+}
 
 nodis () {
 	cd /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources
@@ -374,22 +386,13 @@ function pp {
 ###trap 'store; exit' 0 15
 ############################################################
 rm "$HOME/.ABORT" 
-export MIP="54.163.69.232"
-alias sv="ssh -i ~/.ssh/11-2014.pem ec2-user@$MIP"
-alias fv="sftp -i ~/.ssh/11-2014.pem ec2-user@$MIP"
-alias s32="ssh 10.156.74.32"
-alias f32="sftp 10.156.74.32"
-alias s1="ssh 10.156.74.30"
-alias f1="sftp 10.156.74.30"
-alias s2="ssh 10.156.74.122"
-alias f2="sftp 10.156.74.122"
-alias s900="ssh 10.156.74.82"
-alias f900="sftp 10.156.74.82"
-alias s910="ssh jbccllbre910.jblab.net"
-alias f910="sftp jbccllbre910.jblab.net"
-alias s901="ssh jbccllcib901.jblab.net"
-alias f901="sftp jbccllcib901.jblab.net"
-alias s911="ssh 10.156.74.111"
-alias f911="sftp 10.156.74.111"
-alias s105="ssh 10.156.74.159"
-alias f105="sftp 10.156.74.159"
+export IP=159.203.76.39
+alias sdo="ssh -l tjordan $IP"
+alias fdo="sftp tjordan@$IP"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jamestjordan/.sdkman"
+[[ -s "/Users/jamestjordan/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jamestjordan/.sdkman/bin/sdkman-init.sh"
+
+# added by travis gem
+[ -f /Users/jamestjordan/.travis/travis.sh ] && source /Users/jamestjordan/.travis/travis.sh

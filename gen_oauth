@@ -1,0 +1,3 @@
+#/bin/bash
+
+curl -X POST -u tjordanchat -H "Content-Type: application/json" -d "{\"scopes\":[\"public_repo\"],\"note\":\"8506aaa0ee99b37ad26744ec915e4a32182c9028\"}" https://api.github.com/authorizations
