@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CRUMB=$( curl -s 'http://127.0.0.1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)' -u tjordan:Ww@112358@ )
+echo $CRUMB
+

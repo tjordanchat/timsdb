@@ -1,0 +1,10 @@
+import urllib2
+import base64
+ 
+def urlopen(url, data=None):
+    '''Open a URL using the urllib2 opener.'''
+    request = urllib2.Request(url, data)
+    base64string = base64.encodestring('%s:%s' % (JENKINS_LOGIN, JENKINS_PASSWD)).replace('\n', '')
+    request.add_header("Authorization", "Basic %s" % base64string)
+    response = urllib2.urlopen(request)
+    return response
