@@ -46,6 +46,9 @@ export JRE_HOME="$JAVA_HOME/jre"
 export GOROOT="/usr/local/go"
 
 # some aliases
+alias n="~/weather-station/launch.sh"
+alias vv="vi svg_sun_up.svg sunrise_parse.py template.svg parse_weather.py"
+alias chrome="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=moon.png moon.html"
 alias ws="cd /Users/jamestjordan/weather-display/server; nohup python -m SimpleHTTPServer 8000 &" 
 alias dcn="sudo docker ps -notrunc"
 alias lxa="sudo lxc-attach -n"
@@ -84,6 +87,7 @@ alias cj='cat *.json'
 alias lj='less *.json'
 alias g=git
 alias gp="git pull"
+alias gco="git checkout"
 alias gr="git reset --hard HEAD"
 alias ga="git add"
 alias gpt="git push origin --tags"
@@ -159,6 +163,25 @@ alias accw="curl http://apidev.accuweather.com/currentconditions/v1/335315.json?
 alias accl="curl https://www.accuweather.com/en/us/new-york-ny/10007/current-weather/349727?lang=en-us&apikey=3nd45BH6lq4VXtHyLnYCQVk1f4lq15O1" 
 title () {
 	echo -n "\033]0;$1\007"
+}
+
+build() {
+body='{
+"request": {
+"branch":"master"
+}}'
+
+curl -s -X POST \
+   -H "Content-Type: application/json" \
+   -H "Accept: application/json" \
+   -H "Travis-API-Version: 3" \
+   -H "Authorization: token xxxxxx" \
+   -d "$body" \
+   https://api.travis-ci.com/repo/tjordanchat%2Fjenkins_setup/requests
+}
+
+gg () {
+  wget "https://raw.githubusercontent.com/$1"
 }
 
 gt () {
@@ -385,3 +408,6 @@ export SDKMAN_DIR="/Users/jamestjordan/.sdkman"
 
 # added by travis gem
 [ -f /Users/jamestjordan/.travis/travis.sh ] && source /Users/jamestjordan/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

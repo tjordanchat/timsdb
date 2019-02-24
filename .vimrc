@@ -3,11 +3,12 @@ set background=light
 inoremap @@ <esc>
 set vb nu ai
 set noet ci pi sts=0 sw=4 ts=4
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 map = :wq!<cr>
 map - :w!<cr>
 map q :q!<cr>
 map <tab> :set noai! nocindent! nosmartindent<cr>
-map \ :n!<cr>
+map n :n!<cr>
 set shell=bash
 let maplocalleader=','        " all my macros start with ,
 nmap <LocalLeader>m *
